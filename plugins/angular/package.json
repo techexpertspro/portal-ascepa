@@ -2,10 +2,13 @@
   "name": "@portal-ascepa/angular-plugin",
   "version": "0.0.1",
   "dependencies": {
-    "tslib": "^2.3.0"
+    "@nx/devkit": "19.1.1",
+    "tslib": "^2.3.0",
+    "@nx/angular": "19.1.0"
   },
   "type": "commonjs",
   "main": "./src/index.js",
   "typings": "./src/index.d.ts",
-  "private": true
+  "private": true,
+  "generators": "./generators.json"
 }

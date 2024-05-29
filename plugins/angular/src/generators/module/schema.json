@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "GeneratorAngularModule",
+  "title": "New module",
+  "description": "Creates an Angular module with Nx library standards.",
+  "type": "object",
+  "cli": "nx",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the module.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the module?",
+      "pattern": "(?:^@[a-zA-Z0-9-*~][a-zA-Z0-9-*._~]*\\/[a-zA-Z0-9-~][a-zA-Z0-9-._~]*|^[a-zA-Z][^:]*)$"
+    },
+    "directory": {
+      "type": "string",
+      "description": "A directory where the library is placed.",
+      "x-priority": "important"
+    },
+    "routing": {
+      "type": "boolean",
+      "default": false,
+      "description": "Add router configuration with lazy loading.",
+      "x-priority": "important"
+    },
+    "prefix": {
+      "type": "string",
+      "format": "html-selector",
+      "description": "The prefix to apply to generated selectors.",
+      "alias": "p"
+    },
+    "tags": {
+      "type": "string",
+      "description": "Add tags to the module (used for linting)."
+    },
+    "standalone": {
+      "type": "boolean",
+      "description": "Generate a library that uses a standalone component instead of a module as the entry point.",
+      "default": true
+    }
+  },
+  "additionalProperties": false,
+  "required": ["name"]
+}

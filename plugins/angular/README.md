@@ -1,7 +1,8 @@
-# angular-plugin
+# Angular Plugins
 
+Contains Angular Generators adapted to Portal ASCEPA standards.
 This library was generated with [Nx](https://nx.dev).
 
 ## Building
 
-Run `nx build angular-plugin` to build the library.
+Run `npx nx build angular-plugins` to build the library.
