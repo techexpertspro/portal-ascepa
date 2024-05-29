@@ -1,0 +1,60 @@
+name: CI
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Nx set SHAs
+        uses: nrwl/nx-set-shas@v3
+
+      - name: Load & cache dependencies
+        uses: ./.github/actions/cached-deps
+
+      - name: Format code
+        run: npx nx format:check
+
+      - name: Lint code
+        run: npx nx affected -t lint --parallel=3
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Nx set SHAs
+        uses: nrwl/nx-set-shas@v3
+
+      - name: Load & cache dependencies
+        uses: ./.github/actions/cached-deps
+
+      - name: Test code
+        run: npx nx affected -t test --parallel=3 --configuration=ci
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Nx set SHAs
+        uses: nrwl/nx-set-shas@v3
+
+      - name: Load & cache dependencies
+        uses: ./.github/actions/cached-deps
+
+      - name: Build code
+        run: npx nx affected -t build --parallel=3
