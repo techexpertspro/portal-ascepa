@@ -16,6 +16,8 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "no-console": ["error"],
+        "@typescript-eslint/no-explicit-any": ["error"],
         "@angular-eslint/directive-selector": [
           "error",
           {
