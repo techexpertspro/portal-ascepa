@@ -15,7 +15,7 @@ Toda ajuda será bem-vinda para construirmos uma aplicação referência para a 
 **1.** Faça referência ao repositório oficial após o _fork_
 
 ```
-git remote add upstream https://github.com/techexpertspro/portal-ascepa.git 
+git remote add upstream https://github.com/techexpertspro/portal-ascepa.git
 ```
 
 **2.** Antes de iniciar o processo de contribuição, crie uma nova branch para fazer suas alterações.
@@ -39,10 +39,11 @@ git commit -m ‘fix: Adiciona tradução/revisão/melhoria X’
 git push origin fix/ajuste-X-001
 ```
 
-**4.** Envie um _Pull Request_ com as alterações feitas, fazendo referência para o `master` do repositório oficial.
-  Dicas para o pull request:
-  - Não tenha dó de escrever o pull request, detalhe o que foi feito na branch;
-  - Adicione fotos, videos, gifs, de antes e depois dos ajustes, caso seja possível;
+**4.** Envie um _Pull Request_ com as alterações feitas, fazendo referência para a branch `main` do repositório oficial.
+Dicas para o pull request:
+
+- Não tenha dó de escrever o pull request, detalhe o que foi feito na branch;
+- Adicione fotos, videos, gifs, de antes e depois dos ajustes, caso seja possível;
 
 **5.** Sua contribuição será analisada pelo time. Em alguns casos pediremos algumas alterações e ajustes antes de dar merge.
 
@@ -51,7 +52,7 @@ Após o merge:
 - Delete a branch utilizada:
 
 ```
-git checkout master
+git checkout main
 git push origin :ajusteX
 git branch -D ajusteX
 ```
@@ -60,8 +61,8 @@ git branch -D ajusteX
 
 ```
 git fetch upstream
-git rebase upstream/master
-git push -f origin master
+git rebase upstream/main
+git push -f origin main
 ```
 
 **6.** Quando iniciar uma nova contribuição, inicie repita o processo pelo passo 2.
