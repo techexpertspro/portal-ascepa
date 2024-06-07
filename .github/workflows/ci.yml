@@ -58,3 +58,23 @@ jobs:
 
       - name: Build code
         run: npx nx affected -t build --parallel=3
+  sonarcloud:
+    needs: [lint, test, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Nx set SHAs
+        uses: nrwl/nx-set-shas@v3
+
+      - name: Load & cache dependencies
+        uses: ./.github/actions/cached-deps
+
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
