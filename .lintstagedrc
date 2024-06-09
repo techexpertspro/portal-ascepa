@@ -1,7 +1,9 @@
 {
-  "src/**/*.{js,ts,jsx,tsx,json,html,css,scss}": [
-    "nx affected:lint --fix true --uncommitted",
+  "{src, e2e}/**/*.{js,ts,jsx,tsx,json,html}": [
+    "nx affected:lint --fix=true --uncommitted",
     "nx affected:test",
-    "nx format:write --uncommited"
-  ]
+    "nx format:write --uncommited",
+    "nx run e2e:lint --fix"
+  ],
+  "*.{css,scss,md}": ["prettier --write"]
 }

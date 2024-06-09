@@ -6,7 +6,8 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited"
   },
   "private": true,
   "dependencies": {
