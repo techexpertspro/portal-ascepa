@@ -43,6 +43,10 @@ jobs:
         run: npx nx affected -t test --parallel=3 --configuration=ci
 
   build:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -58,3 +62,15 @@ jobs:
 
       - name: Build code
         run: npx nx affected -t build --parallel=3
+
+      - name: Deploy preview
+        uses: amondnet/vercel-action@v20
+        id: vercel-deploy
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-org-id: ${{ secrets.ORG_ID}}
+          vercel-project-id: ${{ secrets.PROJECT_ID}}
+      - name: preview-url
+        run: |
+          echo ${{ steps.vercel-deploy.outputs.preview-url }}
