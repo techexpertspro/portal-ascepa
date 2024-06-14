@@ -5,6 +5,10 @@ on:
       - main
 jobs:
   build-and-deploy:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
