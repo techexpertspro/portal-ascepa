@@ -24,13 +24,14 @@
 <br />
 
 ## Pré requisitos
+
 - Node v20+
 - Npm v10+
 - Git v2+
 
 ## ⚡ Início rápido
 
-1. Faça o clone da aplicação 
+1. Faça o clone da aplicação
 
 ```sh
 git clone git@github.com:techexpertspro/portal-ascepa.git
@@ -47,7 +48,7 @@ npm install
 ```sh
 npx nx serve portal-ascepa
 ```
-   
+
 4. Para build de produção (`dist/` ou `build/`), execute no terminal
 
 ```sh
@@ -61,6 +62,7 @@ npx nx graph
 ```
 
 ## Conecte-se conosco
+
 Para dúvidas, feedbacks ou sugestões você pode abrir uma issue diretamente no nosso projeto, ou acessar nossa plataforma:
 
 - [Tech Experts PRO](https://techesxperts.pro)
@@ -71,11 +73,10 @@ Para contribuir acesse nosso guia de contribuição disponibilizado no [CONTRIBU
 
 ## Contribudores ❤️
 
-
 <a href="https://github.com/techexpertspro/portal-ascepa/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=techexpertspro/portal-ascepa" />
 </a>
 
 ## Licença
-Licensed under the MIT License, Copyright ©2024 - TechExperts.Pro
 
+Licensed under the MIT License, Copyright ©2024 - TechExperts.Pro
