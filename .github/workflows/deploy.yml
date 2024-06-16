@@ -1,0 +1,30 @@
+name: Deploy to Vercel
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Load & cache dependencies
+        uses: ./.github/actions/cached-deps
+
+      - name: Build code
+        run: npx nx affected -t build --parallel=3
+
+      - name: Deploy
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-args: '--prod'
+          vercel-org-id: ${{ secrets.ORG_ID}}
+          vercel-project-id: ${{ secrets.PROJECT_ID}}
