@@ -48,6 +48,7 @@
     "@swc/cli": "~0.3.12",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
+    "@theunderscorer/nx-semantic-release": "^2.11.0",
     "@types/jest": "^29.4.0",
     "@types/node": "18.16.9",
     "@typescript-eslint/eslint-plugin": "^7.3.0",
