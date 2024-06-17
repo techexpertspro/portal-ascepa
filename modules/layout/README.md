@@ -1,7 +1,6 @@
 # layout
 
-This library was generated with [Nx](https://nx.dev).
+## Module Layout
 
-## Running unit tests
-
-Run `nx test layout` to execute the unit tests.
+Generated module layout.
+This module will have the components that will be rendered on all portal pages, such as the Header and Footer.
