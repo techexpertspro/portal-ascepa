@@ -1,36 +1,37 @@
 <!-- BEGIN Portal Ascepa SECURITY.MD V0.0.9 BLOCK -->
 
-# Política de Segurança
+# Security Policy
 
-## Segurança
+## Security
 
-O Portal Ascepa leva a sério a segurança de nossos produtos e serviços de software, o que inclui todos os repositórios de código-fonte gerenciados por meio de nossas organizações [Mentoria Angular PRO | Tech Experts](https://techexperts.pro/), que incluem [Portal Ascepa](https://github.com/techexpertspro/portal-ascepa).
+Portal Ascepa takes the security of our software products and services very seriously, which includes all source code repositories managed by our organizations [Mentoria Angular PRO | Tech Experts](https://techexperts.pro/), including [Portal Ascepa](https://github.com/techexpertspro/portal-ascepa).
 
-## Relatando problemas de Segurança
+## Reporting Security Issues
 
-Agradecemos por ajudar a manter nosso projeto seguro. Se você descobrir alguma vulnerabilidade de segurança, pedimos que gentilmente nos informe imediatamente, criando [ISSUE](https://github.com/techexpertspro/portal-ascepa/issues/new/choose) no GitHub. Faremos todo o possível para abordar rapidamente a questão.
+We appreciate your help in keeping our project secure. If you discover any security vulnerabilities, we kindly ask that you report them immediately by creating an [ISSUE](https://github.com/techexpertspro/portal-ascepa/issues/new/choose) on GitHub. We will make every effort to address the issue promptly.
 
-- Descrição detalhada da vulnerabilidade
-- Passos para reproduzir a vulnerabilidade
-- Qualquer informação adicional relevante
+Please include the following in your report:
+- Detailed description of the vulnerability
+- Steps to reproduce the vulnerability
+- Any additional relevant information
 
-## Processo de Resposta
+## Response Process
 
-Após recebermos um relatório de vulnerabilidade, nossa equipe de segurança investigará o problema e trabalhará para fornecer uma correção o mais rápido possível. Aqui está o que você pode esperar durante o processo de resposta:
+After receiving a vulnerability report, our security team will investigate the issue and work to provide a fix as quickly as possible. Here is what you can expect during the response process:
 
-1. Confirmação do recebimento do relatório em até 48 horas.
-2. Avaliação inicial da vulnerabilidade e atribuição de um nível de gravidade.
-3. Desenvolvimento de uma correção para a vulnerabilidade.
-4. Testes da correção para garantir sua eficácia e segurança.
-5. Lançamento de uma atualização que inclui a correção.
-6. Comunicação com o relator da vulnerabilidade sobre o progresso e a resolução.
+1. Confirmation of report receipt within 48 hours.
+2. Initial assessment of the vulnerability and assignment of a severity level.
+3. Development of a fix for the vulnerability.
+4. Testing the fix to ensure its effectiveness and security.
+5. Release of an update that includes the fix.
+6. Communication with the vulnerability reporter about the progress and resolution.
 
-## Divulgação Pública
+## Public Disclosure
 
-Após corrigir uma vulnerabilidade, planejamos divulgar publicamente as informações sobre ela. Faremos isso em coordenação com o relator da vulnerabilidade para garantir que os usuários tenham tempo suficiente para atualizar para uma versão segura.
+After fixing a vulnerability, we plan to publicly disclose information about it. We will do this in coordination with the vulnerability reporter to ensure that users have enough time to update to a secure version.
 
-## Contatos de Segurança
+## Security Contacts
 
-Se você tiver alguma dúvida ou preocupação relacionada à segurança, entre em contato conosco em [security@portalascepa.com.br](mailto:felipinho.luna@gmail.com).
+If you have any questions or concerns related to security, please contact us at [security@portalascepa.com.br](mailto:felipinho.luna@gmail.com).
 
 <!-- END Portal-Ascepa SECURITY.MD BLOCK -->
