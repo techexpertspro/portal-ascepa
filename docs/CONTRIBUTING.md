@@ -1,37 +1,37 @@
-# Contribuições
+# Contributions
 
-### Por onde começar?
+### Where to Start?
 
-**1.** Faça o _fork_ do projeto.
+**1.** _Fork_ the project.
 
-**2.** [Entenda como funciona o fluxo de contribuição](#fluxo).
+**2.** [Understand how the contribution flow works.](#fluxo).
 
-**3.** [Leia e pratique as boas práticas no projeto](#boas-pr%C3%A1ticas).
+**3.** [Read and practice the project's best practices.](#boas-pr%C3%A1ticas).
 
-### Fluxo
+### Flow
 
-Toda ajuda será bem-vinda para construirmos uma aplicação referência para a comunidade Open Source. Se encontrar qualquer parte que possa ser melhorada, não hesite em participar! Confira abaixo como é facil contribuir com o projeto:
+All help is welcome to build a reference application for the Open Source community. If you find any part that can be improved, do not hesitate to participate! Check below how easy it is to contribute to the project:
 
-**1.** Faça referência ao repositório oficial após o _fork_
+**1.** Reference the official repository after the _fork_
 
 ```
 git remote add upstream https://github.com/techexpertspro/portal-ascepa.git
 ```
 
-**2.** Antes de iniciar o processo de contribuição, crie uma nova branch para fazer suas alterações.
+**2.** Before starting the contribution process, create a new branch to make your changes.
 
-Alguns exemplos:
+Some examples:
 
-- Para ajustes: `git checkout -b fix/ajuste-X-001`
-- Para implementações: `git checkout -b feat/feature-X-002`
-- Para refatorações: `git checkout -b refactor/refatoracao-X-003`
-- Voce pode conferir demais nomes para branch nesse [artigo](https://medium.com/@jacoblarte/padr%C3%B5es-de-nomenclatura-para-branches-e-commits-dfe10c9392bd)
+- For adjustments: `git checkout -b fix/ajuste-X-001`
+- For implementations: `git checkout -b feat/feature-X-002`
+- For refactoring: `git checkout -b refactor/refatoracao-X-003`
+- You can check more branch names in this [article](https://medium.com/@jacoblarte/padr%C3%B5es-de-nomenclatura-para-branches-e-commits-dfe10c9392bd)
 
-> Use qualquer nome que seja coerente com a contribuição que está sendo feita.
-> `X` representa uma descrição do que contem na branch
-> O numero no final serve para referenciar a issue, caso necessário
+> Use any name that is coherent with the contribution being made.
+> `X` represents a description of what is in the branch.
+> The number at the end is used to reference the issue, if necessary.
 
-**3.** Após realizar as alterações, é hora de fazer um commit com uma mensagem coerente do que foi feito(seguindo o padrão dos [conventional commits](https://medium.com/linkapi-solutions/conventional-commits-pattern-3778d1a1e657). Exemplo:
+**3.** After making the changes, it's time to commit with a coherent message about what was done (following the [conventional commits](https://medium.com/linkapi-solutions/conventional-commits-pattern-3778d1a1e657) pattern). Example:
 
 ```
 git add --all
@@ -39,17 +39,18 @@ git commit -m ‘fix: Adiciona tradução/revisão/melhoria X’
 git push origin fix/ajuste-X-001
 ```
 
-**4.** Envie um _Pull Request_ com as alterações feitas, fazendo referência para a branch `main` do repositório oficial.
-Dicas para o pull request:
+**4.** Send a Pull Request with the changes made, referencing the `main` branch of the official repository.
 
-- Não tenha dó de escrever o pull request, detalhe o que foi feito na branch;
-- Adicione fotos, videos, gifs, de antes e depois dos ajustes, caso seja possível;
+Tips for the pull request:
 
-**5.** Sua contribuição será analisada pelo time. Em alguns casos pediremos algumas alterações e ajustes antes de dar merge.
+- Don't hesitate to write the pull request, detail what was done in the branch;
+- Add photos, videos, gifs, of before and after the adjustments, if possible;
 
-Após o merge:
+**5.** Your contribution will be reviewed by the team. In some cases, we will ask for some changes and adjustments before merging.
 
-- Delete a branch utilizada:
+After the merge:
+
+- Delete the used branch:
 
 ```
 git checkout main
@@ -57,7 +58,7 @@ git push origin :ajusteX
 git branch -D ajusteX
 ```
 
-- Atualize seu repositório com o repositório oficial:
+- Update your repository with the official repository:
 
 ```
 git fetch upstream
@@ -65,14 +66,14 @@ git rebase upstream/main
 git push -f origin main
 ```
 
-**6.** Quando iniciar uma nova contribuição, inicie repita o processo pelo passo 2.
+**6.** When starting a new contribution, repeat the process from step 2.
 
-### Boas práticas
+### Best Practices
 
-- Não traduza blocos de codigo, variaveis, etc., mantenha o padrão de linguagem em inglês do projeto;
-- Caso tenha feito vários commits, [esmague-os](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html) antes de fazer o _Pull Request_;
-- Caso tenha qualquer tipo de dúvida, abre uma _Issue_ ou procure alguem nas discussions, que faremos o possível para te ajudar;
-- Contribua com as discussões;
-- Busque não escrever as mensagens de commit de maneira monossilábica. Ex: '.', 'ajuste', 'teste'. Como dito anteriormente, sempre faça uma descrição detalhada e use de base os conventional commits;
+- Do not translate code blocks, variables, etc., keep the project's language standard in English;
+- If you have made multiple commits, [squash them](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html) before making the _Pull Request_;
+- If you have any kind of doubt, open an _Issue_ or find someone in the discussions, and we will do our best to help you;
+- Contribute to the discussions;
+- Try not to write monosyllabic commit messages. E.g.: '.', 'adjustment', 'test'. As mentioned earlier, always make a detailed description and use the conventional commits as a basis;
 
-Bora pra cima! 🚀🚀🚀
+Let's go for it! 🚀🚀🚀
