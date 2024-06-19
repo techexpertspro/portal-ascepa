@@ -11,6 +11,7 @@ Portal Ascepa takes the security of our software products and services very seri
 We appreciate your help in keeping our project secure. If you discover any security vulnerabilities, we kindly ask that you report them immediately by creating an [ISSUE](https://github.com/techexpertspro/portal-ascepa/issues/new/choose) on GitHub. We will make every effort to address the issue promptly.
 
 Please include the following in your report:
+
 - Detailed description of the vulnerability
 - Steps to reproduce the vulnerability
 - Any additional relevant information
@@ -32,6 +33,6 @@ After fixing a vulnerability, we plan to publicly disclose information about it.
 
 ## Security Contacts
 
-If you have any questions or concerns related to security, please contact us at [security@portalascepa.com.br](mailto:felipinho.luna@gmail.com).
+If you have any questions or concerns related to security, please contact us at [security@portalascepa.com.br](mailto:security@portalascepa.com.br).
 
 <!-- END Portal-Ascepa SECURITY.MD BLOCK -->
