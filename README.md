@@ -6,7 +6,7 @@
 <br/>
 <br/>
 
-[BADGES]
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/techexpertspro/portal-ascepa/ci.yml) ![GitHub last commit](https://img.shields.io/github/last-commit/techexpertspro/portal-ascepa) ![Static Badge](https://img.shields.io/badge/code_style-prettier-ff69b4)
 
 <div align="center">
     <a href="#">Home Page</a> |
@@ -71,7 +71,7 @@ Para dúvidas, feedbacks ou sugestões você pode abrir uma issue diretamente no
 
 Para contribuir acesse nosso guia de contribuição disponibilizado no [CONTRIBUTING.md](CONTRIBUTING.md)
 
-## Contribudores ❤️
+## Contribuidores ❤️
 
 <a href="https://github.com/techexpertspro/portal-ascepa/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=techexpertspro/portal-ascepa" />
