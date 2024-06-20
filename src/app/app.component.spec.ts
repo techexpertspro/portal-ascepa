@@ -17,7 +17,7 @@ describe('AppComponent', () => {
   });
 
   it(`should have as title 'Portal-Ascepa'`, () => {
-    expect(component.title).toBe('Portal-Ascepa');
+    expect(component.title).toBe('Portal-Ascepa'); //
   });
 
   it('should render title', () => {
