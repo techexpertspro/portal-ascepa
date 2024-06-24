@@ -6,7 +6,7 @@
 <br/>
 <br/>
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/techexpertspro/portal-ascepa/deploy.yml) ![GitHub last commit](https://img.shields.io/github/last-commit/techexpertspro/portal-ascepa) ![Static Badge](https://img.shields.io/badge/code_style-prettier-ff69b4)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/techexpertspro/portal-ascepa/deploy.yml) ![GitHub last commit](https://img.shields.io/github/last-commit/techexpertspro/portal-ascepa) ![Static Badge](https://img.shields.io/badge/code_style-prettier-ff69b4) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=portal-ascepa&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=portal-ascepa)
 
 <div align="center">
     <a href="#">Home Page</a> |
