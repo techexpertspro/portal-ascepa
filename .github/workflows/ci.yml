@@ -42,6 +42,9 @@ jobs:
       - name: Test code
         run: npx nx affected -t test --parallel=3 --configuration=ci --code-coverage --coverageReporters=lcov
 
+      - name: Merge coverage
+        run: node ./tools/scripts/merge-coverage.js
+
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
