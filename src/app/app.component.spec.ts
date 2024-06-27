@@ -24,5 +24,6 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const title: HTMLElement = fixture.nativeElement.querySelector('h1');
     expect(title.textContent).toContain(component.title);
+    expect(title).toBeVisible();
   });
 });
