@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import { axe } from 'jest-axe';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -25,5 +26,11 @@ describe('AppComponent', () => {
     const title: HTMLElement = fixture.nativeElement.querySelector('h1');
     expect(title.textContent).toContain(component.title);
     expect(title).toBeVisible();
+  });
+
+  it('should not have a11y violations', async () => {
+    fixture.detectChanges();
+    const results = await axe(fixture.nativeElement);
+    expect(results).toHaveNoViolations();
   });
 });
