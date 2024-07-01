@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Runs lint staged only if it is not a merge commit
+git rev-parse -q --no-revs --verify MERGE_HEAD || npx lint-staged
