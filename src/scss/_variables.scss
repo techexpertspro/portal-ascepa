@@ -4,6 +4,7 @@
 // Cores
 $color-primary: #015292;
 $color-secondary: #666a7b;
+$color-bg-cards: #f2f8ff;
 $color-button-primary-bg: #f5ce3c;
 $color-button-primary-text: #000000;
 $color-button-secondary-bg: transparent;
@@ -40,3 +41,15 @@ $desktop-margin-left-right: 120px;
 $desktop-margin-top: 12px;
 $desktop-margin-bottom: 32px;
 $desktop-column-gap: 16px;
+
+button {
+  background-color: $color-button-primary-bg; // Cor #f5ce3c
+  color: $color-button-primary-text; //Cor  #000000
+  border-radius: $border-radius; // Border Radius de 4px
+  padding: $button-padding; // padding top/bottom 8px left/right 16px
+  font-size: $font-size-body-l; // tamanho da fonte 1rem
+  font-weight: $font-weight-bold; // fonte bold
+  cursor: pointer;
+  line-height: 1.5rem;
+  border: none;
+}
