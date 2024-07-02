@@ -34,6 +34,10 @@
   }
 
   // Classes de margem em px
+  .m-#{$i}px {
+    margin: $px-value !important;
+  }
+
   .mt-#{$i}px {
     margin-top: $px-value !important;
   }
@@ -92,6 +96,10 @@
   }
 
   // Classes de preenchimento em px
+  .p-#{$i}px {
+    padding: $px-value !important;
+  }
+
   .pt-#{$i}px {
     padding-top: $px-value !important;
   }

@@ -1,5 +1,3 @@
-// MIXINS DE TEXTOS (Podem ser movidos para pasta /mixins/_text.scss)
-
 @mixin headline-1-style {
   font-weight: $font-weight-bold;
   font-size: $font-size-h1;
@@ -36,7 +34,6 @@
   color: $color-secondary;
 }
 
-// MIXINS DE BOTÕES (Podem ser movidos para pasta /mixins/_buttons.scss)
 @mixin button-primary-style {
   background-color: $color-button-primary-bg;
   color: $color-button-primary-text;
