@@ -1,0 +1,112 @@
+@for $i from 1 through 120 {
+  $rem-value: calc($i / 16);
+  $px-value: $i + px;
+
+  // Classes de margem em rem
+  .mt-#{$i}rem {
+    margin-top: $rem-value + rem !important;
+  }
+
+  .mr-#{$i}rem {
+    margin-right: $rem-value + rem !important;
+  }
+
+  .mb-#{$i}rem {
+    margin-bottom: $rem-value + rem !important;
+  }
+
+  .ml-#{$i}rem {
+    margin-left: $rem-value + rem !important;
+  }
+
+  .mx-#{$i}rem {
+    margin-right: $rem-value + rem !important;
+    margin-left: $rem-value + rem !important;
+  }
+
+  .my-#{$i}rem {
+    margin-top: $rem-value + rem !important;
+    margin-bottom: $rem-value + rem !important;
+  }
+
+  // Classes de margem em px
+  .mt-#{$i}px {
+    margin-top: $px-value !important;
+  }
+
+  .mr-#{$i}px {
+    margin-right: $px-value !important;
+  }
+
+  .mb-#{$i}px {
+    margin-bottom: $px-value !important;
+  }
+
+  .ml-#{$i}px {
+    margin-left: $px-value !important;
+  }
+
+  .mx-#{$i}px {
+    margin-right: $px-value !important;
+    margin-left: $px-value !important;
+  }
+
+  .my-#{$i}px {
+    margin-top: $px-value !important;
+    margin-bottom: $px-value !important;
+  }
+
+  // Classes de preenchimento em rem
+  .pt-#{$i}rem {
+    padding-top: $rem-value + rem !important;
+  }
+
+  .pr-#{$i}rem {
+    padding-right: $rem-value + rem !important;
+  }
+
+  .pb-#{$i}rem {
+    padding-bottom: $rem-value + rem !important;
+  }
+
+  .pl-#{$i}rem {
+    padding-left: $rem-value + rem !important;
+  }
+
+  .px-#{$i}rem {
+    padding-right: $rem-value + rem !important;
+    padding-left: $rem-value + rem !important;
+  }
+
+  .py-#{$i}rem {
+    padding-top: $rem-value + rem !important;
+    padding-bottom: $rem-value + rem !important;
+  }
+
+  // Classes de preenchimento em px
+  .pt-#{$i}px {
+    padding-top: $px-value !important;
+  }
+
+  .pr-#{$i}px {
+    padding-right: $px-value !important;
+  }
+
+  .pb-#{$i}px {
+    padding-bottom: $px-value !important;
+  }
+
+  .pl-#{$i}px {
+    padding-left: $px-value !important;
+  }
+
+  .px-#{$i}px {
+    padding-right: $px-value !important;
+    padding-left: $px-value !important;
+  }
+
+  .py-#{$i}px {
+    padding-top: $px-value !important;
+    padding-bottom: $px-value !important;
+  }
+}

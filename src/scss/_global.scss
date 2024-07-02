@@ -1,0 +1,51 @@
+@import 'variables';
+@import 'mixins';
+
+// CONFIGURAÇÕES GLOBAIS DO SITE
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: $font-family;
+  margin: 0;
+  padding: 0;
+  color: $color-secondary;
+  -webkit-font-smoothing: antialiased;
+}
+
+// PODEM SER MOVIDOS PARA O ARQUIVO /styles/_texts.scss
+h1 {
+  @include h1-style;
+}
+
+h2 {
+  @include h2-style;
+}
+
+h3 {
+  @include h3-style;
+}
+
+.body-l {
+  @include body-l-style;
+}
+
+.body-m {
+  @include body-m-style;
+}
+
+.body-p {
+  @include body-p-style;
+}
+
+// PODEM SER MOVIDOS PARA O ARQUIVO /styles/_buttons.scss
+.btn-primary {
+  @include button-primary-style;
+}
+
+.btn-secondary {
+  @include button-secondary-style;
+}

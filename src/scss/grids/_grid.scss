@@ -1,0 +1,14 @@
+@import 'variables';
+
+.container {
+  display: grid;
+  gap: $mobile-column-gap;
+  margin: $mobile-margin-top $mobile-margin-left-right $mobile-margin-bottom;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat($desktop-grid-columns, 1fr);
+    gap: $desktop-column-gap;
+    margin: $desktop-margin-top $desktop-margin-left-right
+      $desktop-margin-bottom;
+  }
+}
