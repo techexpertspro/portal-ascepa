@@ -18,15 +18,15 @@ body {
 
 // PODEM SER MOVIDOS PARA O ARQUIVO /styles/_texts.scss
 h1 {
-  @include h1-style;
+  @include headline-1-style;
 }
 
 h2 {
-  @include h2-style;
+  @include headline-2-style;
 }
 
 h3 {
-  @include h3-style;
+  @include headline-3-style;
 }
 
 .body-l {
