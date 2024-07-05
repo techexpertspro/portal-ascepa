@@ -1,9 +1,23 @@
-// styles.scss
+// Importação do arquivo do Styleguide
+@import './scss/global';
 
-@import 'scss/variables';
-@import 'scss/grids/grid';
-@import 'scss/utilities';
-@import 'scss/mixins';
-@import 'scss/global';
+/**********************************************************
+* Configuração de Estilos Globais
+*---------------------------------------------------------
+* As configurações abaixo são aplicadas em todo o projeto.
+* Não é recomendado alterar essas configurações.
+***********************************************************/
 
-// Outras regras de estilo ou imports adicionais
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: $font-family;
+  margin: 0;
+  padding: 0;
+  color: $color-secondary;
+  -webkit-font-smoothing: antialiased;
+}

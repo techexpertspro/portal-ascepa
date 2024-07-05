@@ -1,7 +1,8 @@
-// Fonte
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+/*
+* Token de Cores
+* 1 - Colocar no arquivo _token.scss da pasta "tokens/colors"
+*/
 
-// Cores
 $color-primary: #015292;
 $color-secondary: #666a7b;
 $color-bg-cards: #f2f8ff;
@@ -11,7 +12,17 @@ $color-button-secondary-bg: transparent;
 $color-button-secondary-border: #666a7b;
 $color-button-secondary-text: #000000;
 
-// Fontes
+// =====================================================
+
+/*
+* Token de Textos 
+* Fonte importada do Google Fonts
+* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+* OBS: Vale a pena conferir com o Andrews se vai ser importada, ou se vamos fazer o download e criar a pasta fonts dentro do scss ou assets
+* 1 - Colocar no arquivo _token.scss da pasta "tokens/typography"
+*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
 $font-family: 'Ubuntu', sans-serif;
 $font-weight-bold: 700;
 $font-weight-regular: 400;
@@ -24,9 +35,11 @@ $font-size-body-l: 1rem;
 $font-size-body-m: 0.875rem;
 $font-size-body-p: 0.75rem;
 
-// Outros estilos
-$border-radius: 4px;
-$button-padding: 8px 16px;
+/*
+* Token de Grids
+* 1 - Colocar no arquivo _token.scss da pasta "tokens/grid"
+* 2 - Vale a pena validar se vamos usar o grid da forma abaixo
+*/
 
 // Configurações para mobile
 $mobile-grid-columns: 4;
@@ -41,3 +54,7 @@ $desktop-margin-left-right: 120px;
 $desktop-margin-top: 12px;
 $desktop-margin-bottom: 32px;
 $desktop-column-gap: 16px;
+
+// Outros estilos
+$border-radius: 4px;
+$button-padding: 8px 16px;

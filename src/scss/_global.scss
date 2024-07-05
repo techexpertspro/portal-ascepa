@@ -1,51 +1,23 @@
-@import 'variables';
-@import 'mixins';
+/**********************************************************
+* Imports
+*---------------------------------------------------------
+* Os imports devem ser feitos na ordem abaixo para garantir
+* que as variáveis e mixins estejam disponíveis. Ex: para o
+* estilo de um titulo h1, é necessário que as variáveis de
+* fonte e cor estejam disponíveis antes dele ser importado.
+***********************************************************/
 
-// CONFIGURAÇÕES GLOBAIS DO SITE
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+/*
+* Tokens
+*/
+@import './tokens';
 
-body {
-  font-family: $font-family;
-  margin: 0;
-  padding: 0;
-  color: $color-secondary;
-  -webkit-font-smoothing: antialiased;
-}
+/*
+* Utilities
+*/
+@import './utilities';
 
-// PODEM SER MOVIDOS PARA O ARQUIVO /styles/_texts.scss
-h1 {
-  @include headline-1-style;
-}
-
-h2 {
-  @include headline-2-style;
-}
-
-h3 {
-  @include headline-3-style;
-}
-
-.body-l {
-  @include body-l-style;
-}
-
-.body-m {
-  @include body-m-style;
-}
-
-.body-p {
-  @include body-p-style;
-}
-
-// PODEM SER MOVIDOS PARA O ARQUIVO /styles/_buttons.scss
-.btn-primary {
-  @include button-primary-style;
-}
-
-.btn-secondary {
-  @include button-secondary-style;
-}
+/*
+* Components
+*/
+@import './components';
