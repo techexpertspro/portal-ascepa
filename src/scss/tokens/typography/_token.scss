@@ -3,8 +3,11 @@
 * 1 - Insira os tokens de tipografia aqui
 * 2 - Importe esse arquivo no _index.scss da pasta de tokens
 */
+
+// Fonte do Google Fonts do Projeto
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
+// Fontes
 $font-family: 'Ubuntu', sans-serif;
 $font-weight-bold: 700;
 $font-weight-regular: 400;
