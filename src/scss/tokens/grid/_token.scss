@@ -3,3 +3,20 @@
 * 1 - Insira os tokens de grids aqui
 * 2 - Importe esse arquivo no _index.scss da pasta de tokens
 */
+// Configurações para mobile
+$mobile-grid-columns: 4;
+$mobile-margin-left-right: 16px;
+$mobile-margin-top: 12px;
+$mobile-margin-bottom: 32px;
+$mobile-column-gap: 16px;
+
+// Configurações para desktop
+$desktop-grid-columns: 12;
+$desktop-margin-left-right: 120px;
+$desktop-margin-top: 12px;
+$desktop-margin-bottom: 32px;
+$desktop-column-gap: 16px;
+
+// Outros estilos
+$border-radius: 4px;
+$button-padding: 8px 16px;

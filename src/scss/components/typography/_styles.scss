@@ -4,3 +4,28 @@
 * Colocar o Styles de botões que estão no arquivo _global.scss da pasta
 * [COMECE_POR_AQUI]/arquivos_para_quebra
 */
+@import './mixin';
+
+h1 {
+  @include headline-1-style;
+}
+
+h2 {
+  @include headline-2-style;
+}
+
+h3 {
+  @include headline-3-style;
+}
+
+.body-l {
+  @include body-l-style;
+}
+
+.body-m {
+  @include body-m-style;
+}
+
+.body-p {
+  @include body-p-style;
+}
