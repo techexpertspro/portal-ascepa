@@ -1,0 +1,14 @@
+.card {
+  max-width: 389px;
+  border-radius: 8px;
+
+  mat-chip {
+    border-radius: 12px;
+  }
+
+  .mat-mdc-standard-chip {
+    --mdc-chip-elevated-container-color: #015292;
+    --mdc-chip-elevated-disabled-container-color: #015292;
+    --mdc-chip-label-text-color: #fff;
+  }
+}

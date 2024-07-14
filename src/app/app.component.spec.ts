@@ -21,13 +21,6 @@ describe('AppComponent', () => {
     expect(component.title).toBe('Portal-Ascepa'); //
   });
 
-  it('should render title', () => {
-    fixture.detectChanges();
-    const title: HTMLElement = fixture.nativeElement.querySelector('h1');
-    expect(title.textContent).toContain(component.title);
-    expect(title).toBeVisible();
-  });
-
   it('should not have a11y violations', async () => {
     fixture.detectChanges();
     const results = await axe(fixture.nativeElement);

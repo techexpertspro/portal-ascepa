@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CardComponent } from '@portal-ascepa/shared-ui';
 
 @Component({
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CardComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
