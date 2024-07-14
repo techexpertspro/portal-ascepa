@@ -1,12 +1,57 @@
 .card {
+  h3,
+  p {
+    margin: 0;
+  }
+
   max-width: 389px;
   border-radius: 8px;
+  border-width: 0;
+  background-color: #f2f8ff;
 
-  mat-chip {
-    border-radius: 12px;
+  &__container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__badge {
+  }
+
+  &__title {
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 32px;
+      text-align: left;
+      color: #015292;
+    }
+  }
+
+  &__subtitle {
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: left;
+      color: #015292;
+    }
+  }
+
+  &__description {
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: left;
+      color: #666a7b;
+    }
   }
 
   .mat-mdc-standard-chip {
+    border-radius: 12px;
+
     --mdc-chip-elevated-container-color: #015292;
     --mdc-chip-elevated-disabled-container-color: #015292;
     --mdc-chip-label-text-color: #fff;
