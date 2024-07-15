@@ -17,7 +17,9 @@
     "baseUrl": ".",
     "paths": {
       "@portal-ascepa/angular-plugin": ["plugins/angular/src/index.ts"],
-      "@portal-ascepa/layout": ["modules/layout/src/index.ts"]
+      "@portal-ascepa/home": ["modules/home/src/index.ts"],
+      "@portal-ascepa/layout": ["modules/layout/src/index.ts"],
+      "@portal-ascepa/shared-ui": ["modules/shared-ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
