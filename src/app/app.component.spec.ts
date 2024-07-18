@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import { axe } from 'jest-axe';
 import { AppComponent } from './app.component';
 

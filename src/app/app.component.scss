@@ -1,5 +1,84 @@
+@import '../scss/global';
+
 section {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.table {
+  border: 1px solid black;
+  //margin-left: $desktop-margin-left-right;
+  //margin-top: 3%;
+  //margin-left: 4%;
+  @media (min-width: 768px) {
+    width: $desktop-grid-column;
+    margin-left: $desktop-margin-left-right;
+  }
+
+  @media (max-width: 768px) {
+    width: $mobile-grid-column;
+    margin-left: $mobile-margin-left-right;
+    background-color: aqua;
+  }
+}
+
+button {
+  margin: 16px 8px;
+}
+
+.color-token {
+  color: $color-primary;
+}
+
+.mobile-grid-columns {
+  width: $mobile-grid-column;
+}
+
+#grid {
+  display: grid;
+  height: 100px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 100px;
+  border: 1px solid black;
+
+  column-gap: $desktop-column-gap;
+
+  @media (min-width: 768px) {
+    display: grid;
+    width: $desktop-grid-column;
+    margin-top: $desktop-margin-top;
+  }
+
+  @media (max-width: 767px) {
+    display: flex;
+    width: $mobile-grid-column;
+    margin-left: $mobile-margin-left-right;
+    margin-top: $mobile-margin-top;
+    background-image: url('https://cdn.oantagonista.com/uploads/2024/02/palmeiras-campeao-brasileiro-1.jpg');
+    background-size: cover; /* Ajusta a imagem para cobrir todo o elemento */
+  }
+}
+
+#item1 {
+  background-color: lime;
+  margin-left: $desktop-margin-left-right;
+}
+
+#item2 {
+  background-color: yellow;
+  grid-column: 2 / 4;
+  margin-bottom: $desktop-margin-bottom;
+}
+
+#item21 {
+  background-color: red;
+  margin-top: $desktop-margin-top;
+}
+
+#item3 {
+  background-color: blue;
+  grid-column: span 2 / 7;
+  margin-right: $desktop-margin-left-right;
+  border-radius: $border-radius;
 }
