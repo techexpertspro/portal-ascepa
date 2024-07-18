@@ -1,1 +1,13 @@
+/**********************************************************
+* Imports
+*---------------------------------------------------------
+* Os imports devem ser feitos na ordem abaixo para garantir
+* que as variáveis e mixins estejam disponíveis. Ex: para o
+* estilo de um titulo h1, é necessário que as variáveis de
+* fonte e cor estejam disponíveis antes dele ser importado.
+***********************************************************/
+
+/*
+* Tokens (Colors, Typography, Grid, etc)
+*/
 @import './tokens';
