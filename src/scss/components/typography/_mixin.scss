@@ -1,0 +1,35 @@
+@mixin headline-1-style {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h1;
+  color: $color-primary;
+}
+
+@mixin headline-2-style {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h2;
+  color: $color-primary;
+}
+
+@mixin headline-3-style {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h3;
+  color: $color-primary;
+}
+
+@mixin body-l-style {
+  font-weight: $font-weight-regular;
+  font-size: $font-size-body-l;
+  color: $color-secondary;
+}
+
+@mixin body-m-style {
+  font-weight: $font-weight-regular;
+  font-size: $font-size-body-m;
+  color: $color-secondary;
+}
+
+@mixin body-p-style {
+  font-weight: $font-weight-regular;
+  font-size: $font-size-body-p;
+  color: $color-secondary;
+}
