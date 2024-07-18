@@ -82,3 +82,17 @@ button {
   margin-right: $desktop-margin-left-right;
   border-radius: $border-radius;
 }
+
+.box {
+  width: 200px;
+  height: 100px;
+  background-color: lightblue;
+}
+
+.margin-example {
+  margin: 20px; /* Cria espaço fora da borda */
+}
+
+.padding-example {
+  padding: 20px; /* Cria espaço dentro da borda */
+}
