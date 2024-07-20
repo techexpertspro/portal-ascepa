@@ -1,0 +1,73 @@
+@import '../../../../../src/scss/global.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  > h2 {
+    font-weight: $font-weight-regular;
+    color: $color-secondary;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+}
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  gap: 20px;
+}
+
+.main p {
+  @include body-l-style;
+  text-align: justify;
+  line-height: 1.5;
+}
+.main h3 {
+  @include headline-3-style;
+  color: $color-secondary;
+  line-height: 1.5;
+}
+
+.main-image {
+  width: 795px;
+  height: 475px;
+  background-color: #ccc;
+}
+
+.side {
+  display: grid;
+  align-items: start;
+}
+
+.side-item {
+  display: grid;
+  margin-bottom: 10px;
+  > h3 {
+    font-size: 24px;
+    font-weight: $font-weight-regular;
+    color: $color-secondary;
+    margin-top: 10px;
+  }
+}
+
+.side-image {
+  width: 389px;
+  height: 150px;
+  background-color: #ccc;
+}
+
+
