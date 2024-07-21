@@ -3,7 +3,7 @@
   <section class="container">
     <div class="main">
       <img
-        src="/public/img-placeholder.png"
+        src="main-notice.svg"
         alt="imagem noticia principal"
         class="main-image"
       />
@@ -23,7 +23,7 @@
     <div class="side">
       <div class="side-item">
         <img
-          src="/public/img-placeholder.png"
+          src="side-notice.svg"
           alt="imagem noticia lateral"
           class="side-image"
         />
@@ -31,7 +31,7 @@
       </div>
       <div class="side-item">
         <img
-          src="/public/img-placeholder.png"
+          src="side-notice.svg"
           alt="imagem noticia lateral"
           class="side-image"
         />
@@ -39,7 +39,7 @@
       </div>
       <div class="side-item">
         <img
-          src="/public/img-placeholder.png"
+          src="side-notice.svg"
           alt="imagem noticia lateral"
           class="side-image"
         />
@@ -48,3 +48,12 @@
     </div>
   </section>
 </body>
+<lib-carrousel
+  [images]="images"
+  [showIndicator]="true"
+  [animationSpeed]="750"
+  [autoPlay]="true"
+  [autoPlayInterval]="3000"
+  [showNavigators]="true"
+  class="carrousel"
+></lib-carrousel>
