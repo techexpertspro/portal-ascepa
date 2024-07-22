@@ -4,9 +4,7 @@
   display: block;
   width: 100%;
 }
-button {
-  margin: 16px 8px;
-}
+
 .slides {
   width: 390px;
   height: 276px;
@@ -23,9 +21,7 @@ button {
   .slide {
     width: 265px;
     height: 150px; /* Altura ajustada para corresponder à imagem */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: cover, center, no-repeat;
     position: relative;
     transition: opacity 0.2s ease-in;
     margin: auto;
@@ -36,9 +32,10 @@ button {
     width: 40px;
     height: 40px;
     position: absolute;
+    border: none;
     top: 30%; /* Centraliza verticalmente */
     background-color: $color-button-primary-bg; /* Cor do botão */
-    border-radius: 4px; /* Faz os botões serem circulares */
+    border-radius: $border-radius; /* Faz os botões serem circulares */
     cursor: pointer;
   }
   .nextButton {
@@ -46,6 +43,7 @@ button {
   }
   .previousButton {
     left: 0; /* Botão de imagem anterior */
+
   }
   .slide-content {
     position: absolute;
@@ -53,7 +51,7 @@ button {
 
     .description {
       margin: 0;
-      font-size: 16px;
+      font-size: $font-size-body-l;
       color: $color-primary;
     }
   }
