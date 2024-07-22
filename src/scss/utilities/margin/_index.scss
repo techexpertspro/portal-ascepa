@@ -1,0 +1,66 @@
+@for $i from 1 through 120 {
+  $rem-value: $i;
+  $px-value: $i + px;
+
+  // Classes de margem em rem
+  .m-#{$i}rem {
+    margin: $rem-value + rem !important;
+  }
+
+  .mt-#{$i}rem {
+    margin-top: $rem-value + rem !important;
+  }
+
+  .mr-#{$i}rem {
+    margin-right: $rem-value + rem !important;
+  }
+
+  .mb-#{$i}rem {
+    margin-bottom: $rem-value + rem !important;
+  }
+
+  .ml-#{$i}rem {
+    margin-left: $rem-value + rem !important;
+  }
+
+  .mx-#{$i}rem {
+    margin-right: $rem-value + rem !important;
+    margin-left: $rem-value + rem !important;
+  }
+
+  .my-#{$i}rem {
+    margin-top: $rem-value + rem !important;
+    margin-bottom: $rem-value + rem !important;
+  }
+
+  // Classes de margem em px
+  .m-#{$i}px {
+    margin: $px-value !important;
+  }
+
+  .mt-#{$i}px {
+    margin-top: $px-value !important;
+  }
+
+  .mr-#{$i}px {
+    margin-right: $px-value !important;
+  }
+
+  .mb-#{$i}px {
+    margin-bottom: $px-value !important;
+  }
+
+  .ml-#{$i}px {
+    margin-left: $px-value !important;
+  }
+
+  .mx-#{$i}px {
+    margin-right: $px-value !important;
+    margin-left: $px-value !important;
+  }
+
+  .my-#{$i}px {
+    margin-top: $px-value !important;
+    margin-bottom: $px-value !important;
+  }
+}
