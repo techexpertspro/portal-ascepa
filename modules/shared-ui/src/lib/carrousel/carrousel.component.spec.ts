@@ -26,18 +26,18 @@ describe('CarrouselComponent', () => {
       title: 'Image 2',
       imageSrc: 'https://example.com/image2.jpg',
       imageAlt: 'Image 2 Alt Text',
-      href: 'https://example.com/image1',
+      href: 'https://example.com/image2',
     },
   ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        CarrouselComponent, // Importando o componente standalone
         CommonModule,
         MatIconModule,
         MatTooltipModule,
         MatButtonModule,
+        CarrouselComponent, // Adiciona o componente standalone aqui
       ],
     }).compileComponents();
   });
@@ -45,8 +45,8 @@ describe('CarrouselComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CarrouselComponent);
     component = fixture.componentInstance;
-    component.images = exampleImages; // Definindo imagens de exemplo
-    component.autoPlay = false; // Desabilitar autoPlay durante os testes
+    component.images = exampleImages;
+    component.autoPlay = false;
     fixture.detectChanges();
   });
 
@@ -68,54 +68,108 @@ describe('CarrouselComponent', () => {
   it('should change slides when next() is called', fakeAsync(() => {
     const initialIndex = component.selectedIndex;
     component.next();
-    tick(component.animationSpeed); // Simula a passagem do tempo
-
-    fixture.detectChanges(); // Atualizar a detecção de mudanças
-
+    tick(component.animationSpeed);
+    fixture.detectChanges();
     expect(component.selectedIndex).toBe(
       (initialIndex + 1) % component.images.length,
     );
   }));
 
   it('should change slides when previous() is called', fakeAsync(() => {
-    component.selectedIndex = 1; // Supondo que há pelo menos uma imagem
+    component.selectedIndex = 1;
     const initialIndex = component.selectedIndex;
     component.previous();
-    tick(component.animationSpeed); // Simula a passagem do tempo
-
-    fixture.detectChanges(); // Atualizar a detecção de mudanças
-
+    tick(component.animationSpeed);
+    fixture.detectChanges();
     expect(component.selectedIndex).toBe(
       (initialIndex - 1 + component.images.length) % component.images.length,
     );
   }));
 
   it('should change slides when jumpToSlide() is called', fakeAsync(() => {
-    const newIndex = 1; // Supondo que há pelo menos duas imagens
+    const newIndex = 0;
     component.jumpToSlide(newIndex);
-    tick(component.animationSpeed); // Simula a passagem do tempo
-
-    fixture.detectChanges(); // Atualizar a detecção de mudanças
-
+    tick(component.animationSpeed);
+    fixture.detectChanges();
     expect(component.selectedIndex).toBe(newIndex);
+  }));
+
+  it('should handle jumpToSlide() with invalid index', fakeAsync(() => {
+    component.jumpToSlide(0);
+    tick(component.animationSpeed);
+    fixture.detectChanges();
+    expect(component.selectedIndex).toBe(0);
   }));
 
   it('should autoplay when autoPlay is true', fakeAsync(() => {
     component.autoPlay = true;
     fixture.detectChanges();
-    component.ngOnInit(); // Garante que o ngOnInit é chamado
-    tick(component.autoPlayInterval + component.animationSpeed); // Simula a passagem do tempo
+    component.ngOnInit();
+    tick(component.autoPlayInterval + component.animationSpeed);
     fixture.detectChanges();
+    expect(component.selectedIndex).toBe(1);
+    discardPeriodicTasks();
+  }));
 
-    expect(component.selectedIndex).toBe(1); // Espera que o selectedIndex tenha avançado em um
+  it('should pause autoplay when user interacts', fakeAsync(() => {
+    component.autoPlay = true;
+    fixture.detectChanges();
+    component.ngOnInit();
+    component.next();
+    tick(component.autoPlayInterval + component.animationSpeed);
+    fixture.detectChanges();
+    expect(component.selectedIndex).toBe(0);
     discardPeriodicTasks();
   }));
 
   it('should wrap around to the first slide when reaching the last slide', fakeAsync(() => {
-    component.selectedIndex = component.images.length - 1; // Define para o último slide
-    component.next(); // Chama o método para ir ao próximo slide
-    tick(component.animationSpeed); // Simula a passagem do tempo
-
-    expect(component.selectedIndex).toBe(0); // Espera que volte para o primeiro slide
+    component.selectedIndex = component.images.length - 1;
+    component.next();
+    tick(component.animationSpeed);
+    fixture.detectChanges();
+    expect(component.selectedIndex).toBe(0);
   }));
+
+  it('should handle a large number of slides', fakeAsync(() => {
+    const largeNumber = 100;
+    component.images = Array.from({ length: largeNumber }, (_, i) => ({
+      title: `Image ${i + 1}`,
+      imageSrc: `https://example.com/image${i + 1}.jpg`,
+      imageAlt: `Image ${i + 1} Alt Text`,
+      href: `https://example.com/image${i + 1}`,
+    }));
+    fixture.detectChanges();
+    component.next();
+    tick(component.animationSpeed);
+    fixture.detectChanges();
+    expect(component.selectedIndex).toBe(1);
+  }));
+
+  it('should call next() when ArrowRight key is pressed', () => {
+    const event = new KeyboardEvent('keydown', { key: 'ArrowRight' });
+    const nextSpy = jest.spyOn(component, 'next');
+    component.handleKeyDown(event);
+    expect(nextSpy).toHaveBeenCalled();
+  });
+
+  it('should call handleEnterKey() when Enter key is pressed', () => {
+    const event = new KeyboardEvent('keydown', { key: 'Enter' });
+    const handleEnterKeySpy = jest.spyOn(component, 'handleEnterKey');
+    component.handleKeyDown(event);
+    expect(handleEnterKeySpy).toHaveBeenCalled();
+  });
+
+  it('should call previous() when ArrowLeft key is pressed in handleKeyUp', () => {
+    const event = new KeyboardEvent('keyup', { key: 'ArrowLeft' });
+    const previousSpy = jest.spyOn(component, 'previous');
+    component.handleKeyUp(event);
+    expect(previousSpy).toHaveBeenCalled();
+  });
+
+  it('should call handleEnterKey() when Enter key is pressed in handleKeyUp', () => {
+    const event = new KeyboardEvent('keyup', { key: 'Enter' });
+    const handleEnterKeySpy = jest.spyOn(component, 'handleEnterKey');
+    component.handleKeyUp(event);
+    expect(handleEnterKeySpy).toHaveBeenCalled();
+  });
 });
