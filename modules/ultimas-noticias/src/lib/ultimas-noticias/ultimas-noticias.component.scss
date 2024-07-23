@@ -51,7 +51,7 @@ body {
 }
 .side-item {
   display: grid;
- 
+
   > h3 {
     font-size: font-size-body-p;
     font-weight: $font-weight-bold;
@@ -87,7 +87,6 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     padding: 10px;
-
   }
   .side-image {
     width: 100%;
@@ -109,7 +108,6 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    ;
   }
   .main-image {
     width: 100%;
