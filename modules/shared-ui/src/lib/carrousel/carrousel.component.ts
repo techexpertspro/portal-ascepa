@@ -71,8 +71,24 @@ export class CarrouselComponent implements OnInit {
     }
   }
   handleEnterKey() {
-    if (this.images && this.images.length > 0) {
-      window.location.href = this.images[this.selectedIndex].href;
+    // Gets the currently focused element
+    const focusedElement = document.activeElement as HTMLElement;
+    // Checks if the focused element is an indicator
+    if (focusedElement && focusedElement.classList.contains('indicator')) {
+      const indicators = Array.from(
+        document.querySelectorAll('.indicator'),
+      ) as HTMLElement[];
+      const index = indicators.indexOf(focusedElement);
+
+      if (index >= 0 && this.images[index] && this.images[index].href) {
+        // Navigate to the href of the focused indicator
+        window.location.href = this.images[index].href;
+      }
+    } else {
+      // If no indicator is focused, use the selected image
+      if (this.images.length > 0 && this.images[this.selectedIndex].href) {
+        window.location.href = this.images[this.selectedIndex].href;
+      }
     }
   }
 

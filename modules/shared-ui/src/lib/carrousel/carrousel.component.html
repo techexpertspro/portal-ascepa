@@ -1,4 +1,4 @@
-<div class="slides" tabindex="0" (keypress)="onKeypress($event)">
+<div class="slides" tabindex="0">
   <h1>Últimas Notícias</h1>
   <div
     class="slide"
@@ -20,6 +20,10 @@
       (click)="jumpToSlide($index)"
       class="indicator"
       [ngClass]="{ active: selectedIndex === $index }"
+      (keydown)="handleKeyDown($event)"
+      (keyup)="handleKeyUp($event)"
+      (keypress)="handleKeyPress($event)"
+      tabindex="0"
     ></div>
     }
   </div>
@@ -29,7 +33,6 @@
     (click)="previous()"
     aria-label="Previous"
     tabindex="0"
-    (keydown)="handleKeyDown($event)"
   >
     <mat-icon class="ml-5px">arrow_back_ios</mat-icon>
   </button>
@@ -37,7 +40,6 @@
     class="btn-primary mx-10px nextButton"
     (click)="next()"
     aria-label="Next"
-    (keyup)="handleKeyUp($event)"
   >
     <mat-icon>arrow_forward_ios</mat-icon></button
   >}
