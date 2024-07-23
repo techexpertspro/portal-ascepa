@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatButtonModule } from '@angular/material/button';
 
 export interface caroulseImage {
   title: string;
@@ -21,7 +21,7 @@ export class CarrouselComponent implements OnInit {
   @Input() images: caroulseImage[] = [];
   @Input() showIndicator = true;
   @Input() showNavigators = true;
-  @Input() animationSpeed = 500;
+  @Input() animationSpeed = 1000;
   @Input() autoPlay = false;
   @Input() autoPlayInterval = 3000;
   selectedIndex = 0;
