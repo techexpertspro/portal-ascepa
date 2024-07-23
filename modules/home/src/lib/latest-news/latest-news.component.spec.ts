@@ -31,9 +31,7 @@ describe('LatestNewsComponent', () => {
     const mainImageElement = fixture.debugElement.query(
       By.css('.main-image'),
     ).nativeElement;
-    expect(mainImageElement.getAttribute('alt')).toBe(
-      'imagem noticia principal',
-    );
+    expect(mainImageElement.getAttribute('alt')).toBe('principal noticia');
   });
 
   it('should render side images with the correct alt text', () => {
@@ -41,9 +39,7 @@ describe('LatestNewsComponent', () => {
       By.css('.side-image'),
     );
     sideImageElements.forEach((img) => {
-      expect(img.nativeElement.getAttribute('alt')).toBe(
-        'imagem noticia lateral',
-      );
+      expect(img.nativeElement.getAttribute('alt')).toBe('noticia lateral');
     });
   });
 });

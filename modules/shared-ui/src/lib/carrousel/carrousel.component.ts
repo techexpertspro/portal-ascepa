@@ -49,7 +49,7 @@ export class CarrouselComponent implements OnInit {
       }, this.autoPlayInterval);
     }
   }
-  handleKeyDown(event: KeyboardEvent) {
+  handleKeyDown(event: KeyboardEvent): void {
     if (event.key === 'ArrowRight') {
       this.next();
     } else if (event.key === 'Enter') {
@@ -57,7 +57,7 @@ export class CarrouselComponent implements OnInit {
     }
   }
 
-  handleKeyUp(event: KeyboardEvent) {
+  handleKeyUp(event: KeyboardEvent): void {
     if (event.key === 'ArrowLeft') {
       this.previous();
     } else if (event.key === 'Enter') {
@@ -65,41 +65,38 @@ export class CarrouselComponent implements OnInit {
     }
   }
 
-  handleKeyPress(event: KeyboardEvent) {
+  handleKeyPress(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
       this.handleEnterKey();
     }
   }
-  handleEnterKey() {
-    // Gets the currently focused element
+
+  handleEnterKey(): void {
     const focusedElement = document.activeElement as HTMLElement;
-    // Checks if the focused element is an indicator
     if (focusedElement?.classList.contains('indicator')) {
       const indicators = Array.from(document.querySelectorAll('.indicator'));
       const index = indicators.indexOf(focusedElement);
 
       if (index >= 0 && this.images?.[index]?.href) {
-        // Navigate to the href of the focused indicator
         window.location.href = this.images[index].href;
       }
     } else if (this.images.length > 0 && this.images[this.selectedIndex].href) {
       window.location.href = this.images[this.selectedIndex].href;
-      // If no indicator is focused, use the selected image
     }
   }
 
   @HostListener('document:keydown', ['$event'])
-  onKeydown(event: KeyboardEvent) {
+  onKeydown(event: KeyboardEvent): void {
     this.handleKeyDown(event);
   }
 
   @HostListener('document:keyup', ['$event'])
-  onKeyup(event: KeyboardEvent) {
+  onKeyup(event: KeyboardEvent): void {
     this.handleKeyUp(event);
   }
 
   @HostListener('document:keypress', ['$event'])
-  onKeypress(event: KeyboardEvent) {
+  onKeypress(event: KeyboardEvent): void {
     this.handleKeyPress(event);
   }
 }
