@@ -9,13 +9,13 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { caroulseImage, CarrouselComponent } from './carrousel.component';
+import { CarouselImage, CarrouselComponent } from './carrousel.component';
 
 describe('CarrouselComponent', () => {
   let component: CarrouselComponent;
   let fixture: ComponentFixture<CarrouselComponent>;
 
-  const exampleImages: caroulseImage[] = [
+  const exampleImages: CarouselImage[] = [
     {
       title: 'Image 1',
       imageSrc: 'https://example.com/image1.jpg',

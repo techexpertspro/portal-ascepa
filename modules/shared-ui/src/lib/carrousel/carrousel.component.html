@@ -1,4 +1,4 @@
-<div class="slides" tabindex="0">
+<div class="slides">
   <h1>Últimas Notícias</h1>
   <div
     class="slide"
@@ -23,7 +23,7 @@
       (keydown)="handleKeyDown($event)"
       (keyup)="handleKeyUp($event)"
       (keypress)="handleKeyPress($event)"
-      tabindex="0"
+      [attr.tabindex]="0"
     ></div>
     }
   </div>
@@ -32,7 +32,6 @@
     class="btn-primary mx-10px previousButton"
     (click)="previous()"
     aria-label="Previous"
-    tabindex="0"
   >
     <mat-icon class="ml-5px">arrow_back_ios</mat-icon>
   </button>

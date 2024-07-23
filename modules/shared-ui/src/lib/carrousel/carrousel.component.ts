@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
-export interface caroulseImage {
+export interface CarouselImage {
   title: string;
   imageSrc: string;
   imageAlt: string;
@@ -17,7 +17,7 @@ export interface caroulseImage {
   styleUrl: './carrousel.component.scss',
 })
 export class CarrouselComponent implements OnInit {
-  @Input() images: caroulseImage[] = [];
+  @Input() images: CarouselImage[] = [];
   @Input() showIndicator = true;
   @Input() showNavigators = true;
   @Input() animationSpeed = 1000;
@@ -74,21 +74,17 @@ export class CarrouselComponent implements OnInit {
     // Gets the currently focused element
     const focusedElement = document.activeElement as HTMLElement;
     // Checks if the focused element is an indicator
-    if (focusedElement && focusedElement.classList.contains('indicator')) {
-      const indicators = Array.from(
-        document.querySelectorAll('.indicator'),
-      ) as HTMLElement[];
+    if (focusedElement?.classList.contains('indicator')) {
+      const indicators = Array.from(document.querySelectorAll('.indicator'));
       const index = indicators.indexOf(focusedElement);
 
-      if (index >= 0 && this.images[index] && this.images[index].href) {
+      if (index >= 0 && this.images?.[index]?.href) {
         // Navigate to the href of the focused indicator
         window.location.href = this.images[index].href;
       }
-    } else {
+    } else if (this.images.length > 0 && this.images[this.selectedIndex].href) {
+      window.location.href = this.images[this.selectedIndex].href;
       // If no indicator is focused, use the selected image
-      if (this.images.length > 0 && this.images[this.selectedIndex].href) {
-        window.location.href = this.images[this.selectedIndex].href;
-      }
     }
   }
 
