@@ -1,0 +1,76 @@
+@import '../../../../../src/scss/global';
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.slides {
+  width: 390px;
+  height: 276px;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+  > h1 {
+    margin: 0;
+    font-size: $font-size-h2;
+    color: $color-primary;
+    text-align: center;
+  }
+
+  .slide {
+    width: 265px;
+    height: 150px; /* Altura ajustada para corresponder à imagem */
+    background: cover, center, no-repeat;
+    position: relative;
+    transition: opacity 0.2s ease-in;
+    margin: auto;
+    top: 5%;
+  }
+  .nextButton,
+  .previousButton {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border: none;
+    top: 30%; /* Centraliza verticalmente */
+    background-color: $color-button-primary-bg; /* Cor do botão */
+    border-radius: $border-radius; /* Faz os botões serem circulares */
+    cursor: pointer;
+  }
+  .nextButton {
+    right: 0; /* Botão de próxima imagem */
+  }
+  .previousButton {
+    left: 0; /* Botão de imagem anterior */
+  }
+  .slide-content {
+    position: absolute;
+    top: 165px;
+
+    .description {
+      margin: 0;
+      font-size: $font-size-body-l;
+      color: $color-primary;
+    }
+  }
+}
+
+#indicators {
+  margin-top: 60px; /* Espaço entre o carrossel e os indicadores */
+  width: 100%;
+  text-align: center; /* Centraliza os indicadores */
+  .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $color-secondary;
+    display: inline-block;
+    margin: 0 3px;
+    cursor: pointer;
+    &.active {
+      background-color: $color-button-primary-bg;
+      transition: 0.5s ease-in-out;
+    }
+  }
+}
