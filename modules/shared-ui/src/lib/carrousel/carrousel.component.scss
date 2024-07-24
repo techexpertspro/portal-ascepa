@@ -1,4 +1,4 @@
-@import '../../../../../src/scss/global';
+@import 'src/scss/_global.scss';
 
 :host {
   display: block;
@@ -27,8 +27,7 @@
     margin: auto;
     top: 5%;
   }
-  .nextButton,
-  .previousButton {
+  .btn-style {
     width: 40px;
     height: 40px;
     position: absolute;
@@ -38,10 +37,10 @@
     border-radius: $border-radius; /* Faz os botões serem circulares */
     cursor: pointer;
   }
-  .nextButton {
+  .btn-next {
     right: 0; /* Botão de próxima imagem */
   }
-  .previousButton {
+  .btn-previous {
     left: 0; /* Botão de imagem anterior */
   }
   .slide-content {
@@ -55,8 +54,7 @@
     }
   }
 }
-
-#indicators {
+.indicators {
   margin-top: 60px; /* Espaço entre o carrossel e os indicadores */
   width: 100%;
   text-align: center; /* Centraliza os indicadores */
@@ -73,4 +71,9 @@
       transition: 0.5s ease-in-out;
     }
   }
+}
+button {
+  appearance: none;
+  border: none;
+  background: none;
 }

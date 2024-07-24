@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './latest-news.component.scss',
 })
 export class LatestNewsComponent {
-  images = [
+  Images = [
     {
       imageSrc: 'image-placeholder.png',
       imageAlt: 'nature1',

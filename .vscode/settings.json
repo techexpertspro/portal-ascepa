@@ -4,7 +4,6 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
   },
-  "angular.enable-strict-mode-prompt": false,
   "sonarlint.connectedMode.project": {
     "connectionId": "techexpertspro",
     "projectKey": "portal-ascepa"

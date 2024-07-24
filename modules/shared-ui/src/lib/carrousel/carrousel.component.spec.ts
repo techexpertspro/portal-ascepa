@@ -37,7 +37,7 @@ describe('CarrouselComponent', () => {
         MatIconModule,
         MatTooltipModule,
         MatButtonModule,
-        CarrouselComponent, // Adiciona o componente standalone aqui
+        CarrouselComponent,
       ],
     }).compileComponents();
   });
@@ -129,7 +129,6 @@ describe('CarrouselComponent', () => {
     fixture.detectChanges();
     expect(component.selectedIndex).toBe(0);
   }));
-
   it('should handle a large number of slides', fakeAsync(() => {
     const largeNumber = 100;
     component.images = Array.from({ length: largeNumber }, (_, i) => ({
@@ -144,32 +143,28 @@ describe('CarrouselComponent', () => {
     fixture.detectChanges();
     expect(component.selectedIndex).toBe(1);
   }));
+  it('should call handleKeyEnter when Enter key is pressed', () => {
+    const handleKeyEnterSpy = jest.spyOn(component, 'handleKeyEnter');
+    const event = new KeyboardEvent('keypress', { key: 'Enter' });
 
-  it('should call next() when ArrowRight key is pressed', () => {
-    const event = new KeyboardEvent('keydown', { key: 'ArrowRight' });
-    const nextSpy = jest.spyOn(component, 'next');
-    component.handleKeyDown(event);
-    expect(nextSpy).toHaveBeenCalled();
+    document.dispatchEvent(event);
+
+    expect(handleKeyEnterSpy).toHaveBeenCalledWith(event);
   });
-
-  it('should call handleEnterKey() when Enter key is pressed', () => {
-    const event = new KeyboardEvent('keydown', { key: 'Enter' });
-    const handleEnterKeySpy = jest.spyOn(component, 'handleEnterKey');
-    component.handleKeyDown(event);
-    expect(handleEnterKeySpy).toHaveBeenCalled();
-  });
-
-  it('should call previous() when ArrowLeft key is pressed in handleKeyUp', () => {
-    const event = new KeyboardEvent('keyup', { key: 'ArrowLeft' });
+  it('should call previous() when ArrowLeft key is pressed', () => {
     const previousSpy = jest.spyOn(component, 'previous');
-    component.handleKeyUp(event);
+    const event = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
+
+    document.dispatchEvent(event);
+
     expect(previousSpy).toHaveBeenCalled();
   });
+  it('should call next() when ArrowRight key is pressed', () => {
+    const nextSpy = jest.spyOn(component, 'next');
+    const event = new KeyboardEvent('keyup', { key: 'ArrowRight' });
 
-  it('should call handleEnterKey() when Enter key is pressed in handleKeyUp', () => {
-    const event = new KeyboardEvent('keyup', { key: 'Enter' });
-    const handleEnterKeySpy = jest.spyOn(component, 'handleEnterKey');
-    component.handleKeyUp(event);
-    expect(handleEnterKeySpy).toHaveBeenCalled();
+    document.dispatchEvent(event);
+
+    expect(nextSpy).toHaveBeenCalled();
   });
 });

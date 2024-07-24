@@ -14,29 +14,25 @@
   </div>
 
   @if (showIndicator) {
-  <div id="indicators">
+  <button class="indicators">
     @for (image of images; track $index) {
-    <div
+    <button
       (click)="jumpToSlide($index)"
       class="indicator"
       [ngClass]="{ active: selectedIndex === $index }"
-      (keydown)="handleKeyDown($event)"
-      (keyup)="handleKeyUp($event)"
-      (keypress)="handleKeyPress($event)"
-      [attr.tabindex]="0"
-    ></div>
+    ></button>
     }
-  </div>
+  </button>
   }@if (showNavigators) {
   <button
-    class="btn-primary mx-10px previousButton"
+    class="btn-primary btn-style mx-10px btn-previous"
     (click)="previous()"
     aria-label="Previous"
   >
     <mat-icon class="ml-5px">arrow_back_ios</mat-icon>
   </button>
   <button
-    class="btn-primary mx-10px nextButton"
+    class="btn-primary btn-style mx-10px btn-next"
     (click)="next()"
     aria-label="Next"
   >

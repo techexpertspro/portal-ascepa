@@ -26,6 +26,14 @@ export class CarrouselComponent implements OnInit {
   selectedIndex = 0;
   hidden = false;
 
+  ngOnInit(): void {
+    if (this.autoPlay) {
+      setInterval(() => {
+        this.next();
+      }, this.autoPlayInterval);
+    }
+  }
+
   next() {
     const selectedIndex = (this.selectedIndex + 1) % this.images.length;
     this.jumpToSlide(selectedIndex);
@@ -42,61 +50,33 @@ export class CarrouselComponent implements OnInit {
       this.hidden = false;
     }, this.animationSpeed);
   }
-  ngOnInit() {
-    if (this.autoPlay) {
-      setInterval(() => {
-        this.next();
-      }, this.autoPlayInterval);
-    }
-  }
-  handleKeyDown(event: KeyboardEvent): void {
-    if (event.key === 'ArrowRight') {
-      this.next();
-    } else if (event.key === 'Enter') {
-      this.handleEnterKey();
-    }
-  }
 
-  handleKeyUp(event: KeyboardEvent): void {
-    if (event.key === 'ArrowLeft') {
-      this.previous();
-    } else if (event.key === 'Enter') {
-      this.handleEnterKey();
-    }
-  }
-
-  handleKeyPress(event: KeyboardEvent): void {
+  handleKeyEnter(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
-      this.handleEnterKey();
-    }
-  }
-
-  handleEnterKey(): void {
-    const focusedElement = document.activeElement as HTMLElement;
-    if (focusedElement?.classList.contains('indicator')) {
-      const indicators = Array.from(document.querySelectorAll('.indicator'));
-      const index = indicators.indexOf(focusedElement);
-
-      if (index >= 0 && this.images?.[index]?.href) {
-        window.location.href = this.images[index].href;
-      }
-    } else if (this.images.length > 0 && this.images[this.selectedIndex].href) {
       window.location.href = this.images[this.selectedIndex].href;
     }
   }
 
-  @HostListener('document:keydown', ['$event'])
-  onKeydown(event: KeyboardEvent): void {
-    this.handleKeyDown(event);
-  }
-
   @HostListener('document:keyup', ['$event'])
-  onKeyup(event: KeyboardEvent): void {
-    this.handleKeyUp(event);
+  onKeyUp(event: KeyboardEvent): void {
+    if (event.key === 'ArrowRight') {
+      this.next();
+    } else if (event.key === 'Enter') {
+      this.handleKeyEnter(event);
+    }
   }
-
+  @HostListener('document:keydown', ['$event'])
+  OnKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'ArrowLeft') {
+      this.previous();
+    } else if (event.key === 'Enter') {
+      this.handleKeyEnter(event);
+    }
+  }
   @HostListener('document:keypress', ['$event'])
-  onKeypress(event: KeyboardEvent): void {
-    this.handleKeyPress(event);
+  onKeyPress(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      this.handleKeyEnter(event);
+    }
   }
 }
