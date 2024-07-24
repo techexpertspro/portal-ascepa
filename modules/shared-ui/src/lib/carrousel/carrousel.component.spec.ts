@@ -143,14 +143,32 @@ describe('CarrouselComponent', () => {
     fixture.detectChanges();
     expect(component.selectedIndex).toBe(1);
   }));
-  it('should call handleKeyEnter when Enter key is pressed', () => {
-    const handleKeyEnterSpy = jest.spyOn(component, 'handleKeyEnter');
+
+  it('should set window.location.href to image href on Enter key press', () => {
+    const setHrefMock = jest.fn();
+    delete window.location;
+    Object.defineProperty(window, 'location', {
+      value: {
+        set href(href) {
+          setHrefMock(href);
+        },
+      },
+      writable: true,
+    });
+    component.images = [
+      {
+        title: 'Example Image',
+        imageSrc: 'https://example.com/image.jpg',
+        imageAlt: 'Example Image Alt Text',
+        href: 'http://example.com',
+      },
+    ];
+    component.selectedIndex = 0;
     const event = new KeyboardEvent('keypress', { key: 'Enter' });
-
     document.dispatchEvent(event);
-
-    expect(handleKeyEnterSpy).toHaveBeenCalledWith(event);
+    expect(setHrefMock).toHaveBeenCalledWith('http://example.com');
   });
+
   it('should call previous() when ArrowLeft key is pressed', () => {
     const previousSpy = jest.spyOn(component, 'previous');
     const event = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
