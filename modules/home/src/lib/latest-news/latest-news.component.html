@@ -1,34 +1,23 @@
 <body>
-  <h2 class="p-10px">Últimas Notícias</h2>
-  <section class="container p-10px">
-    <div class="main">
-      <img src="main-notice.svg" alt="principal noticia" class="main-image" />
-      <h3>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua
-      </h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Sit amet purus
-        gravida quis blandit. Id volutpat lacus laoreet non curabitur. Nunc
-        scelerisque viverra mauris in aliquam sem fringilla. Cursus vitae congue
-        mauris rhoncus aenean. Ornare lectus sit amet est placerat. Tortor at
-        risus viverra adipiscing at in tellus integer.
-      </p>
-    </div>
-    <div class="side">
-      <div class="side-item mb-10px">
-        <img src="side-notice.svg" alt="noticia lateral" class="side-image" />
-        <h3>Lorem ipsum dolor sit amet</h3>
-      </div>
-      <div class="side-item">
-        <img src="side-notice.svg" alt="noticia lateral" class="side-image" />
-        <h3>Lorem ipsum dolor sit amet</h3>
-      </div>
-      <div class="side-item">
-        <img src="side-notice.svg" alt="noticia lateral" class="side-image" />
-        <h3>Lorem ipsum dolor sit amet</h3>
-      </div>
-    </div>
-  </section>
+  <header>
+    <h2>Últimas Notícias</h2>
+  </header>
+  <main class="container p-10px">
+    <article class="main">
+      <img
+        [src]="mainNews.imageUrl"
+        [alt]="mainNews.altText"
+        class="main-image"
+      />
+      <h2>{{ mainNews.title }}</h2>
+      <p>{{ mainNews.content }}</p>
+    </article>
+
+    <aside class="side">
+      <section class="side-item mb-10px" *ngFor="let news of sideNews">
+        <img [src]="news.imageUrl" [alt]="news.altText" class="side-image" />
+        <h3>{{ news.title }}</h3>
+      </section>
+    </aside>
+  </main>
 </body>

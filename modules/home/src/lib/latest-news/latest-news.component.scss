@@ -8,11 +8,11 @@
 }
 
 body {
-  > h2 {
+  > header h2 {
     font-weight: $font-weight-bold;
     color: $color-primary;
     max-width: 1200px;
-    margin: 0 auto;
+    text-align: center;
   }
 }
 .container {

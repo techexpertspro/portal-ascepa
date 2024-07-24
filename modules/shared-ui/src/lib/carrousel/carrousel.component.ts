@@ -61,16 +61,12 @@ export class CarrouselComponent implements OnInit {
   onKeyUp(event: KeyboardEvent): void {
     if (event.key === 'ArrowRight') {
       this.next();
-    } else if (event.key === 'Enter') {
-      this.handleKeyEnter(event);
     }
   }
   @HostListener('document:keydown', ['$event'])
   OnKeyDown(event: KeyboardEvent): void {
     if (event.key === 'ArrowLeft') {
       this.previous();
-    } else if (event.key === 'Enter') {
-      this.handleKeyEnter(event);
     }
   }
   @HostListener('document:keypress', ['$event'])
