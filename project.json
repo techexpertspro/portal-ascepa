@@ -23,6 +23,9 @@
           }
         ],
         "styles": ["./src/styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["./src/scss/_global.scss"]
+        },
         "scripts": []
       },
       "configurations": {
