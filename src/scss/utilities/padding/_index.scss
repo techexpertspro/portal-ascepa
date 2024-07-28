@@ -1,0 +1,66 @@
+@for $i from 1 through 120 {
+  $rem-value: $i;
+  $px-value: $i + px;
+
+  // Classes de padding em rem
+  .p-#{$i}rem {
+    padding: $rem-value + rem !important;
+  }
+
+  .pt-#{$i}rem {
+    padding-top: $rem-value + rem !important;
+  }
+
+  .pr-#{$i}rem {
+    padding-right: $rem-value + rem !important;
+  }
+
+  .pb-#{$i}rem {
+    padding-bottom: $rem-value + rem !important;
+  }
+
+  .pl-#{$i}rem {
+    padding-left: $rem-value + rem !important;
+  }
+
+  .px-#{$i}rem {
+    padding-right: $rem-value + rem !important;
+    padding-left: $rem-value + rem !important;
+  }
+
+  .py-#{$i}rem {
+    padding-top: $rem-value + rem !important;
+    padding-bottom: $rem-value + rem !important;
+  }
+
+  // Classes de padding em px
+  .p-#{$i}px {
+    padding: $px-value !important;
+  }
+
+  .pt-#{$i}px {
+    padding-top: $px-value !important;
+  }
+
+  .pr-#{$i}px {
+    padding-right: $px-value !important;
+  }
+
+  .pb-#{$i}px {
+    padding-bottom: $px-value !important;
+  }
+
+  .pl-#{$i}px {
+    padding-left: $px-value !important;
+  }
+
+  .px-#{$i}px {
+    padding-right: $px-value !important;
+    padding-left: $px-value !important;
+  }
+
+  .py-#{$i}px {
+    padding-top: $px-value !important;
+    padding-bottom: $px-value !important;
+  }
+}

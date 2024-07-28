@@ -1,0 +1,25 @@
+/*
+* Token de Grids
+* 1 - Insira os tokens de grids aqui
+* 2 - Importe esse arquivo no _index.scss da pasta de tokens
+*/
+
+// Todos os grids do projeto
+
+// Configurações para mobile
+$mobile-grid-column: 40%;
+$mobile-margin-left-right: 4%; // 16px to percentage
+$mobile-margin-top: 3%; // 12px to percentage
+$mobile-margin-bottom: 8%; // 32px to percentage
+$mobile-column-gap: 4%; // 16px to percentage
+
+// Configurações para desktop
+$desktop-grid-column: 100%;
+$desktop-margin-left-right: 5%; // 120px to percentage
+$desktop-margin-top: 0.8%; // 12px to percentage
+$desktop-margin-bottom: 2%; // 32px to percentage
+$desktop-column-gap: 1%; // 16px to percentage
+
+// Outros estilos
+$border-radius: 0.25rem; // or keep as 4px
+$button-padding: 0.5rem 1rem; // or convert to percentage if needed

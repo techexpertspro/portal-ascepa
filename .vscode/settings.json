@@ -3,5 +3,9 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
+  },
+  "sonarlint.connectedMode.project": {
+    "connectionId": "techexpertspro",
+    "projectKey": "portal-ascepa"
   }
 }

@@ -1,0 +1,23 @@
+<body>
+  <header>
+    <h2>Últimas Notícias</h2>
+  </header>
+  <main class="container p-10px">
+    <article class="main">
+      <img
+        [src]="mainNews.imageUrl"
+        [alt]="mainNews.altText"
+        class="main-image"
+      />
+      <h2>{{ mainNews.title }}</h2>
+      <p>{{ mainNews.content }}</p>
+    </article>
+
+    <aside class="side">
+      <section class="side-item mb-10px" *ngFor="let news of sideNews">
+        <img [src]="news.imageUrl" [alt]="news.altText" class="side-image" />
+        <h3>{{ news.title }}</h3>
+      </section>
+    </aside>
+  </main>
+</body>
