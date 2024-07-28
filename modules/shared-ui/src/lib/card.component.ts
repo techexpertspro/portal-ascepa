@@ -1,9 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 
+export interface CardInput {
+  title: string;
+  subtitle: string;
+  description: string;
+  badges: string[];
+  buttons: CardButton;
+}
+interface CardButton {
+  strokeLabel: string;
+  flatLabel: string;
+}
 @Component({
   selector: 'lib-card',
   standalone: true,
@@ -12,6 +23,10 @@ import { MatChipsModule } from '@angular/material/chips';
   styleUrl: './card.component.scss',
 })
 export class CardComponent {
-  longText =
-    'The Chihuahua is a Mexican breed of toy dog. It is named for the Mexican state of Chihuahua and is among the smallest of all dog breeds. It is usually kept as a companion animal or for showing.';
+  @Input() cardData: CardInput = {} as CardInput;
+  @Output() buttonTrigger: EventEmitter<string> = new EventEmitter();
+
+  handleClick(buttonType: string) {
+    this.buttonTrigger.emit(buttonType);
+  }
 }

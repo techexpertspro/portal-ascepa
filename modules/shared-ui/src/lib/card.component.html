@@ -1,25 +1,43 @@
 <mat-card class="card" appearance="outlined">
-  <div class="card__container">
+  <mat-card-content class="card__container">
     <div class="card__badge">
-      <mat-chip-set aria-label="Chihuahua traits">
-        <mat-chip>charming</mat-chip>
-        <mat-chip>graceful</mat-chip>
-        <mat-chip>sassy</mat-chip>
+      <mat-chip-set aria-label="Card badges">
+        @for (item of cardData.badges; track item) {
+        <mat-chip>{{ item }}</mat-chip>
+        }
       </mat-chip-set>
     </div>
     <div class="card__title">
-      <h3>Programador Front-end pleno</h3>
+      <h3>{{ cardData.title }}</h3>
     </div>
 
     <div class="card__subtitle">
-      <p>Empresa Lorem</p>
+      <p>{{ cardData.subtitle }}</p>
     </div>
 
     <div class="card__description">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua
+        {{ cardData.description }}
       </p>
     </div>
-  </div>
+
+    <mat-card-actions class="card__buttons">
+      <button
+        class="card__buttons--stroked"
+        mat-stroked-button
+        (click)="handleClick(cardData.buttons.strokeLabel)"
+        [attr.aria-label]="cardData.buttons.strokeLabel"
+      >
+        {{ cardData.buttons.strokeLabel }}
+      </button>
+      <button
+        class="card__buttons--flat"
+        mat-flat-button
+        (click)="handleClick(cardData.buttons.flatLabel)"
+        [attr.aria-label]="cardData.buttons.flatLabel"
+      >
+        {{ cardData.buttons.flatLabel }}
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
 </mat-card>
