@@ -1,3 +1,5 @@
+@import 'src/scss/_global.scss';
+
 .card {
   h3,
   p {
@@ -7,7 +9,7 @@
   max-width: 389px;
   border-radius: 8px;
   border-width: 0;
-  background-color: #f2f8ff;
+  background-color: $color-bg-cards;
 
   &__container {
     padding: 16px;
@@ -20,31 +22,31 @@
 
   &__title {
     h3 {
-      font-size: 20px;
-      font-weight: 700;
+      font-size: $font-size-h3;
+      font-weight: $font-weight-bold;
       line-height: 32px;
       text-align: left;
-      color: #015292;
+      color: $color-primary;
     }
   }
 
   &__subtitle {
     p {
-      font-size: 16px;
-      font-weight: 400;
+      font-size: $font-size-body-l;
+      font-weight: $font-weight-regular;
       line-height: 24px;
       text-align: left;
-      color: #015292;
+      color: $color-primary;
     }
   }
 
   &__description {
     p {
-      font-size: 16px;
-      font-weight: 400;
+      font-size: $font-size-body-l;
+      font-weight: $font-weight-regular;
       line-height: 24px;
       text-align: left;
-      color: #666a7b;
+      color: $color-secondary;
     }
   }
 
@@ -56,13 +58,14 @@
     padding: 0;
 
     .card__buttons--flat {
-      background-color: #f5ce3c;
-      font-size: 16px;
-      color: #000000;
+      background-color: $color-button-primary-bg;
+      font-size: $font-size-body-l;
+      color: $color-button-secondary-text;
     }
 
     .card__buttons--stroked {
-      color: #000000;
+      color: $color-button-secondary-text;
+      border: 1px solid $color-secondary;
     }
 
     button {
@@ -77,11 +80,11 @@
     padding: 0 6px !important;
     --mdc-chip-container-height: 24px;
     --mdc-chip-elevated-container-color: #015292;
-    --mdc-chip-elevated-disabled-container-color: #015292;
+    --mdc-chip-elevated-disabled-container-color: $color-primary;
     --mdc-chip-label-text-color: #fff;
     --mdc-chip-outline-width: 0;
     --mdc-chip-label-text-size: 12px;
-    --mdc-chip-label-text-font: Roboto, 'Helvetica Neue', sans-serif;
+    --mdc-chip-label-text-font: $font-family;
     --mdc-chip-label-text-weight: 700;
   }
 }
