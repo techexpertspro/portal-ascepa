@@ -4,17 +4,6 @@ import { MatButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 
-export interface CardInput {
-  title: string;
-  subtitle: string;
-  description: string;
-  badges: string[];
-  buttons: CardButton;
-}
-interface CardButton {
-  strokeLabel: string;
-  flatLabel: string;
-}
 @Component({
   selector: 'lib-card',
   standalone: true,
@@ -23,7 +12,12 @@ interface CardButton {
   styleUrl: './card.component.scss',
 })
 export class CardComponent {
-  @Input() cardData: CardInput = {} as CardInput;
+  @Input() title = 'title';
+  @Input() subtitle = 'subtitle';
+  @Input() description = 'description';
+  @Input() badges = ['badge1', 'badge2'];
+  @Input() buttonPrimary = 'buttonPrimary';
+  @Input() buttonSecondary = 'buttonSecondary';
   @Output() buttonTrigger: EventEmitter<string> = new EventEmitter();
 
   handleClick(buttonType: string) {

@@ -2,22 +2,22 @@
   <mat-card-content class="card__container">
     <div class="card__badge">
       <mat-chip-set aria-label="Card badges">
-        @for (item of cardData.badges; track item) {
+        @for (item of badges; track item) {
         <mat-chip>{{ item }}</mat-chip>
         }
       </mat-chip-set>
     </div>
     <div class="card__title">
-      <h3>{{ cardData.title }}</h3>
+      <h3>{{ title }}</h3>
     </div>
 
     <div class="card__subtitle">
-      <p>{{ cardData.subtitle }}</p>
+      <p>{{ subtitle }}</p>
     </div>
 
     <div class="card__description">
       <p>
-        {{ cardData.description }}
+        {{ description }}
       </p>
     </div>
 
@@ -25,18 +25,18 @@
       <button
         class="card__buttons--stroked"
         mat-stroked-button
-        (click)="handleClick(cardData.buttons.strokeLabel)"
-        [attr.aria-label]="cardData.buttons.strokeLabel"
+        (click)="handleClick('primary')"
+        [attr.aria-label]="buttonPrimary"
       >
-        {{ cardData.buttons.strokeLabel }}
+        {{ buttonPrimary }}
       </button>
       <button
         class="card__buttons--flat"
         mat-flat-button
-        (click)="handleClick(cardData.buttons.flatLabel)"
-        [attr.aria-label]="cardData.buttons.flatLabel"
+        (click)="handleClick('secondary')"
+        [attr.aria-label]="buttonSecondary"
       >
-        {{ cardData.buttons.flatLabel }}
+        {{ buttonSecondary }}
       </button>
     </mat-card-actions>
   </mat-card-content>
