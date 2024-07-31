@@ -65,11 +65,11 @@ npx nx graph
 
 Para dúvidas, feedbacks ou sugestões você pode abrir uma issue diretamente no nosso projeto, ou acessar nossa plataforma:
 
-- [Tech Experts PRO](https://techesxperts.pro)
+- [Tech Experts PRO](https://techexperts.pro/)
 
 ## Como contribuir
 
-Para contribuir acesse nosso guia de contribuição disponibilizado no [CONTRIBUTING.md](CONTRIBUTING.md)
+Para contribuir acesse nosso guia de contribuição disponibilizado no [CONTRIBUTING.md](https://github.com/techexpertspro/portal-ascepa/blob/main/docs/CONTRIBUTING.md)
 
 ## Contribuidores ❤️
 
