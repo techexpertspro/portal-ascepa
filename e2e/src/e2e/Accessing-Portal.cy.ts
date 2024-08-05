@@ -6,8 +6,5 @@ describe('Portal Ascepa', () => {
   it('Accessing Portal Ascepa', () => {
     // Para pegar o título do H1 "Portal-Ascepa"
     getTitle().contains('Portal-Ascepa');
-
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(3000);
   });
 });
