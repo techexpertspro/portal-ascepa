@@ -20,7 +20,7 @@ export class CardComponent {
   @Input() buttonSecondary = 'buttonSecondary';
   @Output() buttonTrigger: EventEmitter<string> = new EventEmitter();
 
-  handleClick(buttonType: string) {
+  handleClick(buttonType: 'primary' | 'secondary') {
     this.buttonTrigger.emit(buttonType);
   }
 }

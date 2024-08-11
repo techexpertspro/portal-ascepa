@@ -41,13 +41,13 @@ describe('CardComponent', () => {
 
   it('should display the title, subtitle, description, and badges', () => {
     const title = fixture.debugElement.query(
-      By.css('.card__title h3'),
+      By.css('.card__title'),
     ).nativeElement;
     const subtitle = fixture.debugElement.query(
-      By.css('.card__subtitle p'),
+      By.css('.card__text--subtitle'),
     ).nativeElement;
     const description = fixture.debugElement.query(
-      By.css('.card__description p'),
+      By.css('.card__text--description'),
     ).nativeElement;
     const badges = fixture.debugElement.queryAll(
       By.css('.card__badge mat-chip'),
