@@ -1,0 +1,115 @@
+@import './../../../../../src/scss/tokens/colors/token';
+@import './../../../../../src/scss/tokens/generic/mixin';
+@import './../../../../../src/scss/tokens/generic/token';
+
+#header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  background-color: $color-white;
+  position: relative;
+}
+#nav {
+  width: 1200px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  @include transitionIn(opacity);
+
+  li {
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  a {
+    padding: 1rem;
+    min-width: 95px;
+    max-width: 100%;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color: $color-primary;
+    border-radius: $border-radius;
+    @include transition;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-primary;
+    }
+  }
+}
+#menu-button {
+  display: none;
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  border-radius: $border-radius;
+  @include transition;
+
+  path {
+    fill: $color-primary;
+    @include transition;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color-primary;
+
+    path {
+      fill: $color-white;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #logo {
+    width: 80px;
+    height: 80px;
+    @include transition;
+  }
+  #links {
+    flex-wrap: wrap;
+    width: 100%;
+    position: fixed;
+    top: 112px;
+    left: 0;
+    background-color: $color-white;
+    height: 0;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: stretch;
+    opacity: 0;
+
+    &.opened {
+      height: calc(100% - 112px);
+      opacity: 1;
+    }
+    li {
+      margin-right: 0;
+      width: 100%;
+    }
+    a {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0;
+    }
+  }
+  #menu-button {
+    display: block;
+    align-self: center;
+  }
+}
