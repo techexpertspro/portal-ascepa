@@ -1,0 +1,94 @@
+@import 'src/scss/_global.scss';
+
+.card {
+  h2,
+  p {
+    margin: 0;
+  }
+
+  width: 100%;
+  border-radius: 8px;
+  border-width: 0;
+  background-color: $color-bg-cards;
+
+  &__container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  &__title {
+    line-height: 32px;
+    text-align: left;
+  }
+
+  &__text {
+    font-size: $font-size-body-l;
+    font-weight: $font-weight-regular;
+    line-height: 24px;
+
+    &--subtitle {
+      color: $color-primary;
+    }
+
+    &--description {
+      color: $color-secondary;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: end;
+    margin-top: 8px;
+    padding: 0;
+
+    .card__buttons--flat {
+      background-color: $color-button-primary-bg;
+      font-size: $font-size-body-l;
+      color: $color-button-secondary-text;
+    }
+
+    .card__buttons--stroked {
+      color: $color-button-secondary-text;
+      border: 1px solid $color-secondary;
+    }
+
+    button {
+      border-radius: 4px;
+      padding: 8px 16px 8px 16px;
+      height: 40px;
+    }
+  }
+
+  .mat-mdc-standard-chip {
+    border-radius: 12px;
+    padding: 0 6px !important;
+    --mdc-chip-container-height: 24px;
+    --mdc-chip-elevated-container-color: #015292;
+    --mdc-chip-elevated-disabled-container-color: $color-primary;
+    --mdc-chip-label-text-color: #fff;
+    --mdc-chip-outline-width: 0;
+    --mdc-chip-label-text-size: 12px;
+    --mdc-chip-label-text-font: $font-family;
+    --mdc-chip-label-text-weight: 700;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-height: 320px;
+  }
+
+  .card__container,
+  .card__buttons {
+    height: 100%;
+  }
+
+  .card__buttons {
+    align-items: flex-end;
+  }
+}
