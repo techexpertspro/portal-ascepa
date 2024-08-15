@@ -1,0 +1,31 @@
+<mat-card class="card" appearance="outlined">
+  <mat-card-content class="card__container">
+    <div class="card__badge">
+      <mat-chip-set aria-label="Card badges">
+        @for (item of badges; track item) {
+        <mat-chip>{{ item }}</mat-chip>
+        }
+      </mat-chip-set>
+    </div>
+    <h2 class="card__title">{{ title }}</h2>
+    <p class="card__text card__text--subtitle">{{ subtitle }}</p>
+    <p class="card__text card__text--description">{{ description }}</p>
+
+    <mat-card-actions class="card__buttons">
+      <button
+        class="card__buttons--stroked"
+        mat-stroked-button
+        (click)="handleClick('primary')"
+      >
+        {{ buttonPrimary }}
+      </button>
+      <button
+        class="card__buttons--flat"
+        mat-flat-button
+        (click)="handleClick('secondary')"
+      >
+        {{ buttonSecondary }}
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
