@@ -1,9 +1,7 @@
 @import '../../../../../src/scss/global';
 
 section {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  display: block;
   max-width: 1200px;
   margin: 0 auto;
 
