@@ -1,18 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { HeaderComponent } from '@portal-ascepa/layout';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { LatestNewsComponent } from '../latest-news/latest-news.component';
 
 @Component({
   selector: 'lib-home',
   standalone: true,
-  imports: [
-    CommonModule,
-    AboutUsComponent,
-    LatestNewsComponent,
-    HeaderComponent,
-  ],
+  imports: [CommonModule, AboutUsComponent, LatestNewsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
