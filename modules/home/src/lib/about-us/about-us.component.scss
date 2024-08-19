@@ -2,13 +2,13 @@ section {
   display: block;
   max-width: 1200px;
   margin: 0 auto;
-}
 
-article {
-  display: flex;
-  flex-direction: row;
-  gap: 5rem;
-  align-items: center;
+  article {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 992px) {
