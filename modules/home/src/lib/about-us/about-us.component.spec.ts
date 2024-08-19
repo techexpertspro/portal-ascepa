@@ -1,3 +1,4 @@
+import { ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AboutUsComponent } from './about-us.component';
@@ -9,7 +10,11 @@ describe('AboutUsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AboutUsComponent],
-    }).compileComponents();
+    })
+      .overrideComponent(AboutUsComponent, {
+        set: { changeDetection: ChangeDetectionStrategy.Default },
+      })
+      .compileComponents();
 
     fixture = TestBed.createComponent(AboutUsComponent);
     component = fixture.componentInstance;
