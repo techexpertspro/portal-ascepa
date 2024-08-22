@@ -1,20 +1,3 @@
-@import '../../../../../src/scss/global';
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Ubuntu', sans-serif;
-}
-
-body {
-  > header h2 {
-    font-weight: $font-weight-bold;
-    color: $color-primary;
-    max-width: 1200px;
-    text-align: center;
-  }
-}
 .container {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -30,13 +13,10 @@ body {
 }
 
 .main p {
-  @include body-l-style;
   text-align: justify;
   line-height: 1.5;
 }
 .main h3 {
-  @include headline-3-style;
-  color: $color-primary;
   line-height: 1.5;
 }
 
@@ -54,8 +34,6 @@ body {
 
   > h3 {
     font-size: font-size-body-p;
-    font-weight: $font-weight-bold;
-    color: $color-primary;
     margin-top: 10px;
   }
 }
