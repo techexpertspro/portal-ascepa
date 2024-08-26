@@ -20,7 +20,6 @@
       <button
         id="menu-button"
         (click)="toggleMenu()"
-        (keydown)="handleKeyDown($event)"
         title="Botão abrir/fechar menu"
         [attr.aria-expanded]="isMenuExpanded"
         aria-label="Botão abrir/fechar menu"
@@ -43,16 +42,13 @@
     <ul
       id="links"
       [ngClass]="{ isMenuExpanded: isMenuExpanded }"
-      role="menubar"
       aria-labelledby="menu-title"
     >
-      <li role="menuitem">
-        <a href="#" aria-label="Quem somos">Quem somos</a>
-      </li>
-      <li role="menuitem"><a href="#" aria-label="Notícias">Notícias</a></li>
-      <li role="menuitem"><a href="#" aria-label="Vagas">Vagas</a></li>
-      <li role="menuitem"><a href="#" aria-label="Filie-se">Filie-se</a></li>
-      <li role="menuitem"><a href="#" aria-label="Contato">Contato</a></li>
+      <li><a href="#" aria-label="Quem somos">Quem somos</a></li>
+      <li><a href="#" aria-label="Notícias">Notícias</a></li>
+      <li><a href="#" aria-label="Vagas">Vagas</a></li>
+      <li><a href="#" aria-label="Filie-se">Filie-se</a></li>
+      <li><a href="#" aria-label="Contato">Contato</a></li>
     </ul>
   </nav>
 </header>
