@@ -9,9 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  opened = false;
+  isMenuExpanded = false;
 
   toggleMenu(): void {
-    this.opened = !this.opened;
+    this.isMenuExpanded = !this.isMenuExpanded;
   }
 }

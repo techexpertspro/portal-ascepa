@@ -71,6 +71,12 @@
     }
   }
 }
+#menu-toggle-container {
+  display: flex;
+}
+#menu-title {
+  display: none;
+}
 
 @media screen and (max-width: 992px) {
   #logo {
@@ -91,7 +97,7 @@
     align-items: stretch;
     opacity: 0;
 
-    &.opened {
+    &.isMenuExpanded {
       height: calc(100% - 112px);
       opacity: 1;
     }
@@ -111,5 +117,9 @@
   #menu-button {
     display: block;
     align-self: center;
+  }
+  #menu-title {
+    display: flex;
+    align-items: center;
   }
 }

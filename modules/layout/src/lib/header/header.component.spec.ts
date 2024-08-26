@@ -20,14 +20,14 @@ describe('HeaderComponent', () => {
   });
 
   it('should call toggleMenu and close menu', () => {
-    component.opened = true;
+    component.isMenuExpanded = true;
     component.toggleMenu();
-    expect(component.opened).toBe(false);
+    expect(component.isMenuExpanded).toBe(false);
   });
 
   it('should call toggleMenu and open menu', () => {
-    component.opened = false;
+    component.isMenuExpanded = false;
     component.toggleMenu();
-    expect(component.opened).toBe(true);
+    expect(component.isMenuExpanded).toBe(true);
   });
 });
