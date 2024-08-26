@@ -14,4 +14,11 @@ export class HeaderComponent {
   toggleMenu(): void {
     this.isMenuExpanded = !this.isMenuExpanded;
   }
+
+  handleKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.toggleMenu();
+    }
+  }
 }

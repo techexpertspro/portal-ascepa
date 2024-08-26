@@ -20,6 +20,7 @@
       <button
         id="menu-button"
         (click)="toggleMenu()"
+        (keydown)="handleKeyDown($event)"
         title="Botão abrir/fechar menu"
         [attr.aria-expanded]="isMenuExpanded"
         aria-label="Botão abrir/fechar menu"
