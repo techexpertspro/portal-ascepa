@@ -2,7 +2,7 @@
   <nav id="nav">
     <a
       href="#"
-      title="Voltar para Página Inicial"
+      title="Voltar para página inicial"
       aria-label="Voltar para página inicial"
     >
       <img
@@ -39,11 +39,7 @@
         </svg>
       </button>
     </div>
-    <ul
-      id="links"
-      [ngClass]="{ isMenuExpanded: isMenuExpanded }"
-      aria-labelledby="menu-title"
-    >
+    <ul id="links" [ngClass]="{ isMenuExpanded }" aria-labelledby="menu-title">
       <li><a href="#" aria-label="Quem somos">Quem somos</a></li>
       <li><a href="#" aria-label="Notícias">Notícias</a></li>
       <li><a href="#" aria-label="Vagas">Vagas</a></li>
