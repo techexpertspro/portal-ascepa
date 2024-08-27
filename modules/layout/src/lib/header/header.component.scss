@@ -86,7 +86,7 @@
   }
   #links {
     flex-wrap: wrap;
-    width: 100%;
+    width: 100svw;
     position: fixed;
     top: 112px;
     left: 0;
@@ -114,12 +114,14 @@
       border-radius: 0;
     }
   }
-  #menu-button {
-    display: block;
-    align-self: center;
-  }
-  #menu-title {
-    display: flex;
-    align-items: center;
+  #menu-toggle-container {
+    #menu-button {
+      display: block;
+      align-self: center;
+    }
+    #menu-title {
+      display: flex;
+      align-items: center;
+    }
   }
 }
