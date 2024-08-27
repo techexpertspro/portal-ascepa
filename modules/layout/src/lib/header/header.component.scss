@@ -49,33 +49,33 @@
     }
   }
 }
-#menu-button {
-  display: none;
-  padding: 1rem;
-  background-color: transparent;
-  border: none;
-  border-radius: $border-radius;
-  @include transition;
-
-  path {
-    fill: $color-primary;
-    @include transition;
-  }
-
-  &:hover {
-    cursor: pointer;
-    background-color: $color-primary;
-
-    path {
-      fill: $color-white;
-    }
-  }
-}
 #menu-toggle-container {
   display: flex;
-}
-#menu-title {
-  display: none;
+  #menu-title {
+    display: none;
+  }
+  #menu-button {
+    display: none;
+    padding: 1rem;
+    background-color: transparent;
+    border: none;
+    border-radius: $border-radius;
+    @include transition;
+
+    path {
+      fill: $color-primary;
+      @include transition;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $color-primary;
+
+      path {
+        fill: $color-white;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 992px) {
