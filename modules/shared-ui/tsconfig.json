@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "composite": true,
+    "declaration": true
   },
   "files": [],
   "include": [],
