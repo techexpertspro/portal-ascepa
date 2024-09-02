@@ -1,13 +1,14 @@
 {
   "name": "@portal-ascepa/source",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
     "prepare": "husky install",
-    "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited"
+    "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited",
+    "changelog": "conventional-changelog -p angular -n ./changelog.config.js -i CHANGELOG.md -s -r 0"
   },
   "private": true,
   "dependencies": {
@@ -63,6 +64,7 @@
     "commitlint": "^19.4.1",
     "commitlint-config-gitmoji": "^2.3.1",
     "conventional-changelog-angular": "^8.0.0",
+    "conventional-changelog-cli": "^5.0.0",
     "conventional-changelog-gitmoji-config": "^1.5.2",
     "cypress": "13.13.1",
     "cz-gitmoji-adapter": "^2.0.0",
