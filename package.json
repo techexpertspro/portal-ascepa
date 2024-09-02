@@ -7,8 +7,7 @@
     "build": "nx build",
     "test": "nx test",
     "prepare": "husky install",
-    "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited",
-    "changelog": "conventional-changelog -p angular -n ./changelog.config.js -i CHANGELOG.md -s -r 0"
+    "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited"
   },
   "private": true,
   "dependencies": {
@@ -63,9 +62,6 @@
     "commitizen": "^4.3.0",
     "commitlint": "^19.4.1",
     "commitlint-config-gitmoji": "^2.3.1",
-    "conventional-changelog-angular": "^8.0.0",
-    "conventional-changelog-cli": "^5.0.0",
-    "conventional-changelog-gitmoji-config": "^1.5.2",
     "cypress": "13.13.1",
     "cz-gitmoji-adapter": "^2.0.0",
     "eslint": "~8.57.0",
@@ -106,21 +102,25 @@
     },
     "cz-gitmoji-adapter": {
       "scopes": [
-        "login",
-        "api",
-        "auth",
-        "ci/cd",
-        "infrastructure",
-        "deployment",
-        "backup",
-        "recovery",
-        "release",
-        "init",
-        "runner",
-        "watcher",
+        "accessibility",
+        "authentication",
+        "authorization",
+        "ui/ux",
+        "api-integration",
+        "docs",
+        "changelog",
+        "guides",
         "config",
-        "web-server",
-        "proxy"
+        "environment",
+        "deployment",
+        "styles",
+        "testing",
+        "proxy",
+        "perf",
+        "model",
+        "seo",
+        "routing",
+        "assets"
       ],
       "questions": {
         "scope": "Especifique um escopo: "
