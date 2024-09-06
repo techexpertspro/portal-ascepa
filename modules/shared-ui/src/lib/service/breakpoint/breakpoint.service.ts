@@ -1,11 +1,7 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Injectable, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { distinctUntilChanged, map } from 'rxjs';
-import {
-  MEDIA_QUERIES,
-  MediaQueryChanges,
-} from '../../model/media-query.model';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,58 +9,65 @@ import {
 export class BreakpointService {
   private readonly breakpointObserver = inject(BreakpointObserver);
 
-  private readonly layoutChanges = toSignal<MediaQueryChanges>(
-    this.breakpointObserver.observe(Object.values(MEDIA_QUERIES)).pipe(
-      map(({ breakpoints }) => breakpoints as MediaQueryChanges),
-      distinctUntilChanged(),
-    ),
+  private readonly layoutChanges = toSignal(
+    this.breakpointObserver
+      .observe(Object.values(Breakpoints))
+      .pipe(map(({ breakpoints }) => breakpoints)),
   );
 
-  public readonly isPortrait = computed(
-    () => this.layoutChanges()?.[MEDIA_QUERIES.PORTRAIT] ?? false,
+  public readonly isWeb = computed(
+    () => this.layoutChanges()?.[Breakpoints.Web] ?? false,
   );
 
-  public readonly isLandscape = computed(
-    () => this.layoutChanges()?.[MEDIA_QUERIES.LANDSCAPE] ?? false,
+  public readonly isWebPortrait = computed(
+    () => this.layoutChanges()?.[Breakpoints.WebPortrait] ?? false,
   );
 
-  public readonly isSmallScreen = computed(
-    () => this.layoutChanges()?.[MEDIA_QUERIES.SMALL_SCREEN] ?? false,
+  public readonly isWebLandscape = computed(
+    () => this.layoutChanges()?.[Breakpoints.WebLandscape] ?? false,
   );
 
-  public readonly isIphone = computed(
-    () => this.layoutChanges()?.[MEDIA_QUERIES.IPHONE] ?? false,
+  public readonly isHandset = computed(
+    () => this.layoutChanges()?.[Breakpoints.Handset] ?? false,
   );
 
-  public readonly isAndroid = computed(
-    () => this.layoutChanges()?.[MEDIA_QUERIES.ANDROID] ?? false,
+  public readonly isHandsetLandscape = computed(
+    () => this.layoutChanges()?.[Breakpoints.HandsetLandscape] ?? false,
   );
 
-  public readonly isLargeMobile = computed(
-    () => this.layoutChanges()?.[MEDIA_QUERIES.LARGE_MOBILE] ?? false,
+  public readonly isHandsetPortrait = computed(
+    () => this.layoutChanges()?.[Breakpoints.HandsetPortrait] ?? false,
+  );
+
+  public readonly isLarge = computed(
+    () => this.layoutChanges()?.[Breakpoints.Large] ?? false,
+  );
+
+  public readonly isMedium = computed(
+    () => this.layoutChanges()?.[Breakpoints.Medium] ?? false,
+  );
+
+  public readonly isSmall = computed(
+    () => this.layoutChanges()?.[Breakpoints.Small] ?? false,
   );
 
   public readonly isTablet = computed(
-    () => this.layoutChanges()?.[MEDIA_QUERIES.TABLET] ?? false,
+    () => this.layoutChanges()?.[Breakpoints.Tablet] ?? false,
   );
 
-  public readonly isIpad = computed(
-    () => this.layoutChanges()?.[MEDIA_QUERIES.IPAD] ?? false,
+  public readonly isTabletLandscape = computed(
+    () => this.layoutChanges()?.[Breakpoints.TabletLandscape] ?? false,
   );
 
-  public readonly isLaptop = computed(
-    () => this.layoutChanges()?.[MEDIA_QUERIES.LAPTOP] ?? false,
+  public readonly isTabletPortrait = computed(
+    () => this.layoutChanges()?.[Breakpoints.TabletPortrait] ?? false,
   );
 
-  public readonly isSmallLaptop = computed(
-    () => this.layoutChanges()?.[MEDIA_QUERIES.SMALL_LAPTOP] ?? false,
+  public readonly isXLarge = computed(
+    () => this.layoutChanges()?.[Breakpoints.XLarge] ?? false,
   );
 
-  public readonly isDesktop = computed(
-    () => this.layoutChanges()?.[MEDIA_QUERIES.DESKTOP] ?? false,
-  );
-
-  public readonly isWideDesktop = computed(
-    () => this.layoutChanges()?.[MEDIA_QUERIES.WIDE_DESKTOP] ?? false,
+  public readonly isXSmall = computed(
+    () => this.layoutChanges()?.[Breakpoints.XSmall] ?? false,
   );
 }

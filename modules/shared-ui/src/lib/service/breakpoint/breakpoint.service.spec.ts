@@ -1,10 +1,10 @@
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import {
+  BreakpointObserver,
+  BreakpointState,
+  Breakpoints,
+} from '@angular/cdk/layout';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import {
-  MEDIA_QUERIES,
-  MediaQueryChanges,
-} from '../../model/media-query.model';
 import { BreakpointService } from './breakpoint.service';
 
 describe('BreakpointService', () => {
@@ -12,25 +12,14 @@ describe('BreakpointService', () => {
   let breakpointObserverMock: jest.Mocked<BreakpointObserver>;
 
   beforeEach(() => {
-    const mockBreakpoints: MediaQueryChanges = {
-      [MEDIA_QUERIES.PORTRAIT]: true,
-      [MEDIA_QUERIES.LANDSCAPE]: true,
-      [MEDIA_QUERIES.SMALL_SCREEN]: true,
-      [MEDIA_QUERIES.IPHONE]: true,
-      [MEDIA_QUERIES.ANDROID]: true,
-      [MEDIA_QUERIES.LARGE_MOBILE]: true,
-      [MEDIA_QUERIES.TABLET]: true,
-      [MEDIA_QUERIES.IPAD]: true,
-      [MEDIA_QUERIES.LAPTOP]: true,
-      [MEDIA_QUERIES.SMALL_LAPTOP]: true,
-      [MEDIA_QUERIES.DESKTOP]: true,
-      [MEDIA_QUERIES.WIDE_DESKTOP]: true,
-    };
     breakpointObserverMock = {
       observe: jest.fn(() =>
         of({
           matches: true,
-          breakpoints: mockBreakpoints,
+          breakpoints: Object.keys(Breakpoints).reduce((acc, key) => {
+            acc[Breakpoints[key]] = true;
+            return acc;
+          }, {} as { [key: string]: boolean }),
         } as BreakpointState),
       ),
       isMatched: jest.fn(),
@@ -55,35 +44,39 @@ describe('BreakpointService', () => {
   });
 
   it('should correctly identify all media query states', () => {
-    expect(service.isPortrait()).toBeTruthy();
-    expect(service.isLandscape()).toBeTruthy();
-    expect(service.isSmallScreen()).toBeTruthy();
-    expect(service.isIphone()).toBeTruthy();
-    expect(service.isAndroid()).toBeTruthy();
-    expect(service.isLargeMobile()).toBeTruthy();
+    expect(service.isWeb()).toBeTruthy();
+    expect(service.isWebPortrait()).toBeTruthy();
+    expect(service.isWebLandscape()).toBeTruthy();
+    expect(service.isHandset()).toBeTruthy();
+    expect(service.isHandsetLandscape()).toBeTruthy();
+    expect(service.isHandsetPortrait()).toBeTruthy();
+    expect(service.isLarge()).toBeTruthy();
+    expect(service.isMedium()).toBeTruthy();
+    expect(service.isSmall()).toBeTruthy();
     expect(service.isTablet()).toBeTruthy();
-    expect(service.isIpad()).toBeTruthy();
-    expect(service.isLaptop()).toBeTruthy();
-    expect(service.isSmallLaptop()).toBeTruthy();
-    expect(service.isDesktop()).toBeTruthy();
-    expect(service.isWideDesktop()).toBeTruthy();
+    expect(service.isTabletLandscape()).toBeTruthy();
+    expect(service.isTabletPortrait()).toBeTruthy();
+    expect(service.isXLarge()).toBeTruthy();
+    expect(service.isXSmall()).toBeTruthy();
   });
 
   it('should handle null or undefined layoutChanges', () => {
     (service as unknown as { layoutChanges: () => undefined }).layoutChanges =
       () => undefined;
 
-    expect(service.isPortrait()).toBeFalsy();
-    expect(service.isLandscape()).toBeFalsy();
-    expect(service.isSmallScreen()).toBeFalsy();
-    expect(service.isIphone()).toBeFalsy();
-    expect(service.isAndroid()).toBeFalsy();
-    expect(service.isLargeMobile()).toBeFalsy();
+    expect(service.isWeb()).toBeFalsy();
+    expect(service.isWebPortrait()).toBeFalsy();
+    expect(service.isWebLandscape()).toBeFalsy();
+    expect(service.isHandset()).toBeFalsy();
+    expect(service.isHandsetLandscape()).toBeFalsy();
+    expect(service.isHandsetPortrait()).toBeFalsy();
+    expect(service.isLarge()).toBeFalsy();
+    expect(service.isMedium()).toBeFalsy();
+    expect(service.isSmall()).toBeFalsy();
     expect(service.isTablet()).toBeFalsy();
-    expect(service.isIpad()).toBeFalsy();
-    expect(service.isLaptop()).toBeFalsy();
-    expect(service.isSmallLaptop()).toBeFalsy();
-    expect(service.isDesktop()).toBeFalsy();
-    expect(service.isWideDesktop()).toBeFalsy();
+    expect(service.isTabletLandscape()).toBeFalsy();
+    expect(service.isTabletPortrait()).toBeFalsy();
+    expect(service.isXLarge()).toBeFalsy();
+    expect(service.isXSmall()).toBeFalsy();
   });
 });
