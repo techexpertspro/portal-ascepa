@@ -42,10 +42,6 @@ export class HomeComponent implements OnInit {
         property: 'og:description',
         content: 'Acompanhe as últimas notícias e saiba mais sobre a Ascepa.',
       },
-      {
-        property: 'og:image',
-        content: 'https://portal-ascepa.vercel.app/home/image-placeholder.png',
-      },
       { property: 'og:url', content: 'https://portal-ascepa.vercel.app/home' },
     ]);
   }
