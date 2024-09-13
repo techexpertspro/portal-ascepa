@@ -62,6 +62,6 @@ describe('JoinUsComponent', () => {
     expect(imgElement.src).toContain(component.joinUs.imgSrc);
     expect(imgElement.alt).toBe(component.joinUs.alternativeText);
     expect(imgElement.width).toBe(389);
-    expect(imgElement.height).toBe(220);
+    expect(imgElement.height).toBe(205);
   });
 });
