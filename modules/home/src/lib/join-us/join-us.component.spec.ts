@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import { JoinUsComponent } from './join-us.component';
+
+expect.extend(toHaveNoViolations);
 
 describe('JoinUsComponent', () => {
   let component: JoinUsComponent;
@@ -18,6 +21,12 @@ describe('JoinUsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have no accessibility violations', async () => {
+    fixture.detectChanges();
+    const results = await axe(fixture.nativeElement);
+    expect(results).toHaveNoViolations();
   });
 
   it('should text h2', () => {
