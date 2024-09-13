@@ -1,19 +1,17 @@
-section {
-  display: block;
-  max-width: 1200px;
-  margin: 0 auto;
+:host section {
+  display: flex;
+  max-width: 75rem;
+  gap: 1rem; /* espaçamento entre texto e imagem */
+  margin: 0 auto; /* Centraliza a seção horizontalmente */
+  padding: 0 1rem;
 
   article {
     display: flex;
-    flex-direction: row;
-    gap: 5rem;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  article {
     flex-direction: column;
-    gap: initial;
+    gap: 1rem; /* espaçamento titulo e texto */
+  }
+
+  img {
+    object-fit: cover;
   }
 }

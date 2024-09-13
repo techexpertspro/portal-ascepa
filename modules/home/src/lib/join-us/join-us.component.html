@@ -1,9 +1,18 @@
 <section>
-  <h2>Filie-se</h2>
   <article>
+    <h2>{{ joinUs.title }}</h2>
     <p>
-      {{ text }}
+      {{ joinUs.text }}
     </p>
-    <img [src]="imgSrc" [alt]="alternativeText" />
+    <button style="width: 30%" (click)="learnMore()">
+      {{ joinUs.button }}
+    </button>
   </article>
+  <img
+    [ngSrc]="joinUs.imgSrc"
+    [alt]="joinUs.alternativeText"
+    width="389"
+    height="220"
+    priority
+  />
 </section>

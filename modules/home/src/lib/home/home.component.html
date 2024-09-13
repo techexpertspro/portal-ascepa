@@ -5,7 +5,11 @@
 ></lib-about-us>
 <lib-latest-news></lib-latest-news>
 <lib-join-us
-  [text]="aboutUsText"
-  [imgSrc]="imgSrc"
-  [alternativeText]="alternativeText"
+  [joinUs]="{
+    title: 'Filie-se',
+    text: aboutUsText,
+    imgSrc: imgSrc,
+    alternativeText: alternativeText,
+    button: 'Saiba mais'
+  }"
 ></lib-join-us>
