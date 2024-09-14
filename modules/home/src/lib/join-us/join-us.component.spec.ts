@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { JoinUsComponent } from './join-us.component';
+import { MAGIC_NUMBERS } from './join-us.constants';
 
 expect.extend(toHaveNoViolations);
 
@@ -59,9 +60,9 @@ describe('JoinUsComponent', () => {
     const imgElement: HTMLImageElement =
       fixture.nativeElement.querySelector('img');
 
-    expect(imgElement.src).toContain(component.joinUs.imgSrc);
-    expect(imgElement.alt).toBe(component.joinUs.alternativeText);
-    expect(imgElement.width).toBe(389);
-    expect(imgElement.height).toBe(205);
+    expect(imgElement.src).toContain(component['joinUs'].imgSrc);
+    expect(imgElement.alt).toBe(component['joinUs'].alternativeText);
+    expect(imgElement.width).toBe(MAGIC_NUMBERS.FOUR_HUNDRED);
+    expect(imgElement.height).toBe(MAGIC_NUMBERS.FOUR_HUNDRED);
   });
 });
