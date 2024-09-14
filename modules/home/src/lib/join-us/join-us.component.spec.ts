@@ -30,21 +30,21 @@ describe('JoinUsComponent', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('should text h2', () => {
+  it('should render the h2 title correctly', () => {
     const sectionTitle = fixture.debugElement.query(By.css('h2'))
       .nativeElement as HTMLHeadingElement;
 
     expect(sectionTitle.textContent).toBe(component['joinUs'].title);
   });
 
-  it('should text p', () => {
+  it('should render the paragraph text correctly', () => {
     const sectionTitle = fixture.debugElement.query(By.css('p'))
       .nativeElement as HTMLElement;
 
     expect(sectionTitle.textContent).toContain(component['joinUs'].text);
   });
 
-  it('should click button', () => {
+  it('should trigger the learnMore method on button click', () => {
     const joinUsSpy = jest.spyOn(component, 'learnMore');
     const sectionTitle = fixture.debugElement.query(By.css('button'))
       .nativeElement as HTMLButtonElement;
@@ -56,7 +56,7 @@ describe('JoinUsComponent', () => {
     expect(joinUsSpy).toHaveBeenCalled();
   });
 
-  it('should render the image with the correct src, alt, width, and height', () => {
+  it('should render the image with the correct attributes', () => {
     const imgElement: HTMLImageElement =
       fixture.nativeElement.querySelector('img');
 
