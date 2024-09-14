@@ -7,8 +7,8 @@ export async function moduleGenerator(tree: Tree, options: Schema) {
     ...options,
     style: 'scss',
     directory: options.directory
-      ? `modules/${options.directory}/${options.name}`
-      : `modules/${options.name}`,
+      ? `libs/${options.directory}/${options.name}`
+      : `libs/${options.name}`,
     projectNameAndRootFormat: 'as-provided',
     lazy: options.routing,
   });
