@@ -28,15 +28,10 @@ html.dark-theme {
   ); // Aplica o tema a todos os componentes
 }
 
-// Adiciona um fundo escuro e transições suaves ao body
-.dark-theme main {
+// Adiciona um fundo escuro e transições suaves
+.dark-theme main,
+.dark-theme header {
   background-color: #121212;
   color: #ffffff;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.dark-theme #header {
-  background-color: #121212 !important;
-  color: #ffffff !important;
-  transition: background-color 0.3s ease, color 0.3s ease !important;
 }
