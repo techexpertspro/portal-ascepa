@@ -5,7 +5,6 @@ import {
   inject,
   OnInit,
   Renderer2,
-  signal,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
@@ -30,13 +29,11 @@ export class ThemeToggleDirective implements OnInit, AfterViewInit {
   private readonly destroyRef = inject(DestroyRef);
   private readonly toggleSwitch = inject(MatSlideToggle);
 
-  private readonly isDarkMode = signal<boolean>(
-    localStorage.getItem(this.THEME_KEY) === Theme.Dark,
-  );
-
   public ngOnInit(): void {
-    this.applyTheme(this.isDarkMode());
-    this.toggleSwitch.checked = this.isDarkMode();
+    const isDarkMode = localStorage.getItem(this.THEME_KEY) === Theme.Dark;
+
+    this.toggleSwitch.checked = isDarkMode;
+    this.applyTheme(isDarkMode);
 
     this.toggleSwitchObserver();
   }
@@ -56,7 +53,6 @@ export class ThemeToggleDirective implements OnInit, AfterViewInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         const isDarkModeEnabled = this.toggleSwitch.checked;
-        this.isDarkMode.set(isDarkModeEnabled);
         this.applyTheme(isDarkModeEnabled);
         this.cacheTheme(isDarkModeEnabled);
       });
@@ -69,7 +65,7 @@ export class ThemeToggleDirective implements OnInit, AfterViewInit {
    * @param isDarkTheme - Um booleano que determina se o tema escuro deve ser ativado.
    */
   private applyTheme(isDarkTheme: boolean): void {
-    const body = this.renderer.selectRootElement('body', true);
+    const body: HTMLBodyElement = this.renderer.selectRootElement('body', true);
     isDarkTheme
       ? this.renderer.addClass(body, Theme.Dark)
       : this.renderer.removeClass(body, Theme.Dark);

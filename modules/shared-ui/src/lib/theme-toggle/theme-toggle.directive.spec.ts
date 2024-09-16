@@ -7,7 +7,6 @@ import {
 import { By } from '@angular/platform-browser';
 import { Theme, ThemeToggleDirective } from './theme-toggle.directive';
 
-// Componente de Teste para aplicar a diretiva
 @Component({
   template: `<mat-slide-toggle libThemeToggle>Dark Mode</mat-slide-toggle>`,
 })
