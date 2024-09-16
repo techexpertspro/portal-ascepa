@@ -1,6 +1,3 @@
-// Importação do arquivo do Styleguide
-@import './scss/global';
-
 /**********************************************************
 * Configuração de Estilos Globais
 *---------------------------------------------------------
@@ -9,6 +6,7 @@
 ***********************************************************/
 
 @import './scss/global';
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 
 * {
   box-sizing: border-box;
