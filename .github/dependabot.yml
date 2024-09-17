@@ -16,5 +16,5 @@ updates:
       - 'dependabot'
       - 'update'
     commit-message:
-      prefix: 'deps' # Adicionar commitizen
-    open-pull-requests-limit: 10 # Limit the number of open PRs
+      prefix: 'chore(dependencies)'
+    open-pull-requests-limit: 10
