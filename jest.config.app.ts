@@ -22,5 +22,7 @@ export default {
   testMatch: [
     '<rootDir>/src/**/__tests__/**/*.[jt]s?(x)',
     '<rootDir>/src/**/*(*.)@(spec|test).[jt]s?(x)',
+    '<rootDir>/modules/**/__tests__/**/*.[jt]s?(x)',
+    '<rootDir>/modules/**/*(*.)@(spec|test).[jt]s?(x)',
   ],
 };
