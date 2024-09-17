@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    assignees:
+      - 'charlesribeiro'
+    reviewers:
+      - 'charlesribeiro'
+      - 'FelipeDuarteLuna'
+      - 'andrewrosario'
+      - 'paoloalmeida'
+    labels:
+      - 'dependencies'
+      - 'dependabot'
+      - 'update'
+    commit-message:
+      prefix: 'deps' # Adicionar commitizen
+    open-pull-requests-limit: 10 # Limit the number of open PRs
