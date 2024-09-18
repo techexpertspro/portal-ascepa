@@ -5,17 +5,22 @@ import {
   MatSlideToggleChange,
 } from '@angular/material/slide-toggle';
 import { By } from '@angular/platform-browser';
-import { Theme, ThemeToggleDirective } from './theme-toggle.directive';
+import {
+  MOON_SVG,
+  SUN_SVG,
+  Theme,
+  ThemeToggleDirective,
+} from './theme-toggle.directive';
 
 @Component({
-  template: `<mat-slide-toggle libThemeToggle>Dark Mode</mat-slide-toggle>`,
+  template: `<mat-slide-toggle libThemeToggle>Modo escuro</mat-slide-toggle>`,
 })
 class TestComponent {}
 
 describe('ThemeToggleDirective', () => {
+  let directive: ThemeToggleDirective;
+  let ButtonToggle: MatSlideToggle;
   let fixture: ComponentFixture<TestComponent>;
-  let toggle: MatSlideToggle;
-  let directiveInstance: ThemeToggleDirective;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -26,28 +31,26 @@ describe('ThemeToggleDirective', () => {
     fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
 
-    // Obter a instância da diretiva e o MatSlideToggle
-    const toggleDebugElement = fixture.debugElement.query(
+    const buttonToggleDebugElement = fixture.debugElement.query(
       By.directive(MatSlideToggle),
     );
-    toggle = toggleDebugElement.componentInstance;
-    directiveInstance = toggleDebugElement.injector.get(ThemeToggleDirective);
+    ButtonToggle = buttonToggleDebugElement.componentInstance;
+    directive = buttonToggleDebugElement.injector.get(ThemeToggleDirective);
   });
 
   afterEach(() => {
-    // Limpar o localStorage e o tema após cada teste
     localStorage.removeItem('theme');
     document.body.classList.remove(Theme.Dark);
   });
 
   it('should create the directive and MatSlideToggle', () => {
-    expect(directiveInstance).toBeTruthy();
-    expect(toggle).toBeTruthy();
+    expect(directive).toBeTruthy();
+    expect(ButtonToggle).toBeTruthy();
   });
 
   it('should apply dark theme when toggle is checked', () => {
-    toggle.checked = true;
-    toggle.change.emit({} as MatSlideToggleChange); // Simula a mudança no toggle
+    ButtonToggle.checked = true;
+    ButtonToggle.change.emit({} as MatSlideToggleChange);
     fixture.detectChanges();
 
     expect(document.body.classList.contains(Theme.Dark)).toBeTruthy();
@@ -55,14 +58,12 @@ describe('ThemeToggleDirective', () => {
   });
 
   it('should remove dark theme when toggle is unchecked', () => {
-    // Primeiro, ativa o tema escuro
-    toggle.checked = true;
-    toggle.change.emit({} as MatSlideToggleChange);
+    ButtonToggle.checked = true;
+    ButtonToggle.change.emit({} as MatSlideToggleChange);
     fixture.detectChanges();
 
-    // Agora, desativa o tema escuro
-    toggle.checked = false;
-    toggle.change.emit({} as MatSlideToggleChange);
+    ButtonToggle.checked = false;
+    ButtonToggle.change.emit({} as MatSlideToggleChange);
     fixture.detectChanges();
 
     expect(document.body.classList.contains(Theme.Dark)).toBeFalsy();
@@ -70,56 +71,60 @@ describe('ThemeToggleDirective', () => {
   });
 
   it('should initialize with dark theme if stored in localStorage', () => {
-    // Armazenar a preferência no localStorage antes de recriar o componente
     localStorage.setItem('theme', Theme.Dark);
 
-    // Destrói e recria o componente
     fixture.destroy();
     fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
 
-    // Obtém novamente o MatSlideToggle e a diretiva após recriar o componente
-    const toggleDebugElement = fixture.debugElement.query(
+    const buttonToggleDebugElement = fixture.debugElement.query(
       By.directive(MatSlideToggle),
     );
-    toggle = toggleDebugElement.componentInstance;
-    directiveInstance = toggleDebugElement.injector.get(ThemeToggleDirective);
+    ButtonToggle = buttonToggleDebugElement.componentInstance;
+    directive = buttonToggleDebugElement.injector.get(ThemeToggleDirective);
 
     expect(document.body.classList.contains(Theme.Dark)).toBeTruthy();
-    expect(toggle.checked).toBeTruthy();
+    expect(ButtonToggle.checked).toBeTruthy();
   });
 
   it('should update icons on toggle state change', () => {
-    const mockSetAttribute = jest.spyOn(
-      directiveInstance['renderer'],
-      'setAttribute',
+    const mockOnSVG = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'svg',
     );
+    mockOnSVG.classList.add('mdc-switch__icon--on');
+    const mockOnPath = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'path',
+    );
+    mockOnSVG.appendChild(mockOnPath);
 
-    // Simula a troca de estado do toggle
-    toggle.checked = true;
-    toggle.change.emit({} as MatSlideToggleChange);
+    const mockOffSVG = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'svg',
+    );
+    mockOffSVG.classList.add('mdc-switch__icon--off');
+    const mockOffPath = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'path',
+    );
+    mockOffSVG.appendChild(mockOffPath);
+
+    const mockNativeElement = document.createElement('div');
+    mockNativeElement.appendChild(mockOnSVG);
+    mockNativeElement.appendChild(mockOffSVG);
+
+    directive['toggleSwitch']._switchElement = {
+      nativeElement: mockNativeElement,
+    };
+
+    const mockSetAttribute = jest.spyOn(directive['renderer'], 'setAttribute');
+
+    directive['updateIcons']();
+
     fixture.detectChanges();
 
-    const div = toggle._switchElement.nativeElement;
-
-    // Verifica se o ícone da Lua foi definido corretamente
-    expect(mockSetAttribute).toHaveBeenCalledWith(
-      div,
-      'aria-checked',
-      'true',
-      undefined,
-    );
-
-    toggle.checked = false;
-    toggle.change.emit({} as MatSlideToggleChange);
-    fixture.detectChanges();
-
-    // Verifica se o ícone do Sol foi definido corretamente
-    expect(mockSetAttribute).toHaveBeenCalledWith(
-      div,
-      'aria-checked',
-      'true',
-      undefined,
-    );
+    expect(mockSetAttribute).toHaveBeenCalledWith(mockOnPath, 'd', MOON_SVG);
+    expect(mockSetAttribute).toHaveBeenCalledWith(mockOffPath, 'd', SUN_SVG);
   });
 });

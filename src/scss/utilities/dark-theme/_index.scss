@@ -2,15 +2,19 @@
 
 @include mat.core();
 
-// Defina o tema escuro
+$primary-palette: mat.m2-define-palette(mat.$m2-pink-palette);
+$accent-palette: mat.m2-define-palette(mat.$m2-blue-grey-palette);
+$warn-palette: mat.m2-define-palette(mat.$m2-red-palette);
+
+$dark-background: #121212;
+$dark-text-color: #e0e0e0;
+
 $dark-theme: mat.m2-define-dark-theme(
   (
     color: (
-      primary: mat.m2-define-palette(mat.$m2-pink-palette),
-      // Paleta primária para o tema escuro
-      accent: mat.m2-define-palette(mat.$m2-blue-grey-palette),
-      // Paleta de destaque para o tema escuro
-      warm: mat.m2-define-palette(mat.$m2-red-palette),
+      primary: $primary-palette,
+      accent: $accent-palette,
+      warn: $warn-palette,
     ),
     typography:
       mat.m2-define-typography-config(
@@ -20,18 +24,14 @@ $dark-theme: mat.m2-define-dark-theme(
   )
 );
 
-// Aplique o tema escuro dentro de um seletor específico
 html.dark-theme {
-  @include mat.core-theme($dark-theme); // Estilos essenciais para o tema
-  @include mat.all-component-themes(
-    $dark-theme
-  ); // Aplica o tema a todos os componentes
+  @include mat.core-theme($dark-theme);
+  @include mat.all-component-themes($dark-theme);
 }
 
-// Adiciona um fundo escuro e transições suaves
 .dark-theme main,
 .dark-theme header {
-  background-color: #121212;
-  color: #ffffff;
+  background-color: $dark-background;
+  color: $dark-text-color;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
