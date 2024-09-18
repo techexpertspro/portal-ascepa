@@ -1,21 +1,17 @@
-<section>
+<section class="px-1rem">
   <h2>Últimas Notícias</h2>
-  <div class="container p-10px">
-    <article class="main">
-      <img
-        [src]="mainNews.imageUrl"
-        [alt]="mainNews.altText"
-        class="main-image"
-      />
-      <h2>{{ mainNews.title }}</h2>
+  <div role="region" aria-label="Notícia principal e relacionadas">
+    <article>
+      <img class="mb-1rem" [src]="mainNews.imageUrl" [alt]="mainNews.altText" />
+      <h3>{{ mainNews.title }}</h3>
       <p>{{ mainNews.content }}</p>
     </article>
 
-    <aside class="side">
-      <section class="side-item mb-10px" *ngFor="let news of sideNews">
-        <img [src]="news.imageUrl" [alt]="news.altText" class="side-image" />
+    <aside>
+      <article *ngFor="let news of sideNews">
+        <img [src]="news.imageUrl" [alt]="news.altText" />
         <h3>{{ news.title }}</h3>
-      </section>
+      </article>
     </aside>
   </div>
 </section>
