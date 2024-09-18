@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'lib-label',
@@ -8,4 +8,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './label.component.html',
   styleUrl: './label.component.scss',
 })
-export class LabelComponent {}
+export class LabelComponent {
+  textLabel = 'Full Time';
+}
