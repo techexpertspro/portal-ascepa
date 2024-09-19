@@ -1,0 +1,14 @@
+@import './../../../../../src/scss/tokens/colors/token';
+@import './../../../../../src/scss/tokens/generic/mixin';
+@import './../../../../../src/scss/tokens/generic/token';
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+  margin-top: 20px;
+}
+
+address {
+  font-style: normal;
+}
