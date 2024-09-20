@@ -49,25 +49,31 @@
     }
   }
 }
-#menu-button {
-  display: none;
-  padding: 1rem;
-  background-color: transparent;
-  border: none;
-  border-radius: $border-radius;
-  @include transition;
-
-  path {
-    fill: $color-primary;
-    @include transition;
+#menu-toggle-container {
+  display: flex;
+  #menu-title {
+    display: none;
   }
-
-  &:hover {
-    cursor: pointer;
-    background-color: $color-primary;
+  #menu-button {
+    display: none;
+    padding: 1rem;
+    background-color: transparent;
+    border: none;
+    border-radius: $border-radius;
+    @include transition;
 
     path {
-      fill: $color-white;
+      fill: $color-primary;
+      @include transition;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $color-primary;
+
+      path {
+        fill: $color-white;
+      }
     }
   }
 }
@@ -80,7 +86,7 @@
   }
   #links {
     flex-wrap: wrap;
-    width: 100%;
+    width: 100svw;
     position: fixed;
     top: 112px;
     left: 0;
@@ -91,7 +97,7 @@
     align-items: stretch;
     opacity: 0;
 
-    &.opened {
+    &.isMenuExpanded {
       height: calc(100% - 112px);
       opacity: 1;
     }
@@ -108,8 +114,14 @@
       border-radius: 0;
     }
   }
-  #menu-button {
-    display: block;
-    align-self: center;
+  #menu-toggle-container {
+    #menu-button {
+      display: block;
+      align-self: center;
+    }
+    #menu-title {
+      display: flex;
+      align-items: center;
+    }
   }
 }

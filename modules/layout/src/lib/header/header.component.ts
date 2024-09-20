@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'lib-header',
@@ -7,11 +7,12 @@ import { Component } from '@angular/core';
   imports: [CommonModule, NgOptimizedImage],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  opened = false;
+  isMenuExpanded = false;
 
   toggleMenu(): void {
-    this.opened = !this.opened;
+    this.isMenuExpanded = !this.isMenuExpanded;
   }
 }
