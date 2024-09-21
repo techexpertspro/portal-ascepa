@@ -1,0 +1,14 @@
+@import 'src/scss/_global.scss';
+
+.btn-label {
+  background-color: $color-primary;
+  color: $color-white;
+  font-family: $font-inter;
+  font-weight: $font-weight-bold;
+  font-size: 12px;
+  text-decoration: none;
+  min-width: 78px;
+  margin-right: 8px;
+  padding: 4px 16px;
+  border-radius: 12px;
+}
