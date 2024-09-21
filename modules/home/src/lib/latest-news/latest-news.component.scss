@@ -13,8 +13,8 @@
       flex-direction: column;
 
       img {
-        width: 795px;
-        height: 475px;
+        max-width: 100%;
+        height: auto;
       }
 
       p {
@@ -29,8 +29,8 @@
         display: flex;
       }
       img {
-        width: 389px;
-        height: 150px;
+        max-width: 31vw;
+        height: auto;
       }
     }
   }

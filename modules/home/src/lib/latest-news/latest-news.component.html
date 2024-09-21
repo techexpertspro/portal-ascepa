@@ -2,14 +2,27 @@
   <h2>Últimas Notícias</h2>
   <div role="region" aria-label="Notícia principal e relacionadas">
     <article>
-      <img class="mb-1rem" [src]="mainNews.imageUrl" [alt]="mainNews.altText" />
+      <img
+        class="mb-1rem"
+        [ngSrc]="mainNews.imageUrl"
+        [alt]="mainNews.altText"
+        width="795"
+        height="475"
+        priority
+      />
       <h3>{{ mainNews.title }}</h3>
       <p>{{ mainNews.content }}</p>
     </article>
 
     <aside>
       <article *ngFor="let news of sideNews">
-        <img [src]="news.imageUrl" [alt]="news.altText" />
+        <img
+          [ngSrc]="news.imageUrl"
+          [alt]="news.altText"
+          width="390"
+          height="150"
+          priority
+        />
         <h3>{{ news.title }}</h3>
       </article>
     </aside>
