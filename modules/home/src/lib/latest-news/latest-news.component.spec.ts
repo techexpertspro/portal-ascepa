@@ -29,14 +29,14 @@ describe('LatestNewsComponent', () => {
 
   it('should render the main image with the correct alt text', () => {
     const mainImageElement = fixture.debugElement.query(
-      By.css('.main-image'),
+      By.css('div article img'),
     ).nativeElement;
     expect(mainImageElement.getAttribute('alt')).toBe('principal noticia');
   });
 
   it('should render side images with the correct alt text', () => {
     const sideImageElements = fixture.debugElement.queryAll(
-      By.css('.side-image'),
+      By.css('aside article img'),
     );
     sideImageElements.forEach((img) => {
       expect(img.nativeElement.getAttribute('alt')).toBe('noticia lateral');

@@ -1,14 +1,23 @@
-<section>
-  <article>
-    <h2>{{ joinUs.title }}</h2>
-    <p>
-      {{ joinUs.text }}
-    </p>
-    <button style="width: 30%" (click)="learnMore()">
-      {{ joinUs.button }}
-    </button>
-  </article>
+<section
+  class="p-1rem"
+  [ngClass]="
+    breakpointObserver.isHandsetPortrait() ? 'handset-portrait' : 'default'
+  "
+>
+  <h2>{{ joinUs.title }}</h2>
+  <p>
+    {{ joinUs.text }}
+  </p>
+  <button
+    mat-raised-button
+    color="primary"
+    style="width: 30%"
+    (click)="learnMore()"
+  >
+    {{ joinUs.button }}
+  </button>
   <img
+    class="pb-1rem"
     [ngSrc]="joinUs.imgSrc"
     [alt]="joinUs.alternativeText"
     [width]="magicNumber.FOUR_HUNDRED"
