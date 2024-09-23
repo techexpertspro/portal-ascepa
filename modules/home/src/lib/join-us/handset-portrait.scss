@@ -1,0 +1,25 @@
+:host section.handset-portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 76rem;
+  gap: 1rem;
+
+  p {
+    order: 3;
+  }
+
+  button {
+    align-self: flex-end;
+    background-color: #feca57;
+    border-radius: 0.5rem;
+    order: 4;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    order: 2;
+  }
+}

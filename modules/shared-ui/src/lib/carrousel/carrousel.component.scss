@@ -1,20 +1,12 @@
-@import 'src/scss/_global.scss';
-
-:host {
+:host section {
   display: block;
-  width: 100%;
-}
-
-.slides {
   width: 390px;
   height: 276px;
   overflow: hidden;
   position: relative;
   margin: auto;
-  > h1 {
+  > h2 {
     margin: 0;
-    font-size: $font-size-h2;
-    color: $color-primary;
     text-align: center;
   }
 
@@ -33,8 +25,6 @@
     position: absolute;
     border: none;
     top: 30%; /* Centraliza verticalmente */
-    background-color: $color-button-primary-bg; /* Cor do botão */
-    border-radius: $border-radius; /* Faz os botões serem circulares */
     cursor: pointer;
   }
   .btn-next {
@@ -49,8 +39,6 @@
 
     .description {
       margin: 0;
-      font-size: $font-size-body-l;
-      color: $color-primary;
     }
   }
 }
@@ -62,12 +50,10 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: $color-secondary;
     display: inline-block;
     margin: 0 3px;
     cursor: pointer;
     &.active {
-      background-color: $color-button-primary-bg;
       transition: 0.5s ease-in-out;
     }
   }
