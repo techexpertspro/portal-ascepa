@@ -17,7 +17,7 @@ describe('BreakpointService', () => {
         of({
           matches: true,
           breakpoints: Object.keys(Breakpoints).reduce((acc, key) => {
-            acc[Breakpoints[key]] = true;
+            acc[Breakpoints[key as keyof typeof Breakpoints]] = true; // Ajuste aqui
             return acc;
           }, {} as { [key: string]: boolean }),
         } as BreakpointState),

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 
 export interface NewsItem {
@@ -11,7 +11,7 @@ export interface NewsItem {
 @Component({
   selector: 'lib-latest-news',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './latest-news.component.html',
   styleUrl: './latest-news.component.scss',
 })

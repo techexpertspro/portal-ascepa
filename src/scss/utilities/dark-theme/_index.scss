@@ -1,0 +1,220 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+// Note: Color palettes are generated from primary: #607D8B, secondary: #03A9F4, tertiary: #FF9800, neutral: #CFD8DC
+$_palettes: (
+  primary: (
+    0: #000000,
+    10: #001f2a,
+    20: #003546,
+    25: #004154,
+    30: #004d64,
+    35: #005a73,
+    40: #006783,
+    50: #0081a5,
+    60: #069dc7,
+    70: #40b8e3,
+    80: #65d3ff,
+    90: #bde9ff,
+    95: #e0f4ff,
+    98: #f4faff,
+    99: #fafcff,
+    100: #ffffff,
+  ),
+  secondary: (
+    0: #000000,
+    10: #001e30,
+    20: #00344f,
+    25: #003f5f,
+    30: #004b70,
+    35: #005881,
+    40: #006493,
+    50: #007eb8,
+    60: #0099de,
+    70: #30b5ff,
+    80: #8dcdff,
+    90: #cae6ff,
+    95: #e6f2ff,
+    98: #f6f9ff,
+    99: #fcfcff,
+    100: #ffffff,
+  ),
+  tertiary: (
+    0: #000000,
+    10: #2c1600,
+    20: #4a2800,
+    25: #593200,
+    30: #693c00,
+    35: #7a4600,
+    40: #8b5000,
+    50: #ae6600,
+    60: #d27c00,
+    70: #f79300,
+    80: #ffb870,
+    90: #ffdcbe,
+    95: #ffeee1,
+    98: #fff8f5,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+  neutral: (
+    0: #000000,
+    4: #000c10,
+    6: #001317,
+    10: #001f27,
+    12: #00242c,
+    17: #002f3a,
+    20: #003642,
+    22: #003a48,
+    24: #003f4d,
+    25: #004150,
+    30: #004e5f,
+    35: #005a6e,
+    40: #00677d,
+    50: #00829d,
+    60: #009ebe,
+    70: #33b9dc,
+    80: #59d5f8,
+    87: #98e4fd,
+    90: #b3ebff,
+    92: #c3efff,
+    94: #d3f3ff,
+    95: #dbf5ff,
+    96: #e3f7ff,
+    98: #f2fbff,
+    99: #f9fdff,
+    100: #ffffff,
+  ),
+  neutral-variant: (
+    0: #000000,
+    10: #151d20,
+    20: #2a3236,
+    25: #353d41,
+    30: #40484c,
+    35: #4c5458,
+    40: #586064,
+    50: #70787d,
+    60: #8a9297,
+    70: #a4acb1,
+    80: #c0c8cd,
+    90: #dce4e9,
+    95: #eaf2f7,
+    98: #f4faff,
+    99: #fafcff,
+    100: #ffffff,
+  ),
+  error: (
+    0: #000000,
+    10: #410002,
+    20: #690005,
+    25: #7e0007,
+    30: #93000a,
+    35: #a80710,
+    40: #ba1a1a,
+    50: #de3730,
+    60: #ff5449,
+    70: #ff897d,
+    80: #ffb4ab,
+    90: #ffdad6,
+    95: #ffedea,
+    98: #fff8f7,
+    99: #fffbff,
+    100: #ffffff,
+  ),
+);
+
+$_rest: (
+  secondary: map.get($_palettes, secondary),
+  neutral: map.get($_palettes, neutral),
+  neutral-variant: map.get($_palettes, neutral-variant),
+  error: map.get($_palettes, error),
+);
+$_primary: map.merge(map.get($_palettes, primary), $_rest);
+$_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+
+$_neutral_variant: map.merge(map.get($_palettes, neutral-variant), $_rest);
+$_error: map.merge(map.get($_palettes, error), $_rest);
+
+@include mat.core();
+@include mat.strong-focus-indicators();
+// @include mat.elevation-transition();
+
+// Definindo as cores usando as paletas exportadas
+$my-colors: mat.define-colors(
+  (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+  )
+);
+
+$my-others-colors: mat.define-colors(
+  (
+    theme-type: dark,
+    primary: $_neutral_variant,
+    tertiary: $_error,
+  )
+);
+
+// Definindo o tema
+$dark-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: $_primary,
+      tertiary: $_tertiary,
+      use-system-variables: true,
+    ),
+    typography: (
+      use-system-variables: true,
+    ),
+    density: (
+      scale: -1,
+    ),
+  )
+);
+
+$dark-background: #121212;
+$dark-text-color: #e0e0e0;
+
+body.dark-theme {
+  @include mat.core-theme($dark-theme);
+  @include mat.button-theme($dark-theme);
+  @include mat.all-component-themes($dark-theme);
+  @include mat.strong-focus-indicators-theme($dark-theme);
+  @include mat.strong-focus-indicators-color($my-colors);
+  // @include mat.private-transition-property-value();
+  // @include mat.slide-toggle-color($my-others-colors);
+  // @include mat.slide-toggle-base($dark-theme);
+  .mdc-switch {
+    width: 2.3rem;
+    border-radius: 1rem;
+    height: 0.9rem;
+    background-color: #a4acb1;
+  }
+
+  .mdc-switch--selected .mdc-switch__icon {
+    fill: white;
+  }
+
+  .mdc-switch__shadow {
+    background-color: #8a9297;
+  }
+
+  .mdc-switch:hover .mdc-switch__shadow {
+    background-color: #586064;
+  }
+
+  .mdc-switch--selected .mdc-switch__track::after {
+    background: var(--mdc-switch-selected-track-color);
+  }
+
+  background-color: $dark-background;
+}
+
+.dark-theme main,
+.dark-theme header {
+  background-color: $dark-background;
+  color: $dark-text-color;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

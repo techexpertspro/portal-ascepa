@@ -39,6 +39,7 @@
     "@angular/language-service": "18.1.1",
     "@commitlint/config-conventional": "^19.2.2",
     "@commitlint/types": "^19.0.3",
+    "@gitmoji/parser-opts": "^1.4.0",
     "@nx/cypress": "19.5.2",
     "@nx/eslint": "19.5.2",
     "@nx/eslint-plugin": "19.5.2",
