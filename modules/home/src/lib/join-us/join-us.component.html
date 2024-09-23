@@ -1,4 +1,5 @@
 <section
+  class="p-1rem"
   [ngClass]="
     breakpointObserver.isHandsetPortrait() ? 'handset-portrait' : 'default'
   "
@@ -7,10 +8,16 @@
   <p>
     {{ joinUs.text }}
   </p>
-  <button style="width: 30%" (click)="learnMore()">
+  <button
+    mat-raised-button
+    color="primary"
+    style="width: 30%"
+    (click)="learnMore()"
+  >
     {{ joinUs.button }}
   </button>
   <img
+    class="pb-1rem"
     [ngSrc]="joinUs.imgSrc"
     [alt]="joinUs.alternativeText"
     [width]="magicNumber.FOUR_HUNDRED"

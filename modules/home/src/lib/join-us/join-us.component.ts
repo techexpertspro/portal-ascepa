@@ -1,5 +1,6 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { BreakpointService } from '@portal-ascepa/shared-ui';
 import { JOIN_US, MAGIC_NUMBERS } from './join-us.constants';
 
@@ -7,7 +8,7 @@ import { JOIN_US, MAGIC_NUMBERS } from './join-us.constants';
   selector: 'lib-join-us',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, MatButtonModule],
   templateUrl: './join-us.component.html',
   styleUrls: ['./handset-portrait.scss', './default.scss'],
 })
