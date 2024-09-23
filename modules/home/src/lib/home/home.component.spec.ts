@@ -34,13 +34,13 @@ describe('HomeComponent', () => {
     const ogTitleTag = metaService.getTag('property="og:title"');
 
     //Assert
-    expect(descriptionTag.content).toBe(
+    expect(descriptionTag?.content).toBe(
       'Página inicial do Portal Ascepa. ONG Associação de e para Cegos do Pará.',
     );
-    expect(authorTag.content).toBe(
+    expect(authorTag?.content).toBe(
       'Mentoria Angular PRO | Tech Experts - https://techexperts.pro',
     );
-    expect(ogTitleTag.content).toBe(
+    expect(ogTitleTag?.content).toBe(
       'Portal Ascepa - Associação de e para Cegos do Pará.',
     );
   });

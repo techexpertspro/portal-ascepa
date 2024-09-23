@@ -136,10 +136,10 @@ describe('CarrouselComponent', () => {
 
   it('should set window.location.href to image href on Enter key press', () => {
     const setHrefMock = jest.fn();
-    delete window.location;
+    // delete window.location;
     Object.defineProperty(window, 'location', {
       value: {
-        set href(href) {
+        set href(href: string) {
           setHrefMock(href);
         },
       },
