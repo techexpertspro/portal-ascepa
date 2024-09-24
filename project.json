@@ -22,7 +22,7 @@
             "input": "public"
           }
         ],
-        "styles": ["./src/styles.scss"],
+        "styles": ["./src/styles.scss","@angular/material/prebuilt-themes/pink-bluegrey.css"],
         "stylePreprocessorOptions": {
           "includePaths": ["./src/scss/_global.scss"]
         },
