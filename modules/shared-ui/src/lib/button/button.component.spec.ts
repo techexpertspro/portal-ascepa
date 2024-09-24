@@ -58,4 +58,21 @@ describe('ButtonComponent', () => {
     buttonDebugElement.triggerEventHandler('click', {});
     expect(submitEmitSpy).not.toHaveBeenCalled();
   });
+
+  it('deve aplicar a classe "primary-button" quando accent for "primary"', () => {
+    fixture.detectChanges();
+
+    const buttonElement = fixture.debugElement.query(By.css('button'));
+    expect(buttonElement.classes['primary-button']).toBeTruthy();
+    expect(buttonElement.classes['secondary-button']).toBeFalsy();
+  });
+
+  it('deve aplicar a classe "secondary-button" quando accent for "secondary"', () => {
+    component.accent = 'secondary';
+    fixture.detectChanges();
+
+    const buttonElement = fixture.debugElement.query(By.css('button'));
+    expect(buttonElement.classes['secondary-button']).toBeTruthy();
+    expect(buttonElement.classes['primary-button']).toBeFalsy();
+  });
 });

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { BreakpointService } from '@portal-ascepa/shared-ui';
+import { BreakpointService, ButtonComponent } from '@portal-ascepa/shared-ui';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { JoinUsComponent } from './join-us.component';
 import { MAGIC_NUMBERS } from './join-us.constants';
@@ -26,6 +26,11 @@ describe('JoinUsComponent', () => {
     fixture = TestBed.createComponent(JoinUsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    // const libButtonDebugElement = fixture.debugElement.query(
+    //   By.directive(ButtonComponent),
+    // );
+    // libButton = libButtonDebugElement.componentInstance;
   });
 
   it('should create', () => {
@@ -53,15 +58,21 @@ describe('JoinUsComponent', () => {
   });
 
   it('should trigger the learnMore method on button click', () => {
-    const joinUsSpy = jest.spyOn(component, 'learnMore');
-    const sectionTitle = fixture.debugElement.query(By.css('button'))
-      .nativeElement as HTMLButtonElement;
+    // Espiona o método learnMore no componente JoinUs
+    const learnMoreSpy = jest.spyOn(component, 'learnMore');
 
-    sectionTitle.click();
+    // Obtém o lib-button no template
+    const buttonDebugElement = fixture.debugElement.query(
+      By.directive(ButtonComponent),
+    );
+    const buttonComponentInstance =
+      buttonDebugElement.componentInstance as ButtonComponent;
 
-    fixture.detectChanges();
+    // Dispara o evento 'submmit' no lib-button
+    buttonComponentInstance.submmit.emit();
 
-    expect(joinUsSpy).toHaveBeenCalled();
+    // Verifica se o método learnMore foi chamado
+    expect(learnMoreSpy).toHaveBeenCalled();
   });
 
   it('should render the image with the correct attributes', () => {

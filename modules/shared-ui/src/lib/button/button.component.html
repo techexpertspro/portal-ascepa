@@ -1,5 +1,6 @@
 <button
   mat-raised-button
+  [disabled]="disabled"
   [ngClass]="{
     'primary-button': accent === 'primary',
     'secondary-button': accent === 'secondary'

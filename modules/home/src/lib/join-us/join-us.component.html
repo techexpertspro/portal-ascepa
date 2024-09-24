@@ -8,14 +8,12 @@
   <p>
     {{ joinUs.text }}
   </p>
-  <button
-    mat-raised-button
-    color="primary"
-    style="width: 30%"
-    (click)="learnMore()"
-  >
-    {{ joinUs.button }}
-  </button>
+  <lib-button
+    [label]="joinUs.button"
+    ariaLabel="saiba mais"
+    [disabled]="true"
+    (submmit)="learnMore()"
+  ></lib-button>
   <img
     class="pb-1rem"
     [ngSrc]="joinUs.imgSrc"
