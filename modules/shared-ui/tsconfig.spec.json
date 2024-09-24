@@ -14,8 +14,8 @@
     "src/**/*.test.ts",
     "src/**/*.spec.ts",
     "src/**/*.d.ts",
-    "src/**/*.spec.ts",
     "src/lib/service/**/*.ts",
-    "src/lib/model/**/*.ts"
+    "src/lib/model/**/*.ts",
+    "src/lib/**/*.ts"
   ]
 }

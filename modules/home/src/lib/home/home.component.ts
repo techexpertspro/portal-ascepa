@@ -53,4 +53,9 @@ export class HomeComponent implements OnInit {
       { property: 'og:url', content: 'https://portal-ascepa.vercel.app/home' },
     ]);
   }
+
+  test() {
+    // eslint-disable-next-line no-console
+    console.log('home clicked');
+  }
 }

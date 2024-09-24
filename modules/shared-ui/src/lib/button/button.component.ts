@@ -14,7 +14,10 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [CommonModule, MatIconModule, MatButtonModule],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.scss',
+  styleUrls: [
+    './button-primary.component.scss',
+    './button-secondary.component.scss',
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
@@ -26,4 +29,10 @@ export class ButtonComponent {
   @Input() icon = ''; //material icon?
 
   @Output() submmit = new EventEmitter<Event>();
+
+  onClick(event: Event): void {
+    if (!this.disabled) {
+      this.submmit.emit(event);
+    }
+  }
 }
