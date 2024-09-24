@@ -1,5 +1,3 @@
-@import 'src/scss/_global.scss';
-
 .card {
   h2,
   p {
@@ -9,7 +7,7 @@
   width: 100%;
   border-radius: 8px;
   border-width: 0;
-  background-color: $color-bg-cards;
+  background-color: #f2f8ff;
 
   &__container {
     padding: 16px;
@@ -26,16 +24,16 @@
   }
 
   &__text {
-    font-size: $font-size-body-l;
-    font-weight: $font-weight-regular;
+    font-size: 1rem;
+    font-weight: 400;
     line-height: 24px;
 
     &--subtitle {
-      color: $color-primary;
+      color: #015292;
     }
 
     &--description {
-      color: $color-secondary;
+      color: #666a7b;
     }
   }
 
@@ -47,14 +45,14 @@
     padding: 0;
 
     .card__buttons--flat {
-      background-color: $color-button-primary-bg;
-      font-size: $font-size-body-l;
-      color: $color-button-secondary-text;
+      background-color: #f5ce3c;
+      font-size: 1rem;
+      color: #000000;
     }
 
     .card__buttons--stroked {
-      color: $color-button-secondary-text;
-      border: 1px solid $color-secondary;
+      color: #000000;
+      border: 1px solid #666a7b;
     }
 
     button {
@@ -69,7 +67,7 @@
     padding: 0 6px !important;
     --mdc-chip-container-height: 24px;
     --mdc-chip-elevated-container-color: #015292;
-    --mdc-chip-elevated-disabled-container-color: $color-primary;
+    --mdc-chip-elevated-disabled-container-color: #015292;
     --mdc-chip-label-text-color: #fff;
     --mdc-chip-outline-width: 0;
     --mdc-chip-label-text-size: 12px;
