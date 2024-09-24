@@ -1,0 +1,12 @@
+<button
+  mat-fab
+  extended
+  color="primary"
+  [attr.type]="type"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel"
+  [ngClass]="{ color: accent }"
+>
+  <mat-icon aria-hidden="false" *ngIf="icon">{{ icon }}</mat-icon>
+  {{ label }}
+</button>
