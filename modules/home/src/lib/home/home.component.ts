@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+
+import { SocialmediaComponent } from '@portal-ascepa/shared-ui';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { JoinUsComponent } from '../join-us/join-us.component';
 import { LatestNewsComponent } from '../latest-news/latest-news.component';
@@ -13,6 +15,7 @@ import { LatestNewsComponent } from '../latest-news/latest-news.component';
     AboutUsComponent,
     LatestNewsComponent,
     JoinUsComponent,
+    SocialmediaComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
