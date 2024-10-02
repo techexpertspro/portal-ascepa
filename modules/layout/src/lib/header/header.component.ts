@@ -1,11 +1,11 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
-import { ThemeToggleComponent } from '@portal-ascepa/shared-ui';
+import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
   selector: 'lib-header',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, ThemeToggleComponent],
+  imports: [CommonModule, NgOptimizedImage, SettingsComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
