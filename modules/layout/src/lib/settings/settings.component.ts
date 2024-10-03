@@ -7,7 +7,6 @@ import {
   ElementRef,
   inject,
   Injector,
-  LOCALE_ID,
   runInInjectionContext,
   ViewChild,
 } from '@angular/core';
@@ -23,7 +22,6 @@ import {
   skipUntilSaid,
   SpeechRecognitionService,
   takeUntilSaid,
-  WA_SPEECH_RECOGNITION_MAX_ALTERNATIVES,
 } from '@ng-web-apis/speech';
 import { ThemeToggleComponent } from '@portal-ascepa/shared-ui';
 import { filter, repeat, retry } from 'rxjs';
@@ -42,10 +40,6 @@ registerLocaleData(localePt);
     ThemeToggleComponent,
     DisableEventsDirective,
     MatSlideToggleModule,
-  ],
-  providers: [
-    { provide: LOCALE_ID, useValue: 'pt-BR' },
-    { provide: WA_SPEECH_RECOGNITION_MAX_ALTERNATIVES, useValue: 1 },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './settings.component.html',
@@ -73,12 +67,12 @@ export class SettingsComponent {
     this.recognition$.pipe(
       retry(),
       repeat(),
-      skipUntilSaid('ok google'),
-      takeUntilSaid('bye-bye google'),
+      skipUntilSaid('fala Vitão'),
+      takeUntilSaid('valeu Vitão'),
       repeat(),
       final(),
       filter((result) => result && result.length > 0),
-      filter(isSaid('change theme')),
+      filter(isSaid('mudar tema')),
       continuous(),
     ),
     { initialValue: null },
