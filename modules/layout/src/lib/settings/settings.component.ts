@@ -1,5 +1,4 @@
-import { CommonModule, registerLocaleData } from '@angular/common';
-import localePt from '@angular/common/locales/pt';
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -26,8 +25,6 @@ import {
 import { ThemeToggleComponent } from '@portal-ascepa/shared-ui';
 import { filter, repeat, retry } from 'rxjs';
 import { DisableEventsDirective } from './disable-pointer.directive';
-
-registerLocaleData(localePt);
 
 @Component({
   selector: 'lib-settings',

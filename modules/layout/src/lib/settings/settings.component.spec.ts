@@ -1,19 +1,25 @@
-import { ElementRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SpeechRecognitionService } from '@ng-web-apis/speech';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import { Subject } from 'rxjs';
 import { SettingsComponent } from './settings.component';
+
+expect.extend(toHaveNoViolations);
 
 describe('SettingsComponent', () => {
   let component: SettingsComponent;
   let fixture: ComponentFixture<SettingsComponent>;
-  let speechRecognitionSubject: Subject<any>;
-  let mockSpeechRecognitionService: Partial<SpeechRecognitionService>;
+  let speechRecognitionSubject: Subject<SpeechRecognitionResult[]>;
+
+  const mockSpeechRecognitionService = {
+    pipe: jest.fn(),
+  };
 
   beforeEach(async () => {
-    speechRecognitionSubject = new Subject();
-
-    mockSpeechRecognitionService = speechRecognitionSubject.asObservable();
+    speechRecognitionSubject = new Subject<SpeechRecognitionResult[]>();
+    mockSpeechRecognitionService.pipe.mockReturnValue(
+      speechRecognitionSubject.asObservable(),
+    );
 
     await TestBed.configureTestingModule({
       imports: [SettingsComponent],
@@ -28,17 +34,6 @@ describe('SettingsComponent', () => {
     fixture = TestBed.createComponent(SettingsComponent);
     component = fixture.componentInstance;
 
-    // Mock the theme toggle component's ElementRef
-    const themeToggleElementRef = {
-      nativeElement: {
-        querySelector: jest.fn().mockReturnValue({
-          click: jest.fn(),
-        }),
-      },
-    } as unknown as ElementRef;
-
-    component.themeToggleRef = themeToggleElementRef;
-
     fixture.detectChanges();
   });
 
@@ -46,44 +41,41 @@ describe('SettingsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  xit('should call toggleTheme when "change theme" command is recognized', () => {
-    fixture.destroy();
-    fixture = TestBed.createComponent(SettingsComponent);
-    component = fixture.componentInstance;
-
+  it('should have no accessibility violations', async () => {
     fixture.detectChanges();
+    const results = await axe(fixture.nativeElement);
+    expect(results).toHaveNoViolations();
+  });
 
+  it('should call toggleTheme when "change theme" command is recognized', () => {
     const toggleThemeSpy = jest.spyOn(component as any, 'toggleTheme');
 
-    // Simulate the speech recognition emitting the "change theme" command
     speechRecognitionSubject.next([
-      [
-        {
-          transcript: 'change theme',
-        },
-      ],
+      {
+        isFinal: true,
+        length: 1,
+        item: (index: number) => ({
+          transcript: 'mudar tema',
+          confidence: 0.9,
+        }),
+        0: { transcript: 'mudar tema', confidence: 0.9 },
+      },
     ]);
 
-    // Trigger change detection to process the signal update
     fixture.detectChanges();
 
-    // Allow any pending microtasks to complete
-    return Promise.resolve().then(() => {
-      expect(toggleThemeSpy).toHaveBeenCalled();
-    });
+    expect(toggleThemeSpy).toHaveBeenCalledTimes(1);
   });
 
   it('should simulate a click on the theme toggle button when toggleTheme is called', () => {
     const clickSpy = jest.fn();
 
-    // Mock the querySelector to return an element with a click method
     component.themeToggleRef.nativeElement.querySelector = jest
       .fn()
       .mockReturnValue({
         click: clickSpy,
       });
 
-    // Call the toggleTheme method
     (component as any).toggleTheme();
 
     expect(clickSpy).toHaveBeenCalled();
