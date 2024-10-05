@@ -180,12 +180,37 @@ $dark-text-color: #e0e0e0;
 body.dark-theme {
   @include mat.core-theme($dark-theme);
   @include mat.button-theme($dark-theme);
+  @include mat.button-base($dark-theme);
   @include mat.all-component-themes($dark-theme);
   @include mat.strong-focus-indicators-theme($dark-theme);
   @include mat.strong-focus-indicators-color($my-colors);
   // @include mat.private-transition-property-value();
   // @include mat.slide-toggle-color($my-others-colors);
   // @include mat.slide-toggle-base($dark-theme);
+
+  button[mat-raised-button].secondary-button {
+    color: $dark-text-color;
+
+    &:disabled {
+      color: $dark-background;
+    }
+  }
+
+  button[mat-raised-button].primary-button {
+    color: $dark-text-color;
+
+    &:disabled {
+      color: $dark-background;
+    }
+  }
+
+  main,
+  header {
+    background-color: $dark-background;
+    color: $dark-text-color;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
   .mdc-switch {
     width: 2.3rem;
     border-radius: 1rem;
@@ -210,11 +235,4 @@ body.dark-theme {
   }
 
   background-color: $dark-background;
-}
-
-.dark-theme main,
-.dark-theme header {
-  background-color: $dark-background;
-  color: $dark-text-color;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }

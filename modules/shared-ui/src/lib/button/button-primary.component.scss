@@ -1,13 +1,14 @@
-.primary-button {
-  background-color: #f5ce3c !important;
-  color: #000000 !important;
+:host button.primary-button {
+  color: black;
+  background-color: #f5ce3c;
+  border-radius: 0.5rem;
 
   &:hover {
-    background-color: darken(#f5ce3c, 15%) !important;
+    background-color: darken(#f5ce3c, 15%);
   }
 
   &:disabled {
-    background-color: lighten(#f5ce3c, 20%) !important;
+    background-color: lighten(#f5ce3c, 10%);
     cursor: not-allowed;
     opacity: 0.6;
   }

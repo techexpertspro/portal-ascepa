@@ -1,6 +1,6 @@
-.secondary-button {
+:host button.secondary-button {
+  color: black;
   background-color: transparent;
-  color: #000000;
   border: 1px solid #666a7b;
 
   &:hover {

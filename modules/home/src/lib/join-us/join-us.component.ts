@@ -9,7 +9,7 @@ import { JOIN_US, MAGIC_NUMBERS } from './join-us.constants';
   standalone: true,
   imports: [CommonModule, NgOptimizedImage, ButtonComponent],
   templateUrl: './join-us.component.html',
-  styleUrls: ['./handset-portrait.scss', './default.scss'],
+  styleUrls: ['./handset-portrait.component.scss', './default.component.scss'],
 })
 export class JoinUsComponent {
   protected readonly joinUs = JOIN_US;

@@ -1,3 +1,5 @@
+@import './../../../../../src/scss/tokens/colors/token';
+
 :host section.default {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -32,4 +34,7 @@
   @media (min-width: 1103px) {
     grid-template-rows: 2rem 4rem 3rem;
   }
+}
+.mat-mdc-raised-button.text-black:not(:disabled) {
+  color: $color-button-primary-text;
 }
