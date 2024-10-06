@@ -22,15 +22,11 @@ describe('JoinUsComponent', () => {
         },
       ],
     }).compileComponents();
+
     mockBreakpointService = TestBed.inject(BreakpointService);
     fixture = TestBed.createComponent(JoinUsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-
-    // const libButtonDebugElement = fixture.debugElement.query(
-    //   By.directive(ButtonComponent),
-    // );
-    // libButton = libButtonDebugElement.componentInstance;
   });
 
   it('should create', () => {
@@ -58,20 +54,16 @@ describe('JoinUsComponent', () => {
   });
 
   it('should trigger the learnMore method on button click', () => {
-    // Espiona o método learnMore no componente JoinUs
     const learnMoreSpy = jest.spyOn(component, 'learnMore');
 
-    // Obtém o lib-button no template
     const buttonDebugElement = fixture.debugElement.query(
       By.directive(ButtonComponent),
     );
     const buttonComponentInstance =
       buttonDebugElement.componentInstance as ButtonComponent;
 
-    // Dispara o evento 'submmit' no lib-button
     buttonComponentInstance.submmit.emit();
 
-    // Verifica se o método learnMore foi chamado
     expect(learnMoreSpy).toHaveBeenCalled();
   });
 

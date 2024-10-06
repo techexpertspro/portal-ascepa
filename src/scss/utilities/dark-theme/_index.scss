@@ -190,6 +190,8 @@ body.dark-theme {
 
   button[mat-raised-button].secondary-button {
     color: $dark-text-color;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1rem;
 
     &:disabled {
       color: $dark-background;
@@ -198,6 +200,8 @@ body.dark-theme {
 
   button[mat-raised-button].primary-button {
     color: $dark-text-color;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1rem;
 
     &:disabled {
       color: $dark-background;
