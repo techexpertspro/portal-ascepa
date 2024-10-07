@@ -6,6 +6,7 @@ import {
   ElementRef,
   inject,
   Injector,
+  OnInit,
   runInInjectionContext,
   ViewChild,
 } from '@angular/core';
@@ -42,25 +43,13 @@ import { DisableEventsDirective } from './disable-pointer.directive';
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss',
 })
-export class SettingsComponent {
+export class SettingsComponent implements OnInit {
   private readonly recognition$ = inject(SpeechRecognitionService);
   private readonly injector = inject(Injector);
   @ViewChild(ThemeToggleComponent, { static: true, read: ElementRef })
   themeToggleRef!: ElementRef;
 
-  private readonly themeToggleEffect = runInInjectionContext(
-    this.injector,
-    () => {
-      effect(() => {
-        const command = this.recognizedCommandSignal();
-        if (command) {
-          this.toggleTheme();
-        }
-      });
-    },
-  );
-
-  private recognizedCommandSignal = toSignal(
+  private readonly recognizedCommandSignal = toSignal(
     this.recognition$.pipe(
       retry(),
       repeat(),
@@ -74,6 +63,17 @@ export class SettingsComponent {
     ),
     { initialValue: null },
   );
+
+  ngOnInit(): void {
+    runInInjectionContext(this.injector, () => {
+      effect(() => {
+        const command = this.recognizedCommandSignal();
+        if (command) {
+          this.toggleTheme();
+        }
+      });
+    });
+  }
 
   private toggleTheme(): void {
     if (this.themeToggleRef) {

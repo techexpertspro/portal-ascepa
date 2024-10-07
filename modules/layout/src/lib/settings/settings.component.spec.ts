@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SpeechRecognitionService } from '@ng-web-apis/speech';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { SettingsComponent } from './settings.component';
 
 expect.extend(toHaveNoViolations);
@@ -10,16 +10,11 @@ describe('SettingsComponent', () => {
   let component: SettingsComponent;
   let fixture: ComponentFixture<SettingsComponent>;
   let speechRecognitionSubject: Subject<SpeechRecognitionResult[]>;
-
-  const mockSpeechRecognitionService = {
-    pipe: jest.fn(),
-  };
+  let mockSpeechRecognitionService: Observable<SpeechRecognitionResult[]>;
 
   beforeEach(async () => {
     speechRecognitionSubject = new Subject<SpeechRecognitionResult[]>();
-    mockSpeechRecognitionService.pipe.mockReturnValue(
-      speechRecognitionSubject.asObservable(),
-    );
+    mockSpeechRecognitionService = speechRecognitionSubject.asObservable();
 
     await TestBed.configureTestingModule({
       imports: [SettingsComponent],
@@ -54,11 +49,35 @@ describe('SettingsComponent', () => {
       {
         isFinal: true,
         length: 1,
-        item: (index: number) => ({
+        item: () => ({
+          transcript: 'fala vitão',
+          confidence: 0.9,
+        }),
+        0: { transcript: 'fala vitão', confidence: 0.9 },
+      },
+    ]);
+
+    speechRecognitionSubject.next([
+      {
+        isFinal: true,
+        length: 1,
+        item: () => ({
           transcript: 'mudar tema',
           confidence: 0.9,
         }),
         0: { transcript: 'mudar tema', confidence: 0.9 },
+      },
+    ]);
+
+    speechRecognitionSubject.next([
+      {
+        isFinal: true,
+        length: 1,
+        item: () => ({
+          transcript: 'valeu Vitão',
+          confidence: 0.9,
+        }),
+        0: { transcript: 'valeu Vitão', confidence: 0.9 },
       },
     ]);
 
@@ -76,7 +95,7 @@ describe('SettingsComponent', () => {
         click: clickSpy,
       });
 
-    (component as any).toggleTheme();
+    component['toggleTheme']();
 
     expect(clickSpy).toHaveBeenCalled();
   });
