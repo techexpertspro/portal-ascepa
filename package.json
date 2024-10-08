@@ -6,6 +6,8 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
+    "test-watch": "nx test --watch",
+    "test-coverage": "nx test --code-coverage",
     "prepare": "husky install",
     "lint": "nx affected:lint --fix=true --uncommitted && nx test && nx format:write --uncommited"
   },
