@@ -1,8 +1,9 @@
-.redessociais__container {
+:host {
   display: grid;
   max-width: 76rem;
   gap: 5rem;
   margin: 0 auto;
+  width: 100%;
 
   img {
     width: 100%;

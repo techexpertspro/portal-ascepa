@@ -1,15 +1,13 @@
-<div class="redessociais__container">
-  <mat-grid-list cols="6" rowHeight="100px" gutterSize="5px">
-    @for (tile of tiles; track tile) {
-    <mat-grid-tile
-      [colspan]="tile.cols"
-      [rowspan]="tile.rows"
-      [style.background]="tile.color"
-    >
-      <a href="https://www.instagram.com/ascepaoficial/" target="_blank">
-        <img [src]="tile.imageUrl" alt="{{ tile.text }}" class="tile-image" />
-      </a>
-    </mat-grid-tile>
-    }
-  </mat-grid-list>
-</div>
+<mat-grid-list cols="6" rowHeight="100px" gutterSize="5px">
+  @for (tile of tiles; track tile) {
+  <mat-grid-tile
+    [colspan]="tile.cols"
+    [rowspan]="tile.rows"
+    [style.background]="tile.color"
+  >
+    <a href="https://www.instagram.com/ascepaoficial/" target="_blank">
+      <img [src]="tile.imageUrl" alt="{{ tile.text }}" class="tile-image" />
+    </a>
+  </mat-grid-tile>
+  }
+</mat-grid-list>

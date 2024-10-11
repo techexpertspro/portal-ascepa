@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { SocialMediaService } from '../service/socialmedia/social-media.service';
+
 export interface Tile {
   color: string;
   cols: number;
