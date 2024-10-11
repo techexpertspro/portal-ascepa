@@ -4,8 +4,6 @@ export default {
   preset: './jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: './coverage/portal-ascepa',
-  coverageReporters: ['html', 'text-summary', 'lcov'],
-  collectCoverage: true,
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

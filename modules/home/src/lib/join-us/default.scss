@@ -1,3 +1,5 @@
+@import '../../../../../src/scss/tokens/colors/token';
+
 :host {
   height: 42vh;
 
@@ -41,4 +43,7 @@
       grid-template-rows: 2rem 4rem 3rem;
     }
   }
+}
+.mat-mdc-raised-button.text-black:not(:disabled) {
+  color: $color-button-primary-text;
 }
