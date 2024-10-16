@@ -17,6 +17,10 @@ export class SocialMediaService {
     this.imageArray.push(
       'https://scontent.fubt3-1.fna.fbcdn.net/v/t1.6435-9/187636801_121062730094475_8372818558557788982_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=2OrgRSDQ3KsQ7kNvgF375YW&_nc_ht=scontent.fubt3-1.fna&_nc_gid=ASiT6BfEHarXGonlAlpvS3q&oh=00_AYDlA_nfIwWwmJf6dJGhjISp-73fVdEwadN98TUqvmD54w&oe=672D24B9',
     );
+
+    //this.imageArray.push('public/header-repo.png');
+    this.imageArray.push('../../header-repo.png');
+    //this.imageArray.push('../../../../../../public/header-repo.png');
   }
 
   getInstagramPost() {

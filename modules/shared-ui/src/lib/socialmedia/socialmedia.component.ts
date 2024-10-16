@@ -49,7 +49,7 @@ export class SocialmediaComponent {
       cols: 2,
       rows: 4,
       color: '#DDBDF1',
-      imageUrl: this.socialMediaService.getInstagramPost()[0],
+      imageUrl: this.socialMediaService.getInstagramPost()[2],
     },
     {
       text: 'Five',
