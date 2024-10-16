@@ -1,20 +1,22 @@
 <header>
-  <nav id="nav">
-    <a href="#" title="Voltar para Página Inicial">
+  <h1 aria-label="Portal Ascepa"></h1>
+  <nav role="navigation" id="nav">
+    <a href="#" aria-label="Voltar para Página Inicial">
       <img
         ngSrc="logo-ascepa.png"
         priority
         width="120"
         height="120"
         alt="Logo Ascepa"
-        title="Logo Ascepa"
+        aria-label="Logo Ascepa"
         id="logo"
       />
     </a>
     <button
       id="menu-button"
       (click)="toggleMenu()"
-      title="Botão abrir/fechar menu"
+      aria-label="Botão abrir/fechar menu"
+      aria-expanded="false"
     >
       <svg
         width="26"
@@ -28,7 +30,7 @@
         />
       </svg>
     </button>
-    <ul id="links" [ngClass]="{ opened: opened }">
+    <ul id="links" [ngClass]="{ opened: opened }" aria-label="Menu">
       <li><a href="#">Quem somos</a></li>
       <li><a href="#">Notícias</a></li>
       <li><a href="#">Vagas</a></li>
