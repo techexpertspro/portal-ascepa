@@ -1,12 +1,12 @@
-<mat-grid-list cols="6" rowHeight="100px" gutterSize="5px">
+<mat-grid-list cols="8" rowHeight="8.7rem" gutterSize="1rem">
   @for (tile of tiles; track tile) {
   <mat-grid-tile
     [colspan]="tile.cols"
     [rowspan]="tile.rows"
     [style.background]="tile.color"
   >
-    <a href="https://www.instagram.com/ascepaoficial/" target="_blank">
-      <img [src]="tile.imageUrl" alt="{{ tile.text }}" class="tile-image" />
+    <a [href]="instagramUrl" target="_blank">
+      <img [src]="tile.imageUrl" alt="{{ tile.text }}" />
     </a>
   </mat-grid-tile>
   }

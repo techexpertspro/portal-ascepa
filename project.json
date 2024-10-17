@@ -27,7 +27,7 @@
           "@angular/material/prebuilt-themes/pink-bluegrey.css"
         ],
         "stylePreprocessorOptions": {
-          "includePaths": ["./src/scss/_global.scss"]
+          "includePaths": ["./src/scss"]
         },
         "scripts": []
       },

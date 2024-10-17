@@ -1,0 +1,54 @@
+@import './tokens/colors/token';
+
+:host section.default {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin: 0 auto;
+  gap: 1rem;
+  max-width: 76rem;
+
+  p {
+    text-align: justify;
+  }
+
+  button {
+    background-color: #feca57;
+    border-radius: 0.5rem;
+  }
+
+  img {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 600px) and (max-width: 698px) {
+    grid-template-rows: 2rem 7rem 3rem;
+    height: 16rem;
+  }
+
+  @media (min-width: 699px) and (max-width: 843px) {
+    grid-template-rows: 2rem 6rem 3rem;
+    height: 18rem;
+  }
+
+  @media (min-width: 844px) and (max-width: 980px) {
+    grid-template-rows: 2rem 5rem 3rem;
+    height: 21rem;
+  }
+
+  @media (min-width: 981px) and (max-width: 1102px) {
+    grid-template-rows: 2rem 5rem 3rem;
+    height: 23rem;
+  }
+
+  @media (min-width: 1103px) {
+    grid-template-rows: 2rem 4rem 3rem;
+    height: 26rem;
+  }
+}
+
+.mat-mdc-raised-button.text-black:not(:disabled) {
+  color: $color-button-primary-text;
+}

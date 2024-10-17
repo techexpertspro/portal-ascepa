@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { BreakpointService } from '../service/breakpoint/breakpoint.service';
 import { SocialMediaService } from '../service/socialmedia/social-media.service';
 
 export interface Tile {
@@ -20,70 +21,44 @@ export interface Tile {
 })
 export class SocialmediaComponent {
   private readonly socialMediaService = inject(SocialMediaService);
+  private readonly breakpointObserver = inject(BreakpointService);
+  protected readonly instagramUrl = 'https://www.instagram.com/ascepaoficial/';
   imagemteste = this.socialMediaService.getInstagramPost()[0];
 
   tiles: Tile[] = [
     {
       text: 'One',
-      cols: 1,
+      cols: 2,
       rows: 2,
       color: 'lightblue',
       imageUrl: this.socialMediaService.getInstagramPost()[0],
     },
     {
       text: 'Two',
-      cols: 1,
+      cols: 2,
       rows: 2,
       color: 'lightgreen',
       imageUrl: this.socialMediaService.getInstagramPost()[1],
     },
     {
       text: 'Three',
-      cols: 1,
-      rows: 2,
+      cols: 4,
+      rows: 4,
       color: 'lightpink',
       imageUrl: this.socialMediaService.getInstagramPost()[0],
     },
     {
       text: 'Four',
       cols: 2,
-      rows: 4,
+      rows: 2,
       color: '#DDBDF1',
       imageUrl: this.socialMediaService.getInstagramPost()[2],
     },
     {
       text: 'Five',
-      cols: 1,
+      cols: 2,
       rows: 2,
       color: '#DDBDF1',
-      imageUrl: this.socialMediaService.getInstagramPost()[0],
-    },
-    {
-      text: 'Six',
-      cols: 1,
-      rows: 2,
-      color: 'red',
-      imageUrl: this.socialMediaService.getInstagramPost()[0],
-    },
-    {
-      text: 'Seven',
-      cols: 1,
-      rows: 2,
-      color: 'black',
-      imageUrl: this.socialMediaService.getInstagramPost()[0],
-    },
-    {
-      text: 'Seven',
-      cols: 1,
-      rows: 2,
-      color: 'yellon',
-      imageUrl: this.socialMediaService.getInstagramPost()[0],
-    },
-    {
-      text: 'Seven',
-      cols: 1,
-      rows: 2,
-      color: 'orange',
       imageUrl: this.socialMediaService.getInstagramPost()[0],
     },
   ];
