@@ -19,7 +19,7 @@ import { LatestNewsComponent } from '../latest-news/latest-news.component';
 })
 export class HomeComponent implements OnInit {
   // Injeção dos Serviços
-  private meta = inject(Meta);
+  private readonly meta = inject(Meta);
 
   public aboutUsText =
     'Lorem Ipsum is simply dummy text of the printing and typesetting industry...';
