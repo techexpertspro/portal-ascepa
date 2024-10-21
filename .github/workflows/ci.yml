@@ -39,9 +39,6 @@ jobs:
       - name: Load & cache dependencies
         uses: ./.github/actions/cached-deps
 
-      - name: Nx Reset Cache
-        run: npx nx reset
-
       - name: Test code
         run: npx nx affected -t test --parallel=3 --configuration=ci --code-coverage --coverageReporters=lcov
 
@@ -71,9 +68,6 @@ jobs:
 
       - name: Load & cache dependencies
         uses: ./.github/actions/cached-deps
-
-      - name: Nx Reset Cache
-        run: npx nx reset
 
       - name: Build code
         run: npx nx affected -t build --parallel=3
