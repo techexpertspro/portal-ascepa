@@ -61,7 +61,7 @@
     "@storybook/core-server": "7.6.20",
     "@swc-node/register": "1.9.1",
     "@swc/cli": "~0.3.12",
-    "@swc/core": "1.5.7",
+    "@swc/core": "1.7.39",
     "@swc/helpers": "0.5.11",
     "@testing-library/jest-dom": "^6.4.6",
     "@types/jest": "^29.4.0",
