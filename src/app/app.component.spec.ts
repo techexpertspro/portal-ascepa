@@ -1,16 +1,33 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import { SpeechRecognitionService } from '@ng-web-apis/speech';
 import { axe } from 'jest-axe';
+import { Subject } from 'rxjs';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let component: AppComponent;
+  let recognitionSubject: Subject<SpeechRecognitionResult[]>;
+
+  const mockSpeechRecognitionService = {
+    pipe: jest.fn(),
+  };
 
   beforeEach(async () => {
+    recognitionSubject = new Subject<SpeechRecognitionResult[]>();
+    mockSpeechRecognitionService.pipe.mockReturnValue(
+      recognitionSubject.asObservable(),
+    );
     await TestBed.configureTestingModule({
       imports: [AppComponent],
-      providers: [provideRouter([])],
+      providers: [
+        provideRouter([]),
+        {
+          provide: SpeechRecognitionService,
+          useValue: mockSpeechRecognitionService,
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
