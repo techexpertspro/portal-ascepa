@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { homeContentMock, SectionContent } from '@portal-ascepa/shared-ui';
 import { LatestNewsComponent } from './latest-news.component';
 
 describe('LatestNewsComponent', () => {
@@ -15,6 +16,7 @@ describe('LatestNewsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LatestNewsComponent);
     component = fixture.componentInstance;
+    component.content = homeContentMock[1] as Partial<SectionContent>;
     fixture.detectChanges();
   });
 
@@ -24,14 +26,16 @@ describe('LatestNewsComponent', () => {
 
   it('should render the main title', () => {
     const titleElement = fixture.debugElement.query(By.css('h2')).nativeElement;
-    expect(titleElement.textContent).toContain('Últimas Notícias');
+    expect(titleElement.textContent).toContain('Últimas notícias');
   });
 
   it('should render the main image with the correct alt text', () => {
     const mainImageElement = fixture.debugElement.query(
       By.css('div article img'),
     ).nativeElement;
-    expect(mainImageElement.getAttribute('alt')).toBe('principal noticia');
+    expect(mainImageElement.getAttribute('alt')).toBe(
+      'Foto de equipe da família ASCEPA',
+    );
   });
 
   it('should render side images with the correct alt text', () => {

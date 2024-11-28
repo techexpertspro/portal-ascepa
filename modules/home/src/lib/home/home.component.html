@@ -1,7 +1,7 @@
-<lib-about-us
-  [text]="aboutUsText"
-  [imgSrc]="imgSrc"
-  [alternativeText]="alternativeText"
-></lib-about-us>
-<lib-latest-news></lib-latest-news>
-<lib-join-us></lib-join-us>
+<ng-container
+  *ngIf="(content$ | async)?.result?.[0]?.sections as resolvedDataContent"
+>
+  <lib-about-us [content]="resolvedDataContent[0]"></lib-about-us>
+  <lib-latest-news [content]="resolvedDataContent[1]"></lib-latest-news>
+  <lib-join-us [content]="resolvedDataContent[3]"></lib-join-us>
+</ng-container>

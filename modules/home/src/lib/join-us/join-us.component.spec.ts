@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { BreakpointService } from '@portal-ascepa/shared-ui';
+import {
+  BreakpointService,
+  homeContentMock,
+  SectionContent,
+} from '@portal-ascepa/shared-ui';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { JoinUsComponent } from './join-us.component';
 import { MAGIC_NUMBERS } from './join-us.constants';
@@ -25,6 +29,7 @@ describe('JoinUsComponent', () => {
     mockBreakpointService = TestBed.inject(BreakpointService);
     fixture = TestBed.createComponent(JoinUsComponent);
     component = fixture.componentInstance;
+    component.content = homeContentMock[3] as Partial<SectionContent>;
     fixture.detectChanges();
   });
 
@@ -39,17 +44,20 @@ describe('JoinUsComponent', () => {
   });
 
   it('should render the h2 title correctly', () => {
+    component.content.title = 'Filie-se';
     const sectionTitle = fixture.debugElement.query(By.css('h2'))
       .nativeElement as HTMLHeadingElement;
 
-    expect(sectionTitle.textContent).toBe(component['joinUs'].title);
+    expect(sectionTitle.textContent).toBe(component.content.title);
   });
 
   it('should render the paragraph text correctly', () => {
     const sectionTitle = fixture.debugElement.query(By.css('p'))
       .nativeElement as HTMLElement;
 
-    expect(sectionTitle.textContent).toContain(component['joinUs'].text);
+    expect(sectionTitle.textContent).toContain(
+      ' Junte-se a nós e fortaleça a luta pelos direitos das pessoas com deficiência visual no Pará! Ao se filiar à nossa associação, você contribuirá para ampliar o acesso a oportunidades de inclusão, educação e suporte para a comunidade de cegos. Faça parte dessa rede e ajude a construir um futuro mais acessível para todos. ',
+    );
   });
 
   it('should trigger the learnMore method on button click', () => {
@@ -68,8 +76,8 @@ describe('JoinUsComponent', () => {
     const imgElement: HTMLImageElement =
       fixture.nativeElement.querySelector('img');
 
-    expect(imgElement.src).toContain(component['joinUs'].imgSrc);
-    expect(imgElement.alt).toBe(component['joinUs'].alternativeText);
+    expect(imgElement.src).toContain('joinus.png');
+    expect(imgElement.alt).toBe('Foto de equipe da família ASCEPA');
     expect(imgElement.width).toBe(MAGIC_NUMBERS.FOUR_HUNDRED);
     expect(imgElement.height).toBe(MAGIC_NUMBERS.FOUR_HUNDRED);
   });
@@ -89,6 +97,7 @@ describe('JoinUsComponent', () => {
 
     fixture = TestBed.createComponent(JoinUsComponent);
     component = fixture.componentInstance;
+    component.content = homeContentMock[3] as Partial<SectionContent>;
     fixture.detectChanges();
 
     const sectionElement = fixture.debugElement.query(

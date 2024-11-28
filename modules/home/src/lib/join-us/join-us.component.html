@@ -4,9 +4,9 @@
     breakpointObserver.isHandsetPortrait() ? 'handset-portrait' : 'default'
   "
 >
-  <h2>{{ joinUs.title }}</h2>
+  <h2>{{ content.title }}</h2>
   <p>
-    {{ joinUs.text }}
+    {{ content.text }}
   </p>
   <button
     mat-raised-button
@@ -15,12 +15,12 @@
     style="width: 30%"
     (click)="learnMore()"
   >
-    {{ joinUs.button }}
+    {{ content.buttonList?.[0]?.label }}
   </button>
   <img
     class="pb-1rem"
-    [ngSrc]="joinUs.imgSrc"
-    [alt]="joinUs.alternativeText"
+    [ngSrc]="content.mainImage!.src"
+    [alt]="content.mainImage!.alt"
     [width]="magicNumber.FOUR_HUNDRED"
     [height]="magicNumber.FOUR_HUNDRED"
     priority

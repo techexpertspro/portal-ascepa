@@ -1,7 +1,10 @@
 <section>
-  <h2>Quem somos</h2>
+  <h2>{{ content.title }}</h2>
   <article>
-    <p>{{ text }}</p>
-    <img [src]="imgSrc" [alt]="alternativeText" />
+    <p>{{ content.text }}</p>
+    <img
+      [src]="content.mainImage!.src"
+      [alt]="content.mainImage!.description"
+    />
   </article>
 </section>

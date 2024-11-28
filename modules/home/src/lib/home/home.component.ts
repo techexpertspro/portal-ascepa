@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+import { HomeContentService } from '@portal-ascepa/shared-ui';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { JoinUsComponent } from '../join-us/join-us.component';
 import { LatestNewsComponent } from '../latest-news/latest-news.component';
@@ -18,16 +19,12 @@ import { LatestNewsComponent } from '../latest-news/latest-news.component';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  // Injeção dos Serviços
   private readonly meta = inject(Meta);
+  private readonly homeContent = inject(HomeContentService);
 
-  public aboutUsText =
-    'Lorem Ipsum is simply dummy text of the printing and typesetting industry...';
-  public imgSrc = 'image-placeholder.png';
-  public alternativeText = 'Foto de equipe da família ASCEPA';
+  protected readonly content$ = this.homeContent.getHomeContent();
 
   ngOnInit() {
-    // Adiciona meta tags
     this.meta.addTags([
       {
         name: 'description',

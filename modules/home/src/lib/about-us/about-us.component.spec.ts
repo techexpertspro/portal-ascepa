@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { homeContentMock, SectionContent } from '@portal-ascepa/shared-ui';
 import { AboutUsComponent } from './about-us.component';
 
 describe('AboutUsComponent', () => {
@@ -18,6 +19,7 @@ describe('AboutUsComponent', () => {
 
     fixture = TestBed.createComponent(AboutUsComponent);
     component = fixture.componentInstance;
+    component.content = homeContentMock[0] as Partial<SectionContent>;
     fixture.detectChanges();
   });
 
@@ -31,24 +33,25 @@ describe('AboutUsComponent', () => {
   });
 
   it('should render the about us source image with the correct image filename', () => {
-    component.imgSrc = 'image-placeholder.png';
+    component.content.mainImage!.src = 'image-placeholder.png';
     fixture.detectChanges();
 
     const aboutImageElement = fixture.debugElement.query(
       By.css('img'),
     ).nativeElement;
-    expect(aboutImageElement.getAttribute('src')).toBe(component.imgSrc);
+    expect(aboutImageElement.getAttribute('src')).toBe(
+      component.content.mainImage!.src,
+    );
   });
 
   it('should render the about us image with the correct alt text', () => {
-    component.alternativeText = 'alt teste';
     fixture.detectChanges();
 
     const aboutImageElement = fixture.debugElement.query(
       By.css('img'),
     ).nativeElement;
     expect(aboutImageElement.getAttribute('alt')).toBe(
-      component.alternativeText,
+      'Foto de equipe da família ASCEPA',
     );
   });
 });
