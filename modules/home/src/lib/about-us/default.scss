@@ -12,12 +12,6 @@
     text-align: justify;
   }
 
-  button {
-    background-color: #feca57;
-    border-radius: 0.5rem;
-    width: 8rem;
-  }
-
   img {
     grid-column: 2;
     grid-row: 1 / span 2;
@@ -38,7 +32,7 @@
   }
 
   @media (min-width: 1103px) {
-    grid-template-rows: 2rem 4rem 3rem;
+    grid-template-rows: 2rem 4rem 7rem;
   }
 }
 

@@ -1,5 +1,6 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
+import { CarrouselComponent } from '@portal-ascepa/shared-ui';
 
 export interface NewsItem {
   imageUrl: string;
@@ -11,7 +12,7 @@ export interface NewsItem {
 @Component({
   selector: 'lib-latest-news',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, CarrouselComponent],
   templateUrl: './latest-news.component.html',
   styleUrl: './latest-news.component.scss',
 })

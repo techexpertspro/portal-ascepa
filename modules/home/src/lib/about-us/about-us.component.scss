@@ -1,19 +1,28 @@
-section {
-  display: block;
-  max-width: 1200px;
+:host section.default {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   margin: 0 auto;
+  gap: 1rem;
+  max-width: 76rem;
+  height: max-content;
 
-  article {
-    display: flex;
-    flex-direction: row;
-    gap: 5rem;
-    align-items: center;
+  section {
+    display: block;
+    max-width: 1175px;
+    margin: 0 auto;
+
+    article {
+      display: flex;
+      flex-direction: row;
+      gap: 5rem;
+      align-items: center;
+    }
   }
-}
 
-@media screen and (max-width: 992px) {
-  article {
-    flex-direction: column;
-    gap: initial;
+  @media screen and (max-width: 992px) {
+    article {
+      flex-direction: column;
+      gap: initial;
+    }
   }
 }

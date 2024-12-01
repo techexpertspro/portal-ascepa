@@ -1,7 +1,19 @@
-<section>
-  <h2>Quem somos</h2>
-  <article>
-    <p>{{ text }}</p>
-    <img [src]="imgSrc" [alt]="alternativeText" />
-  </article>
+<section
+  class="p-1rem"
+  [ngClass]="
+    breakpointObserver.isHandsetPortrait() ? 'handset-portrait' : 'default'
+  "
+>
+  <h2>{{ aboutUs.title }}</h2>
+  <p>
+    {{ aboutUs.text }}
+  </p>
+  <img
+    class="pb-1rem"
+    [src]="aboutUs.imgSrc"
+    [alt]="aboutUs.alternativeText"
+    [width]="magicNumber.FOUR_HUNDRED"
+    [height]="magicNumber.FOUR_HUNDRED"
+    priority
+  />
 </section>

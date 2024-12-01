@@ -21,11 +21,6 @@ export class HomeComponent implements OnInit {
   // Injeção dos Serviços
   private readonly meta = inject(Meta);
 
-  public aboutUsText =
-    'Lorem Ipsum is simply dummy text of the printing and typesetting industry...';
-  public imgSrc = 'image-placeholder.png';
-  public alternativeText = 'Foto de equipe da família ASCEPA';
-
   ngOnInit() {
     // Adiciona meta tags
     this.meta.addTags([
