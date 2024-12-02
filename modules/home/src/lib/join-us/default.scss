@@ -1,20 +1,45 @@
 @import './../../../../../src/scss/tokens/colors/token';
+@import './../../../../../src/scss/tokens/typography/token';
 
 :host section.default {
   display: grid;
   grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1.5rem auto;
   margin: 0 auto;
   gap: 1rem;
   max-width: 76rem;
   height: max-content;
 
-  p {
-    text-align: justify;
+  h2 {
+    font-weight: $font-weight-bold;
   }
 
-  button {
-    background-color: #feca57;
-    border-radius: 0.5rem;
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+      color: $color-button-secondary-border;
+    }
+
+    .container-button {
+      width: 100%;
+      display: flex;
+
+      button {
+        background-color: $color-button-primary-bg;
+        font-weight: $font-weight-bold;
+        color: $color-button-secondary-text;
+        max-width: 120px;
+        min-width: 120px;
+        letter-spacing: normal;
+        min-height: 40px;
+        border-radius: 4px;
+      }
+    }
   }
 
   img {
@@ -23,23 +48,4 @@
     max-width: 100%;
     height: auto;
   }
-
-  @media (min-width: 600px) and (max-width: 698px) {
-    grid-template-rows: 2rem 7rem 3rem;
-  }
-
-  @media (min-width: 699px) and (max-width: 843px) {
-    grid-template-rows: 2rem 6rem 3rem;
-  }
-
-  @media (min-width: 844px) and (max-width: 1102px) {
-    grid-template-rows: 2rem 5rem 3rem;
-  }
-
-  @media (min-width: 1103px) {
-    grid-template-rows: 2rem 4rem 3rem;
-  }
-}
-.mat-mdc-raised-button.text-black:not(:disabled) {
-  color: $color-button-primary-text;
 }
