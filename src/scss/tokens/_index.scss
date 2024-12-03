@@ -1,17 +1,11 @@
-/* 
-* Tokens 
-* Faça a importação de todos os tokens aqui
-* Exemplo: @import './colors/token';
-*/
 // Import dos tokens de cores
-
 @import './colors/token';
 
 // Import dos tokens de grid
 @import './grid/token';
-
 @import './typography/token';
 
 // Import dos tokens de generic
+
 @import './generic/token';
 @import './generic/mixin';
