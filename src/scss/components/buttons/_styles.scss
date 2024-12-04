@@ -1,0 +1,9 @@
+@import './mixin';
+
+.btn-primary {
+  @include button-primary-style;
+}
+
+.btn-secondary {
+  @include button-secondary-style;
+}
