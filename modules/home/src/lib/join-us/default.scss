@@ -1,4 +1,4 @@
-@import './../../../../../src/scss/tokens/colors/token';
+@import 'src/scss/_global.scss';
 
 :host section.default {
   display: grid;
@@ -10,13 +10,8 @@
 
   p {
     text-align: justify;
+    color: $color-button-secondary-text;
   }
-
-  button {
-    background-color: #feca57;
-    border-radius: 0.5rem;
-  }
-
   img {
     grid-column: 2;
     grid-row: 1 / span 2;
