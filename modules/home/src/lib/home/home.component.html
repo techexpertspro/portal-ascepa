@@ -3,5 +3,35 @@
   [imgSrc]="imgSrc"
   [alternativeText]="alternativeText"
 ></lib-about-us>
-<lib-latest-news></lib-latest-news>
+
+@if (!isMobile()) {
+<lib-latest-news
+  [title]="'Últimas Notícias'"
+  [latestNews]="mainNews"
+  [isCarousel]="isCarouselActive()"
+  (isCarouselChange)="onCarouselStateChange($event)"
+>
+</lib-latest-news>
+} @else { @defer (when isMobile()) { @for (news of mainNews; track news; let i =
+$index) { @if (selectedIndex === i) {
+<lib-carrousel
+  [showTitle]="'Últimas Notícias'"
+  [cards]="mainNews"
+  [showIndicator]="true"
+  [showNavigators]="true"
+  [autoPlay]="false"
+  [autoPlayInterval]="5000"
+  [(selectedIndex)]="selectedIndex"
+>
+  <lib-latest-news
+    [imageUrl]="news.imageUrl"
+    [altText]="news.altText"
+    [title]="news.title"
+    [isCarousel]="isCarouselActive()"
+    (isCarouselChange)="onCarouselStateChange($event)"
+    carrousel-cards
+  >
+  </lib-latest-news>
+</lib-carrousel>
+} } } }
 <lib-join-us></lib-join-us>
