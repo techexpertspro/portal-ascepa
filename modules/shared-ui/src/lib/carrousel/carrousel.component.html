@@ -1,41 +1,53 @@
-<section>
-  <h2>Últimas Notícias</h2>
+<div class="slides">
+  <h2>{{ showTitle }}</h2>
   <div
-    class="slide"
+    class="slide-container"
     [ngStyle]="{
-      'background-image': 'url(' + images[selectedIndex].imageSrc + ')',
+      transform: hidden ? 'translateX(-100%)' : 'translateX(0)',
       opacity: hidden ? 0 : 1,
-      transition: 'opacity ' + animationSpeed + 'ms ease-in-out'
+      transition:
+        'transform ' +
+        animationSpeed +
+        'ms ease, opacity ' +
+        animationSpeed +
+        'ms ease'
     }"
   >
-    <div class="slide-content">
-      <h2 class="description">{{ images[selectedIndex].title }}</h2>
+    @if (cards.length > 0) { @for (card of cards; track card; let i = $index) {
+    @if (selectedIndex === i) {
+    <div class="slide">
+      <ng-content select="[carrousel-cards]"></ng-content>
     </div>
+    } } }
   </div>
-
-  @if (showIndicator) {
-  <button class="indicators">
-    @for (image of images; track $index) {
+</div>
+@if (showNavigators) {
+<button
+  class="btn-primary left"
+  style="left: 0"
+  (click)="previous()"
+  aria-label="Previous"
+>
+  <mat-icon>arrow_back_ios</mat-icon>
+</button>
+<button
+  class="btn-primary right"
+  style="right: 0"
+  (click)="next()"
+  aria-label="Next"
+>
+  <mat-icon>arrow_forward_ios</mat-icon>
+</button>
+} @if (showIndicator) {
+<section>
+  <div class="indicators">
+    @for (card of cards; track card; let i = $index) {
     <button
-      (click)="jumpToSlide($index)"
+      (click)="jumpToSlide(i)"
       class="indicator"
-      [ngClass]="{ active: selectedIndex === $index }"
+      [ngClass]="{ active: selectedIndex === i }"
     ></button>
     }
-  </button>
-  }@if (showNavigators) {
-  <button
-    class="btn-primary btn-style mx-10px btn-previous"
-    (click)="previous()"
-    aria-label="Previous"
-  >
-    <mat-icon class="ml-5px">arrow_back_ios</mat-icon>
-  </button>
-  <button
-    class="btn-primary btn-style mx-10px btn-next"
-    (click)="next()"
-    aria-label="Next"
-  >
-    <mat-icon>arrow_forward_ios</mat-icon></button
-  >}
+  </div>
 </section>
+}

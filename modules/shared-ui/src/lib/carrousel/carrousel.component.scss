@@ -1,65 +1,76 @@
-:host section {
-  display: block;
-  width: 390px;
-  height: 276px;
+@import 'src/scss/_global.scss';
+
+section {
+  max-width: 350px;
+  margin: 20px auto;
+  text-align: center;
+
+  > h2 {
+    font-size: 1.5em;
+    color: #0055a0;
+    margin: 0 0 10px 0;
+    padding: 0;
+  }
+}
+.slides {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: hidden;
   position: relative;
-  margin: auto;
-  > h2 {
-    margin: 0;
-    text-align: center;
-  }
+  margin: 0 auto;
+}
+.slide {
+  position: relative;
+  display: flex;
+  border-radius: 8px;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.btn-primary {
+  position: absolute;
+  top: 52%;
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  background-color: #ffd600;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
-  .slide {
-    width: 265px;
-    height: 150px; /* Altura ajustada para corresponder à imagem */
-    background: cover, center, no-repeat;
-    position: relative;
-    transition: opacity 0.2s ease-in;
-    margin: auto;
-    top: 5%;
+  &:hover {
+    background-color: #ffcc00;
   }
-  .btn-style {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    border: none;
-    top: 30%; /* Centraliza verticalmente */
-    cursor: pointer;
-  }
-  .btn-next {
-    right: 0; /* Botão de próxima imagem */
-  }
-  .btn-previous {
-    left: 0; /* Botão de imagem anterior */
-  }
-  .slide-content {
-    position: absolute;
-    top: 165px;
-
-    .description {
-      margin: 0;
-    }
+  mat-icon {
+    font-size: 24px;
+    font-family: 'Material Icons', sans-serif;
   }
 }
 .indicators {
-  margin-top: 60px; /* Espaço entre o carrossel e os indicadores */
-  width: 100%;
-  text-align: center; /* Centraliza os indicadores */
+  display: flex;
+  justify-content: center;
+
   .indicator {
     width: 12px;
     height: 12px;
+    margin: 0 4px;
+    background-color: #666a7b;
     border-radius: 50%;
-    display: inline-block;
-    margin: 0 3px;
-    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
     &.active {
-      transition: 0.5s ease-in-out;
+      background-color: #ffd600;
+      transform: scale(1.2);
+    }
+
+    &:hover {
+      background-color: #ffed90;
     }
   }
-}
-button {
-  appearance: none;
-  border: none;
-  background: none;
 }
