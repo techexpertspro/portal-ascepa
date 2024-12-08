@@ -1,30 +1,45 @@
-<section class="px-1rem">
-  <h2>Últimas Notícias</h2>
-  <section aria-label="Notícia principal e relacionadas">
-    <article>
-      <img
-        class="mb-1rem"
-        [ngSrc]="mainNews.imageUrl"
-        [alt]="mainNews.altText"
-        width="795"
-        height="475"
-        priority
-      />
-      <h3>{{ mainNews.title }}</h3>
-      <p>{{ mainNews.content }}</p>
-    </article>
-
-    <aside>
-      <article *ngFor="let news of sideNews">
+@if (isReady()) {
+<ng-container *ngTemplateOutlet="isCarousel ? carouselView : gridView">
+</ng-container>
+}
+<ng-template #gridView>
+  <section class="px-1rem" [class.fade-in]="!isCarousel">
+    <h2>Últimas Notícias</h2>
+    <div class="news-grid">
+      @for (mainNews of latestNews.slice(0,1); track mainNews) {
+      <article class="main-news">
         <img
-          [ngSrc]="news.imageUrl"
-          [alt]="news.altText"
-          width="390"
-          height="150"
+          class="mb-1rem"
+          [ngSrc]="mainNews.imageUrl"
+          [alt]="mainNews.altText"
+          width="795"
+          height="475"
           priority
         />
-        <h3>{{ news.title }}</h3>
+        <h3>{{ mainNews.title }}</h3>
+        <p>{{ mainNews.content }}</p>
       </article>
-    </aside>
+      }
+      <div class="side-news">
+        @for (sideNews of latestNews.slice(1, 4); track sideNews) {
+        <article class="side-news-card">
+          <img
+            [ngSrc]="sideNews.imageUrl"
+            [alt]="sideNews.altText"
+            width="390"
+            height="150"
+            priority
+          />
+          <h3>{{ sideNews.title }}</h3>
+        </article>
+        }
+      </div>
+    </div>
   </section>
-</section>
+</ng-template>
+<ng-template #carouselView>
+  <article class="carrossel-item" [class.fade-in]="isCarousel">
+    <img [ngSrc]="imageUrl" [alt]="altText" width="265" height="160" priority />
+    <h3>{{ title }}</h3>
+  </article>
+</ng-template>
