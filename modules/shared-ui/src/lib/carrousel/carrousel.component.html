@@ -18,27 +18,27 @@
     <div class="slide">
       <ng-content select="[carrousel-cards]"></ng-content>
     </div>
-    } } }
+    @if (showNavigators) {
+    <button
+      class="btn-primary ml-5px"
+      style="left: 0"
+      (click)="previous()"
+      aria-label="Anterior"
+    >
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <button
+      class="btn-primary mr-5px"
+      style="right: 0"
+      (click)="next()"
+      aria-label="Proximo"
+    >
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+    } } } }
   </div>
 </div>
-@if (showNavigators) {
-<button
-  class="btn-primary left"
-  style="left: 0"
-  (click)="previous()"
-  aria-label="Previous"
->
-  <mat-icon>arrow_back_ios</mat-icon>
-</button>
-<button
-  class="btn-primary right"
-  style="right: 0"
-  (click)="next()"
-  aria-label="Next"
->
-  <mat-icon>arrow_forward_ios</mat-icon>
-</button>
-} @if (showIndicator) {
+@if (showIndicator) {
 <section>
   <div class="indicators">
     @for (card of cards; track card; let i = $index) {

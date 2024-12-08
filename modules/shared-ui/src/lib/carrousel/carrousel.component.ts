@@ -14,7 +14,7 @@ export interface LatestNews {
   content: string;
   imageUrl: string;
   altText: string;
-  href?: string | undefined;
+  href?: string;
 }
 
 @Component({
