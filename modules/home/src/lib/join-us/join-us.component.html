@@ -5,20 +5,20 @@
   "
 >
   <h2>{{ joinUs.title }}</h2>
-  <p>
-    {{ joinUs.text }}
-  </p>
-  <button
-    mat-raised-button
-    class="text-black"
-    color="primary"
-    style="width: 30%"
-    (click)="learnMore()"
-  >
-    {{ joinUs.button }}
-  </button>
+
+  <section class="info">
+    <p>
+      {{ joinUs.text }}
+    </p>
+
+    <div class="container-button">
+      <button class="btn-primary" (click)="learnMore()">
+        {{ joinUs.button }}
+      </button>
+    </div>
+  </section>
+
   <img
-    class="pb-1rem"
     [ngSrc]="joinUs.imgSrc"
     [alt]="joinUs.alternativeText"
     [width]="magicNumber.FOUR_HUNDRED"
