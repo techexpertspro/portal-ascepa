@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { spyOn } from 'jest-mock';
 import { LatestNewsComponent } from './latest-news.component';
 
 describe('LatestNewsComponent', () => {
   let component: LatestNewsComponent;
   let fixture: ComponentFixture<LatestNewsComponent>;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     await TestBed.configureTestingModule({
       imports: [LatestNewsComponent], // Importar o componente standalone
     }).compileComponents();
@@ -22,24 +22,26 @@ describe('LatestNewsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the main title', () => {
-    const titleElement = fixture.debugElement.query(By.css('h2')).nativeElement;
-    expect(titleElement.textContent).toContain('Últimas Notícias');
+  it('should initialize with default inputs', () => {
+    expect(component.latestNews).toEqual([]);
+    expect(component.title).toBe('');
+    expect(component.content).toBe('');
+    expect(component.imageUrl).toBe('');
+    expect(component.altText).toBe('');
   });
 
-  it('should render the main image with the correct alt text', () => {
-    const mainImageElement = fixture.debugElement.query(
-      By.css('div article img'),
-    ).nativeElement;
-    expect(mainImageElement.getAttribute('alt')).toBe('principal noticia');
+  it('should set isCarousel and emit isCarouselChange event', () => {
+    spyOn(component.isCarouselChange, 'emit');
+    component.isCarousel = true;
+    expect(component.isCarousel).toBe(true);
+    expect(component.isCarouselChange.emit).toHaveBeenCalledWith(true);
   });
 
-  it('should render side images with the correct alt text', () => {
-    const sideImageElements = fixture.debugElement.queryAll(
-      By.css('aside article img'),
-    );
-    sideImageElements.forEach((img) => {
-      expect(img.nativeElement.getAttribute('alt')).toBe('noticia lateral');
-    });
+  it('should set isReady to true after ngOnInit', (done) => {
+    component.ngOnInit();
+    setTimeout(() => {
+      expect(component.isReady()).toBe(true);
+      done();
+    }, 0);
   });
 });
