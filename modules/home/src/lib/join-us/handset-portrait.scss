@@ -31,17 +31,6 @@
       display: flex;
       justify-content: flex-end;
       margin-top: 16px;
-
-      button {
-        background-color: $color-button-primary-bg;
-        font-weight: $font-weight-bold;
-        color: $color-button-secondary-text;
-        max-width: 120px;
-        min-width: 120px;
-        letter-spacing: normal;
-        min-height: 40px;
-        border-radius: 4px;
-      }
     }
   }
 
