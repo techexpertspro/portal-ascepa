@@ -1,3 +1,6 @@
+@import './../../../../../src/scss/tokens/colors/token';
+@import './../../../../../src/scss/tokens/typography/token';
+
 :host section.handset-portrait {
   display: flex;
   flex-direction: column;
@@ -6,15 +9,29 @@
   max-width: 76rem;
   gap: 1rem;
 
-  p {
-    order: 3;
+  h2 {
+    font-weight: $font-weight-bold;
+    margin: 0;
+    order: 1;
   }
 
-  button {
-    align-self: flex-end;
-    background-color: #feca57;
-    border-radius: 0.5rem;
-    order: 4;
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    order: 3;
+
+    p {
+      margin: 0;
+      color: $color-button-secondary-border;
+    }
+
+    .container-button {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
+    }
   }
 
   img {

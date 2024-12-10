@@ -8,10 +8,10 @@ type joinUs = {
 
 export const JOIN_US = {
   title: 'Filie-se',
-  text: 'Junte-se a nós e fortaleça a luta pelos direitos das pessoas com deficiência visual no Pará! Ao se filiar à nossa associação, você contribuirá para ampliar o acesso a oportunidades de inclusão, educação e suporte para a comunidade de cegos. Faça parte dessa rede e ajude a construir um futuro mais acessível para todos.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet purus gravida quis blandit. Id volutpat lacus laoreet non curabitur. Nunc scelerisque viverra mauris in aliquam sem fringilla. Cursus vitae congue mauris rhoncus aenean. Ornare lectus sit amet est placerat. Tortor at risus viverra adipiscing at in tellus integer. Pretium quam vulputate dignissim suspendisse. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Augue eget arcu dictum varius. Massa id neque aliquam vestibulum. Sed risus ultricies tristique nulla.',
   imgSrc: 'joinus.png',
   alternativeText: 'Foto de equipe da família ASCEPA',
-  button: 'Saiba mais',
+  button: 'Saiba como',
 } as joinUs;
 
 export const MAGIC_NUMBERS = {
