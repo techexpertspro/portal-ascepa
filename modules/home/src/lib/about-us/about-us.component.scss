@@ -1,19 +1,48 @@
-section {
-  display: block;
-  max-width: 1200px;
+@import './../../../../../src/scss/tokens/colors/token';
+@import './../../../../../src/scss/tokens/generic/mixin';
+@import './../../../../../src/scss/tokens/generic/token';
+
+.about-us {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
+  gap: 2rem;
+  padding: 1rem;
+  max-width: 1200px;
 
-  article {
-    display: flex;
-    flex-direction: row;
-    gap: 5rem;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  article {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
-    gap: initial;
+  }
+
+  &__text-content {
+    align-self: flex-start;
+
+    @media screen and (max-width: 768px) {
+      order: 2;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__image-content {
+    @media screen and (max-width: 768px) {
+      order: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__image-content img {
+    width: 389px;
+    height: 389px;
+    object-fit: cover;
+
+    @media screen and (max-width: 768px) {
+      width: 358px;
+      height: 240px;
+    }
   }
 }
