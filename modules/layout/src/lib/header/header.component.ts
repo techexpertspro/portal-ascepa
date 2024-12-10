@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
@@ -8,6 +8,7 @@ import { SettingsComponent } from '../settings/settings.component';
   imports: [CommonModule, NgOptimizedImage, SettingsComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent {
   opened = false;
