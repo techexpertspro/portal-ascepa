@@ -53,7 +53,7 @@
     "@nx/js": "19.5.2",
     "@nx/plugin": "19.5.2",
     "@nx/storybook": "19.5.2",
-    "@nx/web": "19.5.2",
+    "@nx/web": "20.2.2",
     "@nx/workspace": "19.5.2",
     "@schematics/angular": "18.1.1",
     "@storybook/addon-essentials": "7.6.20",
