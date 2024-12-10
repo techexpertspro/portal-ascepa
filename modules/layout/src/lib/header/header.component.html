@@ -30,11 +30,12 @@
         />
       </svg>
     </button>
+
     <ul id="links" [ngClass]="{ opened: opened }" aria-label="Menu">
-      <li><a href="#">Quem somos</a></li>
-      <li><a href="#">Notícias</a></li>
+      <li><a (click)="scrollToSection('about-us')">Quem somos</a></li>
+      <li><a (click)="scrollToSection('latest-news')">Notícias</a></li>
       <li><a href="#">Vagas</a></li>
-      <li><a href="#">Filie-se</a></li>
+      <li><a (click)="scrollToSection('join-us')">Filie-se</a></li>
       <li><a href="#">Contato</a></li>
     </ul>
   </nav>
