@@ -1,65 +1,60 @@
-:host section {
-  display: block;
-  width: 390px;
-  height: 276px;
+@import 'src/scss/_global.scss';
+
+.slides {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: hidden;
   position: relative;
-  margin: auto;
-  > h2 {
-    margin: 0;
-    text-align: center;
-  }
+  margin: 0 auto;
+}
 
-  .slide {
-    width: 265px;
-    height: 150px; /* Altura ajustada para corresponder à imagem */
-    background: cover, center, no-repeat;
-    position: relative;
-    transition: opacity 0.2s ease-in;
-    margin: auto;
-    top: 5%;
-  }
-  .btn-style {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    border: none;
-    top: 30%; /* Centraliza verticalmente */
-    cursor: pointer;
-  }
-  .btn-next {
-    right: 0; /* Botão de próxima imagem */
-  }
-  .btn-previous {
-    left: 0; /* Botão de imagem anterior */
-  }
-  .slide-content {
-    position: absolute;
-    top: 165px;
+.slide-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
 
-    .description {
-      margin: 0;
-    }
+.slide {
+  position: relative;
+  display: flex;
+  border-radius: 8px;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 30%;
+
+  mat-icon {
+    font-size: 24px;
+    font-family: 'Material Icons', sans-serif;
+    transform: translateX(-5px);
   }
 }
+
 .indicators {
-  margin-top: 60px; /* Espaço entre o carrossel e os indicadores */
-  width: 100%;
-  text-align: center; /* Centraliza os indicadores */
+  display: flex;
+  justify-content: center;
+
   .indicator {
     width: 12px;
     height: 12px;
+    margin: 0 4px;
+    background-color: $color-secondary;
     border-radius: 50%;
-    display: inline-block;
-    margin: 0 3px;
-    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
     &.active {
-      transition: 0.5s ease-in-out;
+      background-color: $color-button-primary-bg;
+      transform: scale(1.2);
     }
   }
-}
-button {
-  appearance: none;
-  border: none;
-  background: none;
 }
