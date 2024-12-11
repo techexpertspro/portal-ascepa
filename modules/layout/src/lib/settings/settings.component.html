@@ -1,13 +1,1 @@
-<button
-  mat-icon-button
-  color="tertiary"
-  [matMenuTriggerFor]="beforeMenu"
-  aria-label="Menu de configurações"
->
-  <mat-icon>settings</mat-icon>
-</button>
-<mat-menu #beforeMenu="matMenu">
-  <button libDisablePointer mat-menu-item (click)="$event.stopPropagation()">
-    <lib-theme-toggle></lib-theme-toggle>
-  </button>
-</mat-menu>
+<lib-theme-toggle></lib-theme-toggle>
