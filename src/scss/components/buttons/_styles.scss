@@ -7,3 +7,7 @@
 .btn-secondary {
   @include button-secondary-style;
 }
+
+.btn-disabled {
+  @include button-disabled-style;
+}
