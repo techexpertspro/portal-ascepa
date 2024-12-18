@@ -29,7 +29,6 @@ import { DisableEventsDirective } from './disable-pointer.directive';
 
 @Component({
   selector: 'lib-settings',
-  standalone: true,
   imports: [
     CommonModule,
     MatButtonModule,

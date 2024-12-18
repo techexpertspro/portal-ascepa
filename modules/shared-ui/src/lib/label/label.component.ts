@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'lib-label',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './label.component.html',
   styleUrl: './label.component.scss',

@@ -135,7 +135,8 @@ $_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
 $_neutral_variant: map.merge(map.get($_palettes, neutral-variant), $_rest);
 $_error: map.merge(map.get($_palettes, error), $_rest);
 
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 @include mat.strong-focus-indicators();
 // @include mat.elevation-transition();
 
@@ -164,9 +165,11 @@ $dark-theme: mat.define-theme(
       primary: $_primary,
       tertiary: $_tertiary,
       use-system-variables: true,
+      system-variables-prefix: sys,
     ),
     typography: (
       use-system-variables: true,
+      system-variables-prefix: sys,
     ),
     density: (
       scale: -1,
@@ -178,7 +181,8 @@ $dark-background: #121212;
 $dark-text-color: #e0e0e0;
 
 body.dark-theme {
-  @include mat.core-theme($dark-theme);
+  @include mat.elevation-classes();
+  @include mat.app-background();
   @include mat.button-theme($dark-theme);
   @include mat.all-component-themes($dark-theme);
   @include mat.strong-focus-indicators-theme($dark-theme);
