@@ -7,7 +7,6 @@ import { JOIN_US, MAGIC_NUMBERS } from './join-us.constants';
 @Component({
   selector: 'lib-join-us',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [CommonModule, NgOptimizedImage, MatButtonModule],
   templateUrl: './join-us.component.html',
   styleUrls: ['./handset-portrait.scss', './default.scss'],

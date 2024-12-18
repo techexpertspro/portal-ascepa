@@ -7,7 +7,6 @@ import { LatestNewsComponent } from '../latest-news/latest-news.component';
 
 @Component({
   selector: 'lib-home',
-  standalone: true,
   imports: [
     CommonModule,
     AboutUsComponent,

@@ -55,6 +55,9 @@
     },
     "build-storybook": {
       "cache": true
+    },
+    "e2e-ci--**/*": {
+      "dependsOn": ["^portal-ascepa:build"]
     }
   },
   "plugins": [
@@ -98,5 +101,7 @@
       "style": "scss"
     }
   },
-  "defaultProject": "portal-ascepa"
+  "defaultProject": "portal-ascepa",
+  "nxCloudId": "676215c66255f2516d29d9cf",
+  "useLegacyCache": true
 }

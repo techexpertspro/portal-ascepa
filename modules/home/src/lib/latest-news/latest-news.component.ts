@@ -10,7 +10,6 @@ export interface NewsItem {
 
 @Component({
   selector: 'lib-latest-news',
-  standalone: true,
   imports: [CommonModule, NgOptimizedImage],
   templateUrl: './latest-news.component.html',
   styleUrl: './latest-news.component.scss',

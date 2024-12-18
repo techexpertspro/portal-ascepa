@@ -6,7 +6,6 @@ import { MatChipsModule } from '@angular/material/chips';
 
 @Component({
   selector: 'lib-card',
-  standalone: true,
   imports: [CommonModule, MatCardModule, MatChipsModule, MatButton],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
