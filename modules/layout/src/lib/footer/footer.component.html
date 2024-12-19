@@ -1,10 +1,16 @@
-<footer id="footer">
-  <address>
+<footer
+  id="footer"
+  class="p-20px mt-20px"
+  aria-label="Informações sobre a ASCEPA"
+>
+  <address aria-labelledby="footer-title">
     <p class="footer-title">ASCEPA - Associação de e para Cegos do Pará</p>
     <p class="footer-subtitle">Rua Tal, 123 - CEP 91234-123 - Cidade/Estado</p>
   </address>
   <p class="footer-copyright">
-    Copyright © {{ currentYear }} ASCEPA - Desenvolvido voluntariamente por Tech
-    Experts
+    <small>
+      Copyright © {{ currentYear }} ASCEPA - Desenvolvido voluntariamente por
+      <span class="sr-only">Tech Experts</span>
+    </small>
   </p>
 </footer>
