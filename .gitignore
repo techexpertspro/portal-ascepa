@@ -42,3 +42,6 @@ Thumbs.db
 .nx/workspace-data
 .angular
 .vercel
+
+
+storybook-static

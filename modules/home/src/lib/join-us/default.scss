@@ -1,0 +1,40 @@
+@import './../../../../../src/scss/tokens/colors/token';
+@import './../../../../../src/scss/tokens/typography/token';
+
+:host section.default {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1.5rem auto;
+  margin: 0 auto;
+  gap: 1rem;
+  max-width: 76rem;
+  height: max-content;
+
+  h2 {
+    font-weight: $font-weight-bold;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+      color: $color-button-secondary-border;
+    }
+
+    .container-button {
+      width: 100%;
+      display: flex;
+    }
+  }
+
+  img {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    max-width: 100%;
+    height: auto;
+  }
+}

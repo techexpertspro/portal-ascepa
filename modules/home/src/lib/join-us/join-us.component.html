@@ -1,0 +1,28 @@
+<section
+  class="p-1rem"
+  [ngClass]="
+    breakpointObserver.isHandsetPortrait() ? 'handset-portrait' : 'default'
+  "
+>
+  <h2>{{ joinUs.title }}</h2>
+
+  <section class="info">
+    <p>
+      {{ joinUs.text }}
+    </p>
+
+    <div class="container-button">
+      <button class="btn-primary" (click)="learnMore()">
+        {{ joinUs.button }}
+      </button>
+    </div>
+  </section>
+
+  <img
+    [ngSrc]="joinUs.imgSrc"
+    [alt]="joinUs.alternativeText"
+    [width]="magicNumber.FOUR_HUNDRED"
+    [height]="magicNumber.FOUR_HUNDRED"
+    priority
+  />
+</section>

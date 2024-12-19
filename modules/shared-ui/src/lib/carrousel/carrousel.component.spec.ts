@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import {
   ComponentFixture,
   discardPeriodicTasks,
@@ -6,9 +5,6 @@ import {
   TestBed,
   tick,
 } from '@angular/core/testing';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { CarouselImage, CarrouselComponent } from './carrousel.component';
 
 describe('CarrouselComponent', () => {
@@ -32,13 +28,7 @@ describe('CarrouselComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        CommonModule,
-        MatIconModule,
-        MatTooltipModule,
-        MatButtonModule,
-        CarrouselComponent,
-      ],
+      imports: [CarrouselComponent],
     }).compileComponents();
   });
 
@@ -146,10 +136,10 @@ describe('CarrouselComponent', () => {
 
   it('should set window.location.href to image href on Enter key press', () => {
     const setHrefMock = jest.fn();
-    delete window.location;
+    // delete window.location;
     Object.defineProperty(window, 'location', {
       value: {
-        set href(href) {
+        set href(href: string) {
           setHrefMock(href);
         },
       },

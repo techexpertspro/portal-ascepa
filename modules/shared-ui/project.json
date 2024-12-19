@@ -15,6 +15,48 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "modules/shared-ui/.storybook",
+        "browserTarget": "shared-ui:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/shared-ui",
+        "configDir": "modules/shared-ui/.storybook",
+        "browserTarget": "shared-ui:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "shared-ui:build-storybook",
+        "staticFilePath": "dist/storybook/shared-ui",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "shared-ui:build-storybook:ci"
+        }
+      }
     }
   }
 }
