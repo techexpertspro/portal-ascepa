@@ -1,0 +1,7 @@
+{
+  "changelog": true,
+  "npm": false,
+  "github": true,
+  "repositoryUrl": "https://github.com/techexpertspro/portal-ascepa",
+  "branches": ["main"]
+}

@@ -64,6 +64,7 @@
     "@swc/core": "1.5.7",
     "@swc/helpers": "0.5.11",
     "@testing-library/jest-dom": "^6.4.6",
+    "@theunderscorer/nx-semantic-release": "^2.11.0",
     "@types/jest": "^29.4.0",
     "@types/jest-axe": "^3.5.9",
     "@types/node": "18.16.9",
