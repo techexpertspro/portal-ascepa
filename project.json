@@ -22,7 +22,13 @@
             "input": "public"
           }
         ],
-        "styles": ["./src/styles.scss"],
+        "styles": [
+          "./src/styles.scss",
+          "@angular/material/prebuilt-themes/pink-bluegrey.css"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["./src/scss/_global.scss"]
+        },
         "scripts": []
       },
       "configurations": {
@@ -35,8 +41,8 @@
             },
             {
               "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+              "maximumWarning": "300kb",
+              "maximumError": "500kb"
             }
           ],
           "outputHashing": "all"

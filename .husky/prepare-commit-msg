@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+cleanup() {
+  exec < /dev/tty && npx cz --hook || true
+  exit 0
+}
+
+# Verifica se o commit foi feito com a flag -m
+if [ -z "$2" ]; then
+  # Se não houve flag -m, chama o Commitizen para guiar o commit
+  cleanup
+else
+  # Se houve flag -m, verifica a mensagem com o Commitlint
+  npx commitlint --edit $1
+
+  # Se a mensagem for inválida, chama o Commitizen
+  if [ $? -ne 0 ]; then
+    cleanup
+  fi
+fi

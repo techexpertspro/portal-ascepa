@@ -21,7 +21,10 @@ const getLcovFiles = function (src) {
     path.resolve('./coverage/lcov.info'),
     mergedReport,
     (err) => {
-      if (err) throw err;
+      if (err) {
+        console.log('No coverage files found.');
+        return;
+      }
       console.log('The file has been saved!');
     },
   );

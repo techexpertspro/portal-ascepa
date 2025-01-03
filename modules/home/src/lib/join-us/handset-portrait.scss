@@ -1,0 +1,42 @@
+@import './../../../../../src/scss/tokens/colors/token';
+@import './../../../../../src/scss/tokens/typography/token';
+
+:host section.handset-portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 76rem;
+  gap: 1rem;
+
+  h2 {
+    font-weight: $font-weight-bold;
+    margin: 0;
+    order: 1;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    order: 3;
+
+    p {
+      margin: 0;
+      color: $color-button-secondary-border;
+    }
+
+    .container-button {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    order: 2;
+  }
+}

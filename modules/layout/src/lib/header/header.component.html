@@ -1,0 +1,42 @@
+<header>
+  <h1 aria-label="Portal Ascepa"></h1>
+  <nav role="navigation" id="nav">
+    <a href="#" aria-label="Voltar para Página Inicial">
+      <img
+        ngSrc="logo-ascepa.png"
+        priority
+        width="120"
+        height="120"
+        alt="Logo Ascepa"
+        aria-label="Logo Ascepa"
+        id="logo"
+      />
+    </a>
+    <button
+      id="menu-button"
+      (click)="toggleMenu()"
+      aria-label="Botão abrir/fechar menu"
+      aria-expanded="false"
+    >
+      <svg
+        width="26"
+        height="23"
+        viewBox="0 0 26 23"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 2.15625C0 1.37695 0.620982 0.75 1.39286 0.75H24.6071C25.379 0.75 26 1.37695 26 2.15625C26 2.93555 25.379 3.5625 24.6071 3.5625H1.39286C0.620982 3.5625 0 2.93555 0 2.15625ZM0 11.5312C0 10.752 0.620982 10.125 1.39286 10.125H24.6071C25.379 10.125 26 10.752 26 11.5312C26 12.3105 25.379 12.9375 24.6071 12.9375H1.39286C0.620982 12.9375 0 12.3105 0 11.5312ZM26 20.9062C26 21.6855 25.379 22.3125 24.6071 22.3125H1.39286C0.620982 22.3125 0 21.6855 0 20.9062C0 20.127 0.620982 19.5 1.39286 19.5H24.6071C25.379 19.5 26 20.127 26 20.9062Z"
+        />
+      </svg>
+    </button>
+    <ul id="links" [ngClass]="{ opened: opened }" aria-label="Menu">
+      <li><a href="#">Quem somos</a></li>
+      <li><a href="#">Notícias</a></li>
+      <li><a href="#">Vagas</a></li>
+      <li><a href="#">Filie-se</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+  </nav>
+  <lib-settings></lib-settings>
+</header>

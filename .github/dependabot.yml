@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    assignees:
+      - 'charlesribeiro'
+    reviewers:
+      - 'charlesribeiro'
+      - 'FelipeDuarteLuna'
+      - 'andrewrosario'
+      - 'paoloalmeida'
+      - 'Mentorados Angular PRO'
+    labels:
+      - 'dependencies'
+      - 'dependabot'
+      - 'update'
+    commit-message:
+      prefix: 'chore(dependencies)'
+    open-pull-requests-limit: 10
