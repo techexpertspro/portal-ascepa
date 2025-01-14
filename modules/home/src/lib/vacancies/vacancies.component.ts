@@ -14,7 +14,4 @@ import { JOB_LIST } from './vacancies.constants';
 })
 export class VacanciesComponent {
   vacancies: Array<Job> = JOB_LIST;
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  constructor() {}
 }
