@@ -3,46 +3,63 @@
 @import './../../../../../src/scss/tokens/generic/token';
 
 .about-us {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  gap: 2rem;
-  padding: 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 40px 1fr;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
+  &__title {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    align-self: start;
   }
 
   &__text-content {
-    align-self: flex-start;
-
-    @media screen and (max-width: 768px) {
-      order: 2;
-      width: 100%;
-      text-align: center;
-    }
+    grid-column: 1 / 2;
+    grid-row: 2;
+    text-align: justify;
+    margin-right: 16px;
   }
 
   &__image-content {
-    @media screen and (max-width: 768px) {
-      order: 1;
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 389px;
+
+    img {
       width: 100%;
-      display: flex;
-      justify-content: center;
+      height: 100%;
+      max-width: 500px;
+      max-height: 389px;
+      object-fit: cover;
     }
   }
 
-  &__image-content img {
-    width: 389px;
-    height: 389px;
-    object-fit: cover;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    text-align: center;
+    gap: 1rem;
 
-    @media screen and (max-width: 768px) {
-      width: 358px;
+    &__title {
+      grid-column: 1 / 2;
+      grid-row: 1;
+    }
+
+    &__image-content {
+      grid-column: 1 / 2;
+      grid-row: 2;
       height: 240px;
+    }
+
+    &__text-content {
+      grid-column: 1 / 2;
+      grid-row: 3;
     }
   }
 }
