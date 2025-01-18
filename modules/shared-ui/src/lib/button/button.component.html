@@ -1,5 +1,7 @@
 <button
   (click)="onDispatchEventClick()"
+  (keydown)="onDispatchEventClick()"
+  (keyup)="onDispatchEventClick()"
   [disabled]="disabled"
   [attr.aria-label]="label"
   role="button"
