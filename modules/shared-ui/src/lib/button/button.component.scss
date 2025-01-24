@@ -1,0 +1,9 @@
+@import 'src/scss/_global.scss';
+
+:host button.default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
