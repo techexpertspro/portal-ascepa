@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { BreakpointService } from '@portal-ascepa/shared-ui';
+import { BreakpointService, ButtonComponent } from '@portal-ascepa/shared-ui';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { JoinUsComponent } from './join-us.component';
 import { MAGIC_NUMBERS } from './join-us.constants';
@@ -14,7 +14,7 @@ describe('JoinUsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JoinUsComponent],
+      imports: [JoinUsComponent, ButtonComponent],
       providers: [
         {
           provide: BreakpointService,
@@ -54,10 +54,12 @@ describe('JoinUsComponent', () => {
 
   it('should trigger the learnMore method on button click', () => {
     const joinUsSpy = jest.spyOn(component, 'learnMore');
-    const sectionTitle = fixture.debugElement.query(By.css('button'))
-      .nativeElement as HTMLButtonElement;
+    const buttonDebugElement = fixture.debugElement.query(
+      By.directive(ButtonComponent),
+    );
 
-    sectionTitle.click();
+    expect(buttonDebugElement).toBeTruthy();
+    buttonDebugElement.triggerEventHandler('eventClick', null);
 
     fixture.detectChanges();
 
