@@ -4,6 +4,7 @@ import { Meta } from '@angular/platform-browser';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { JoinUsComponent } from '../join-us/join-us.component';
 import { LatestNewsComponent } from '../latest-news/latest-news.component';
+import { VacanciesComponent } from '../vacancies/vacancies.component';
 
 @Component({
   selector: 'lib-home',
@@ -13,6 +14,7 @@ import { LatestNewsComponent } from '../latest-news/latest-news.component';
     AboutUsComponent,
     LatestNewsComponent,
     JoinUsComponent,
+    VacanciesComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

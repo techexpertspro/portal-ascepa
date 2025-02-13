@@ -1,0 +1,35 @@
+<section class="p-1rem">
+  <h2>Vagas</h2>
+  <section aria-label="Lista de vagas">
+    <article class="desktop-only">
+      @for (job of vacancies; track $index){
+      <lib-card
+        [title]="job.title"
+        [subtitle]="job.company"
+        [description]="job.description"
+        [badges]="job.badges"
+        [buttonPrimary]="'Ver detalhes'"
+        [buttonSecondary]="'Aplicar'"
+      ></lib-card>
+      }
+    </article>
+    <article class="mobile-only">
+      <lib-carrousel
+        [items]="vacancies"
+        [showIndicator]="true"
+        [showNavigators]="true"
+      >
+        @for (job of vacancies; track $index){
+        <lib-card
+          [title]="job.title"
+          [subtitle]="job.company"
+          [description]="job.description"
+          [badges]="job.badges"
+          [buttonPrimary]="'Ver detalhes'"
+          [buttonSecondary]="'Aplicar'"
+        ></lib-card>
+        }
+      </lib-carrousel>
+    </article>
+  </section>
+</section>

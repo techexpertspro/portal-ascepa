@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   ComponentFixture,
   discardPeriodicTasks,
@@ -5,49 +6,39 @@ import {
   TestBed,
   tick,
 } from '@angular/core/testing';
-import { CarouselImage, CarrouselComponent } from './carrousel.component';
+import { MatIconModule } from '@angular/material/icon';
+import { By } from '@angular/platform-browser';
+import { CarrouselComponent } from './carrousel.component';
 
 describe('CarrouselComponent', () => {
   let component: CarrouselComponent;
   let fixture: ComponentFixture<CarrouselComponent>;
 
-  const exampleImages: CarouselImage[] = [
-    {
-      title: 'Image 1',
-      imageSrc: 'https://example.com/image1.jpg',
-      imageAlt: 'Image 1 Alt Text',
-      href: 'https://example.com/image1',
-    },
-    {
-      title: 'Image 2',
-      imageSrc: 'https://example.com/image2.jpg',
-      imageAlt: 'Image 2 Alt Text',
-      href: 'https://example.com/image2',
-    },
+  const exampleItems = [
+    { title: 'Item 1', imageSrc: 'https://example.com/image1.jpg' },
+    { title: 'Item 2', imageSrc: 'https://example.com/image2.jpg' },
   ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CarrouselComponent],
+      imports: [CommonModule, MatIconModule, CarrouselComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CarrouselComponent);
     component = fixture.componentInstance;
-    component.images = exampleImages;
+    component.items = exampleItems;
     component.autoPlay = false;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
   it('should initialize with default values', () => {
     expect(component.selectedIndex).toBe(0);
-    expect(component.hidden).toBeFalsy();
-    expect(component.images).toEqual(exampleImages);
     expect(component.showIndicator).toBe(true);
     expect(component.showNavigators).toBe(true);
     expect(component.animationSpeed).toBe(1000);
@@ -55,124 +46,94 @@ describe('CarrouselComponent', () => {
     expect(component.autoPlayInterval).toBe(3000);
   });
 
-  it('should change slides when next() is called', fakeAsync(() => {
-    const initialIndex = component.selectedIndex;
+  it('should display the current item', () => {
+    const slideElement = fixture.debugElement.query(By.css('.slide'));
+    expect(slideElement).toBeTruthy();
+  });
+
+  it('should navigate to the next slide when next() is called', fakeAsync(() => {
     component.next();
-    tick(component.animationSpeed);
+    tick();
     fixture.detectChanges();
-    expect(component.selectedIndex).toBe(
-      (initialIndex + 1) % component.images.length,
-    );
+    expect(component.selectedIndex).toBe(1);
   }));
 
-  it('should change slides when previous() is called', fakeAsync(() => {
+  it('should navigate to the previous slide when previous() is called', fakeAsync(() => {
     component.selectedIndex = 1;
-    const initialIndex = component.selectedIndex;
     component.previous();
-    tick(component.animationSpeed);
-    fixture.detectChanges();
-    expect(component.selectedIndex).toBe(
-      (initialIndex - 1 + component.images.length) % component.images.length,
-    );
-  }));
-
-  it('should change slides when jumpToSlide() is called', fakeAsync(() => {
-    const newIndex = 0;
-    component.jumpToSlide(newIndex);
-    tick(component.animationSpeed);
-    fixture.detectChanges();
-    expect(component.selectedIndex).toBe(newIndex);
-  }));
-
-  it('should handle jumpToSlide() with invalid index', fakeAsync(() => {
-    component.jumpToSlide(0);
-    tick(component.animationSpeed);
+    tick();
     fixture.detectChanges();
     expect(component.selectedIndex).toBe(0);
+  }));
+
+  it('should jump to a specific slide when jumpToSlide() is called', () => {
+    component.jumpToSlide(1);
+    fixture.detectChanges();
+    expect(component.selectedIndex).toBe(1);
+  });
+
+  it('should wrap around to the first slide from the last when next() is called', fakeAsync(() => {
+    component.selectedIndex = exampleItems.length - 1;
+    component.next();
+    tick();
+    fixture.detectChanges();
+    expect(component.selectedIndex).toBe(0);
+  }));
+
+  it('should wrap around to the last slide from the first when previous() is called', fakeAsync(() => {
+    component.selectedIndex = 0;
+    component.previous();
+    tick();
+    fixture.detectChanges();
+    expect(component.selectedIndex).toBe(exampleItems.length - 1);
   }));
 
   it('should autoplay when autoPlay is true', fakeAsync(() => {
     component.autoPlay = true;
-    fixture.detectChanges();
     component.ngOnInit();
-    tick(component.autoPlayInterval + component.animationSpeed);
+    tick(component.autoPlayInterval);
     fixture.detectChanges();
     expect(component.selectedIndex).toBe(1);
     discardPeriodicTasks();
   }));
 
-  it('should pause autoplay when user interacts', fakeAsync(() => {
+  it('should stop autoplay on component destruction', fakeAsync(() => {
     component.autoPlay = true;
-    fixture.detectChanges();
     component.ngOnInit();
-    component.next();
-    tick(component.autoPlayInterval + component.animationSpeed);
+    component.ngOnDestroy();
+    tick(component.autoPlayInterval);
     fixture.detectChanges();
     expect(component.selectedIndex).toBe(0);
     discardPeriodicTasks();
   }));
 
-  it('should wrap around to the first slide when reaching the last slide', fakeAsync(() => {
-    component.selectedIndex = component.images.length - 1;
-    component.next();
-    tick(component.animationSpeed);
-    fixture.detectChanges();
-    expect(component.selectedIndex).toBe(0);
-  }));
-  it('should handle a large number of slides', fakeAsync(() => {
-    const largeNumber = 100;
-    component.images = Array.from({ length: largeNumber }, (_, i) => ({
-      title: `Image ${i + 1}`,
-      imageSrc: `https://example.com/image${i + 1}.jpg`,
-      imageAlt: `Image ${i + 1} Alt Text`,
-      href: `https://example.com/image${i + 1}`,
-    }));
-    fixture.detectChanges();
-    component.next();
-    tick(component.animationSpeed);
-    fixture.detectChanges();
-    expect(component.selectedIndex).toBe(1);
-  }));
-
-  it('should set window.location.href to image href on Enter key press', () => {
-    const setHrefMock = jest.fn();
-    // delete window.location;
-    Object.defineProperty(window, 'location', {
-      value: {
-        set href(href: string) {
-          setHrefMock(href);
-        },
-      },
-      writable: true,
-    });
-    component.images = [
-      {
-        title: 'Example Image',
-        imageSrc: 'https://example.com/image.jpg',
-        imageAlt: 'Example Image Alt Text',
-        href: 'http://example.com',
-      },
-    ];
-    component.selectedIndex = 0;
-    const event = new KeyboardEvent('keypress', { key: 'Enter' });
-    document.dispatchEvent(event);
-    expect(setHrefMock).toHaveBeenCalledWith('http://example.com');
-  });
-
-  it('should call previous() when ArrowLeft key is pressed', () => {
+  it('should handle keyboard navigation (ArrowRight and ArrowLeft)', () => {
+    const nextSpy = jest.spyOn(component, 'next');
     const previousSpy = jest.spyOn(component, 'previous');
-    const event = new KeyboardEvent('keydown', { key: 'ArrowLeft' });
 
-    document.dispatchEvent(event);
+    const rightEvent = new KeyboardEvent('keyup', { key: 'ArrowRight' });
+    const leftEvent = new KeyboardEvent('keyup', { key: 'ArrowLeft' });
 
+    // Simula o evento de teclado
+    component.onKeyUp(rightEvent);
+    expect(nextSpy).toHaveBeenCalled();
+
+    component.onKeyUp(leftEvent);
     expect(previousSpy).toHaveBeenCalled();
   });
-  it('should call next() when ArrowRight key is pressed', () => {
-    const nextSpy = jest.spyOn(component, 'next');
-    const event = new KeyboardEvent('keyup', { key: 'ArrowRight' });
 
-    document.dispatchEvent(event);
+  it('should update indicators when slide changes', () => {
+    component.jumpToSlide(1);
+    fixture.detectChanges();
 
-    expect(nextSpy).toHaveBeenCalled();
+    const activeIndicator = fixture.debugElement.query(
+      By.css('.indicator.active'),
+    );
+    expect(activeIndicator).toBeTruthy();
+  });
+
+  it('should not throw an error if jumpToSlide() is called with an invalid index', () => {
+    expect(() => component.jumpToSlide(-1)).not.toThrow();
+    expect(() => component.jumpToSlide(exampleItems.length)).not.toThrow();
   });
 });
