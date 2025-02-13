@@ -11,10 +11,6 @@ import {
   ViewChild,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {
   continuous,
   final,
@@ -30,15 +26,7 @@ import { DisableEventsDirective } from './disable-pointer.directive';
 @Component({
   selector: 'lib-settings',
   standalone: true,
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatIconModule,
-    MatMenuModule,
-    ThemeToggleComponent,
-    DisableEventsDirective,
-    MatSlideToggleModule,
-  ],
+  imports: [CommonModule, ThemeToggleComponent, DisableEventsDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss',
