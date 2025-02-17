@@ -1,0 +1,70 @@
+<main class="contact">
+  <h2>Contato</h2>
+
+  <section class="content">
+    <section class="container-information">
+      <p class="text">
+        Ficaremos felizes em ouvir você! Entre em contato conosco para tirar
+        dúvidas, enviar sugestões ou obter mais informações sobre nossos
+        serviços. Estamos à disposição para ajudá-lo no que precisar.
+      </p>
+
+      <div class="information">
+        <span class="label"> TELEFONE: </span>
+        <span class="value"> +55 (XX) XXXXX-XXXX </span>
+      </div>
+
+      <div class="information">
+        <span class="label"> E-MAIL: </span>
+        <span class="value"> portalascepa&#64;email.com </span>
+      </div>
+    </section>
+
+    <section class="form">
+      <form [formGroup]="form">
+        <div class="container-input">
+          <input
+            type="text"
+            class="input-style"
+            formControlName="name"
+            placeholder="Nome"
+            [ngClass]="{ error: getErrorControl('name') }"
+          />
+          @if (getErrorControl('name')) {
+          <span class="error-message">Insira um nome válido</span>
+          }
+        </div>
+
+        <div class="container-input">
+          <input
+            type="email"
+            class="input-style"
+            formControlName="email"
+            placeholder="E-mail"
+            [ngClass]="{ error: getErrorControl('email') }"
+          />
+          @if (getErrorControl('email')) {
+          <span class="error-message">Insira um e-mail válido</span>
+          }
+        </div>
+
+        <div class="container-textarea">
+          <textarea
+            type="text"
+            class="input-style"
+            formControlName="message"
+            placeholder="Sua mensagem"
+            [ngClass]="{ error: getErrorControl('message') }"
+          ></textarea>
+          @if (getErrorControl('message')) {
+          <span class="error-message">Insira uma mensagem válida</span>
+          }
+        </div>
+
+        <button class="btn-primary" [disabled]="form.invalid" (click)="send()">
+          ENVIAR
+        </button>
+      </form>
+    </section>
+  </section>
+</main>
