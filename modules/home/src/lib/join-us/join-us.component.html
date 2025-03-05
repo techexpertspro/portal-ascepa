@@ -11,11 +11,11 @@
       {{ joinUs.text }}
     </p>
 
-    <div class="container-button">
-      <button class="btn-primary" (click)="learnMore()">
-        {{ joinUs.button }}
-      </button>
-    </div>
+    <lib-button
+      [label]="joinUs.button"
+      [type]="'primary'"
+      (eventClick)="learnMore()"
+    ></lib-button>
   </section>
 
   <img

@@ -1,7 +1,11 @@
-<section>
-  <h2>Quem somos</h2>
-  <article>
-    <p>{{ text }}</p>
+<section class="about-us" aria-labelledby="about-us-title">
+  <h2 class="about-us__title" id="about-us-title">Quem somos</h2>
+  <div class="about-us__text-content">
+    <p>
+      {{ text }}
+    </p>
+  </div>
+  <div class="about-us__image-content">
     <img [src]="imgSrc" [alt]="alternativeText" />
-  </article>
+  </div>
 </section>
