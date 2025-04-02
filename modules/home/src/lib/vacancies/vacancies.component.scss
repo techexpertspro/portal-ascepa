@@ -1,0 +1,60 @@
+@import './../../../../../src/scss/tokens/colors/token';
+
+.vacancies-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  background-color: $color-primary;
+  color: $color-white;
+  padding: 2rem;
+  border-radius: 4px;
+
+  h2 {
+    color: $color-white;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+  }
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  span,
+  address {
+    font-style: normal;
+  }
+}
+
+.social-media {
+  margin-top: 8.5rem;
+}
+
+@media (max-width: 768px) {
+  .vacancies-container {
+    grid-template-columns: 1fr;
+  }
+
+  .social-media {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+}
