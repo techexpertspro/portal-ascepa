@@ -1,12 +1,13 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
-
-export interface NewsItem {
-  imageUrl: string;
-  altText: string;
-  title: string;
-  content: string;
-}
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  signal,
+} from '@angular/core';
+import { LatestNews } from '@portal-ascepa/shared-ui';
 
 @Component({
   selector: 'lib-latest-news',
@@ -15,60 +16,29 @@ export interface NewsItem {
   templateUrl: './latest-news.component.html',
   styleUrl: './latest-news.component.scss',
 })
-export class LatestNewsComponent {
-  Images = [
-    {
-      imageSrc: 'image-placeholder.png',
-      imageAlt: 'nature1',
-      title: 'Lorem ipsum dolor sit amet 1',
-      href: 'https://www.google.com',
-    },
-    {
-      imageSrc: 'image-placeholder.png',
-      imageAlt: 'nature2',
-      title: 'Lorem ipsum dolor sit amet 2',
-      href: 'https://www.msn.com',
-    },
-    {
-      imageSrc: 'image-placeholder.png',
-      imageAlt: 'person1',
-      title: 'Lorem ipsum dolor sit amet 3',
-      href: 'https://www.uol.com.br',
-    },
-    {
-      imageSrc: 'image-placeholder.png',
-      imageAlt: 'person2',
-      title: 'Lorem ipsum dolor sit amet 4',
-      href: 'https://www.globo.com',
-    },
-  ];
-  mainNews: NewsItem = {
-    imageUrl: 'main-notice.svg',
-    altText: 'principal noticia',
-    title:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet purus gravida quis blandit. Id volutpat lacus laoreet non curabitur. Nunc scelerisque viverra mauris in aliquam sem fringilla. Cursus vitae congue mauris rhoncus aenean. Ornare lectus sit amet est placerat. Tortor at risus viverra adipiscing at in tellus integer.',
-  };
+export class LatestNewsComponent implements OnInit {
+  @Input() latestNews: LatestNews[] = [];
+  @Input() title = '';
+  @Input() content = '';
+  @Input() imageUrl = '';
+  @Input() altText = '';
 
-  sideNews: NewsItem[] = [
-    {
-      imageUrl: 'side-notice.svg',
-      altText: 'noticia lateral',
-      title: 'Lorem ipsum dolor sit amet',
-      content: '',
-    },
-    {
-      imageUrl: 'side-notice.svg',
-      altText: 'noticia lateral',
-      title: 'Lorem ipsum dolor sit amet',
-      content: '',
-    },
-    {
-      imageUrl: 'side-notice.svg',
-      altText: 'noticia lateral',
-      title: 'Lorem ipsum dolor sit amet',
-      content: '',
-    },
-  ];
+  private readonly _isCarousel = signal(false);
+  isReady = signal(false);
+
+  @Input()
+  set isCarousel(value: boolean) {
+    this._isCarousel.set(value);
+    this.isCarouselChange.emit(value);
+  }
+
+  get isCarousel(): boolean {
+    return this._isCarousel();
+  }
+
+  @Output() isCarouselChange = new EventEmitter<boolean>();
+
+  ngOnInit() {
+    setTimeout(() => this.isReady.set(true), 0);
+  }
 }

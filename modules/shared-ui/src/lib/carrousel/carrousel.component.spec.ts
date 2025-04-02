@@ -5,23 +5,25 @@ import {
   TestBed,
   tick,
 } from '@angular/core/testing';
-import { CarouselImage, CarrouselComponent } from './carrousel.component';
+import { CarrouselComponent, LatestNews } from './carrousel.component';
 
 describe('CarrouselComponent', () => {
   let component: CarrouselComponent;
   let fixture: ComponentFixture<CarrouselComponent>;
 
-  const exampleImages: CarouselImage[] = [
+  const exampleImages: LatestNews[] = [
     {
       title: 'Image 1',
-      imageSrc: 'https://example.com/image1.jpg',
-      imageAlt: 'Image 1 Alt Text',
+      content: 'Content for Image 1',
+      imageUrl: 'https://example.com/image1.jpg',
+      altText: 'Image 1 Alt Text',
       href: 'https://example.com/image1',
     },
     {
       title: 'Image 2',
-      imageSrc: 'https://example.com/image2.jpg',
-      imageAlt: 'Image 2 Alt Text',
+      content: 'Content for Image 2',
+      imageUrl: 'https://example.com/image2.jpg',
+      altText: 'Image 2 Alt Text',
       href: 'https://example.com/image2',
     },
   ];
@@ -35,7 +37,7 @@ describe('CarrouselComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CarrouselComponent);
     component = fixture.componentInstance;
-    component.images = exampleImages;
+    component.cards = exampleImages;
     component.autoPlay = false;
     fixture.detectChanges();
   });
@@ -47,7 +49,7 @@ describe('CarrouselComponent', () => {
   it('should initialize with default values', () => {
     expect(component.selectedIndex).toBe(0);
     expect(component.hidden).toBeFalsy();
-    expect(component.images).toEqual(exampleImages);
+    expect(component.cards).toEqual(exampleImages);
     expect(component.showIndicator).toBe(true);
     expect(component.showNavigators).toBe(true);
     expect(component.animationSpeed).toBe(1000);
@@ -61,7 +63,7 @@ describe('CarrouselComponent', () => {
     tick(component.animationSpeed);
     fixture.detectChanges();
     expect(component.selectedIndex).toBe(
-      (initialIndex + 1) % component.images.length,
+      (initialIndex + 1) % component.cards.length,
     );
   }));
 
@@ -72,7 +74,7 @@ describe('CarrouselComponent', () => {
     tick(component.animationSpeed);
     fixture.detectChanges();
     expect(component.selectedIndex).toBe(
-      (initialIndex - 1 + component.images.length) % component.images.length,
+      (initialIndex - 1 + component.cards.length) % component.cards.length,
     );
   }));
 
@@ -113,7 +115,7 @@ describe('CarrouselComponent', () => {
   }));
 
   it('should wrap around to the first slide when reaching the last slide', fakeAsync(() => {
-    component.selectedIndex = component.images.length - 1;
+    component.selectedIndex = component.cards.length - 1;
     component.next();
     tick(component.animationSpeed);
     fixture.detectChanges();
@@ -121,11 +123,13 @@ describe('CarrouselComponent', () => {
   }));
   it('should handle a large number of slides', fakeAsync(() => {
     const largeNumber = 100;
-    component.images = Array.from({ length: largeNumber }, (_, i) => ({
+    component.cards = Array.from({ length: largeNumber }, (_, i) => ({
       title: `Image ${i + 1}`,
-      imageSrc: `https://example.com/image${i + 1}.jpg`,
+      imageUrl: `https://example.com/image${i + 1}.jpg`,
       imageAlt: `Image ${i + 1} Alt Text`,
       href: `https://example.com/image${i + 1}`,
+      content: `Content for Image ${i + 1}`,
+      altText: `Alt text for Image ${i + 1}`,
     }));
     fixture.detectChanges();
     component.next();
@@ -145,11 +149,12 @@ describe('CarrouselComponent', () => {
       },
       writable: true,
     });
-    component.images = [
+    component.cards = [
       {
         title: 'Example Image',
-        imageSrc: 'https://example.com/image.jpg',
-        imageAlt: 'Example Image Alt Text',
+        content: 'Example Content',
+        imageUrl: 'https://example.com/image.jpg',
+        altText: 'Example Image Alt Text',
         href: 'http://example.com',
       },
     ];
@@ -174,5 +179,70 @@ describe('CarrouselComponent', () => {
     document.dispatchEvent(event);
 
     expect(nextSpy).toHaveBeenCalled();
+  });
+
+  it('should call handleKeyEnter() when Enter key is pressed', () => {
+    const handleKeyEnterSpy = jest.spyOn(component, 'handleKeyEnter');
+    const event = new KeyboardEvent('keypress', { key: 'Enter' });
+
+    document.dispatchEvent(event);
+
+    expect(handleKeyEnterSpy).toHaveBeenCalledWith(event);
+  });
+
+  it('should navigate to the href of the selected card on Enter key press', () => {
+    const setHrefMock = jest.fn();
+    Object.defineProperty(window, 'location', {
+      value: {
+        set href(href: string) {
+          setHrefMock(href);
+        },
+      },
+      writable: true,
+    });
+
+    component.cards = [
+      {
+        title: 'Example Card',
+        content: 'Example Content',
+        imageUrl: 'https://example.com/image.jpg',
+        altText: 'Example Image Alt Text',
+        href: 'http://example.com',
+      },
+    ];
+    component.selectedIndex = 0;
+    const event = new KeyboardEvent('keypress', { key: 'Enter' });
+    document.dispatchEvent(event);
+    expect(setHrefMock).toHaveBeenCalledWith('http://example.com');
+  });
+
+  it('should not navigate if href is undefined on Enter key press', () => {
+    const setHrefMock = jest.fn();
+    Object.defineProperty(window, 'location', {
+      value: {
+        set href(href: string) {
+          setHrefMock(href);
+        },
+      },
+      writable: true,
+    });
+
+    component.cards = [
+      {
+        title: 'Example Card',
+        content: 'Example Content',
+        imageUrl: 'https://example.com/image.jpg',
+        altText: 'Example Image Alt Text',
+      },
+    ];
+    component.selectedIndex = 1;
+    const event = new KeyboardEvent('keypress', { key: 'Enter' });
+    if (
+      component.cards[component.selectedIndex] &&
+      component.cards[component.selectedIndex].href
+    ) {
+      component.handleKeyEnter(event);
+    }
+    expect(setHrefMock).not.toHaveBeenCalled();
   });
 });
