@@ -26,4 +26,23 @@ describe('VacanciesCardComponent', () => {
     component.vaga = mock;
     expect(component).toBeTruthy();
   });
+
+  it('should show vancancy title', () => {
+    component.vaga = mock;
+    fixture.detectChanges();
+    const h3Element: HTMLElement = fixture.nativeElement.querySelector(
+      `#vaga-title-${mock.id}`,
+    );
+    expect(h3Element).toBeDefined();
+    expect(h3Element.innerHTML).toContain(mock.title);
+  });
+
+  it('should show vacancy title', () => {
+    component.vaga = mock;
+    fixture.detectChanges();
+    const buttonDetails: HTMLButtonElement =
+      fixture.nativeElement.querySelector(`#detailBtn`);
+    expect(buttonDetails).toBeDefined();
+    expect(buttonDetails.textContent).toContain(component.seeDetailsButtonText);
+  });
 });
