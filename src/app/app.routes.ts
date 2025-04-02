@@ -13,9 +13,9 @@ export const appRoutes: Route[] = [
     title: 'Home | Associação de e para Cegos do Pará',
   },
   {
-    path: 'vacancies',
+    path: 'contacts',
     loadComponent: () =>
-      import('@portal-ascepa/home').then((m) => m.VacanciesComponent),
+      import('@portal-ascepa/home').then((m) => m.ContactsComponent),
     title: 'Home | Associação de e para Cegos do Pará',
   },
 ];

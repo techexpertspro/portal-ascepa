@@ -3,11 +3,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ButtonComponent } from '@portal-ascepa/shared-ui';
 
 @Component({
-  selector: 'lib-vacancies',
+  selector: 'lib-contacts',
   standalone: true,
   imports: [CommonModule, ButtonComponent],
-  templateUrl: './vacancies.component.html',
-  styleUrl: './vacancies.component.scss',
+  templateUrl: './contacts.component.html',
+  styleUrl: './contacts.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VacanciesComponent {}
+export class ContactsComponent {}
