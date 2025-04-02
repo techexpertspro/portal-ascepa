@@ -1,0 +1,6 @@
+<section class="about-us" aria-labelledby="about-us-title">
+  <h2>Vagas</h2>
+  @for (vaga of vagas; track $index) {
+  <lib-vacancies-card [vaga]="vaga"></lib-vacancies-card>
+  }
+</section>
