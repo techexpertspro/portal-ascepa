@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { IVacancy } from '../../interfaces/Ivacancy.interface';
+import { VacanciesBannerComponent } from '../vacancies-banner/vacancies-banner.component';
 import { VacanciesCardComponent } from '../vacancies-card/vacancies-card.component';
 
 @Component({
   selector: 'lib-vacancies',
   standalone: true,
-  imports: [CommonModule, VacanciesCardComponent],
+  imports: [CommonModule, VacanciesCardComponent, VacanciesBannerComponent],
   templateUrl: './vacancies.component.html',
   styleUrl: './vacancies.component.scss',
 })
