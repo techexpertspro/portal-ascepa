@@ -12,6 +12,8 @@ import { VacanciesCardComponent } from '../vacancies-card/vacancies-card.compone
   styleUrl: './vacancies.component.scss',
 })
 export class VacanciesComponent {
+  title = 'Vagas';
+
   readonly vacancies: IVacancy[] = [
     {
       id: 1,

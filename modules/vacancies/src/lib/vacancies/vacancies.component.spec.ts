@@ -18,4 +18,12 @@ describe('VacanciesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show the title', () => {
+    fixture.detectChanges();
+    const h2Element: HTMLElement =
+      fixture.nativeElement.querySelector(`#vacancy-title`);
+    expect(h2Element).toBeDefined();
+    expect(h2Element.innerHTML).toContain(component.title);
+  });
 });
