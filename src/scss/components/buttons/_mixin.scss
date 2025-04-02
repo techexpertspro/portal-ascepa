@@ -12,9 +12,17 @@
   font-weight: $font-weight-bold;
   cursor: pointer;
   line-height: 1.5rem;
+  @include transition;
 
   &:hover {
     background-color: darken($color-button-primary-bg, 10%);
+    @include transition;
+  }
+
+  &:disabled {
+    background-color: $color-button-disabled;
+    color: $color-secondary;
+    @include transition;
   }
 }
 
