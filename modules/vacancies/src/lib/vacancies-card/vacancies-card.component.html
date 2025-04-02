@@ -1,3 +1,33 @@
-<div class="about-us__text-content">
-  <p>{{ vaga }}</p>
+<div
+  *ngIf="vaga"
+  class="card"
+  role="listitem"
+  [attr.aria-labelledby]="'vaga-title-' + vaga.id"
+>
+  <div class="tags" role="list">
+    @for (tag of vaga.tags; track vaga.id) {
+    <span class="tag" role="listitem">{{ tag.title }}</span>
+    }
+  </div>
+  <h3 [id]="'vaga-title-' + vaga.id">{{ vaga.title }}</h3>
+  <p class="company" [attr.aria-label]="'Empresa: ' + vaga.company">
+    {{ vaga.company }}
+  </p>
+  <p>
+    {{ vaga.description }}
+  </p>
+  <div class="buttons">
+    <button
+      class="btn details"
+      [attr.aria-label]="'Ver detalhes da vaga para ' + vaga.title"
+    >
+      {{ seeDetailsButtonText }}
+    </button>
+    <button
+      class="btn apply"
+      [attr.aria-label]="'Aplicar para vaga de ' + vaga.title"
+    >
+      {{ applyButtonText }}
+    </button>
+  </div>
 </div>
