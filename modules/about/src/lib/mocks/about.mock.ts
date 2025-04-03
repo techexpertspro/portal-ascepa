@@ -1,4 +1,6 @@
-export const mockAbout = {
+import { About } from '../interfaces/about.type';
+
+export const mockAbout: About = {
   banner: {
     image: 'main-notice.svg',
     description:
@@ -15,7 +17,7 @@ export const mockAbout = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet purus gravida quis blandit. Id volutpat lacus laoreet non curabitur. Nunc scelerisque viverra mauris in aliquam sem fringilla. Cursus vitae congue mauris rhoncus aenean. Ornare lectus sit amet est placerat. Tortor at risus viverra adipiscing at in tellus integer. Pretium quam vulputate dignissim suspendisse. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Augue eget arcu dictum varius. Massa id neque aliquam vestibulum. Sed risus ultricies tristique nulla.',
   },
   vision: {
-    title: 'vissão',
+    title: 'visão',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet purus gravida quis blandit. Id volutpat lacus laoreet non curabitur. Nunc scelerisque viverra mauris in aliquam sem fringilla. Cursus vitae congue mauris rhoncus aenean. Ornare lectus sit amet est placerat. Tortor at risus viverra adipiscing at in tellus integer. Pretium quam vulputate dignissim suspendisse. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Augue eget arcu dictum varius. Massa id neque aliquam vestibulum. Sed risus ultricies tristique nulla.',
   },

@@ -1,0 +1,38 @@
+.card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 40px 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  &__title {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    align-self: start;
+  }
+
+  &__text-content {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    text-align: justify;
+    margin-right: 16px;
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    text-align: center;
+    gap: 1rem;
+
+    &__title {
+      grid-column: 1 / 2;
+      grid-row: 1;
+    }
+
+    &__text-content {
+      grid-column: 1 / 2;
+      grid-row: 3;
+    }
+  }
+}

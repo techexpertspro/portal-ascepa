@@ -1,11 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { CardComponent } from '../components/card/card.component';
+import { About } from '../interfaces/about.type';
+import { mockAbout } from '../mocks/about.mock';
 
 @Component({
   selector: 'lib-about',
   standalone: true,
-  imports: [CommonModule, MatGridListModule],
+  imports: [CommonModule, MatGridListModule, CardComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })
@@ -29,4 +32,5 @@ export class AboutComponent {
   constructor() {
     this.onResize(); // Garante que a grid seja ajustada ao iniciar
   }
+  aboutDetail: About = mockAbout;
 }

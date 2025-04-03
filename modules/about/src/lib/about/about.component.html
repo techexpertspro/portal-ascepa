@@ -2,7 +2,21 @@
   <div class="grid-item-banner">Banner</div>
 </section>
 <mat-grid-list [cols]="1" rowHeight="120px" gutterSize="120px">
-  <mat-grid-tile class="grid-item"> Container </mat-grid-tile>
-  <mat-grid-tile class="grid-item"> Container </mat-grid-tile>
-  <mat-grid-tile class="grid-item"> Container </mat-grid-tile>
+  <mat-grid-tile class="grid-item">
+    @let about = aboutDetail.about;
+    <lib-card [title]="about.title" [text]="about.description"></lib-card>
+
+    @let mission = aboutDetail.mission;
+    <lib-card [title]="mission.title" [text]="mission.description"></lib-card>
+
+    @let vision = aboutDetail.vision;
+    <lib-card [title]="vision.title" [text]="vision.description"></lib-card>
+
+    @let values = aboutDetail.values;
+    <lib-card [title]="values.title" [text]="values.description"></lib-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile class="grid-item"> </mat-grid-tile>
+
+  <mat-grid-tile class="grid-item"> </mat-grid-tile>
 </mat-grid-list>
