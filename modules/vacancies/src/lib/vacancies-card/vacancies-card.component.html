@@ -1,9 +1,5 @@
-<div
-  *ngIf="vaga"
-  class="card"
-  role="listitem"
-  [attr.aria-labelledby]="'vaga-title-' + vaga.id"
->
+@if(vaga){
+<div class="card" [attr.aria-labelledby]="'vaga-title-' + vaga.id">
   <div class="tags" role="list">
     @for (tag of vaga.tags; track vaga.id) {
     <span class="tag" role="listitem">{{ tag.title }}</span>
@@ -32,3 +28,4 @@
     </button>
   </div>
 </div>
+}
