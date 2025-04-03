@@ -1,0 +1,12 @@
+@if(hasBanner){
+<lib-vacancies-banner></lib-vacancies-banner>
+}
+
+<div class="container">
+  <h2 id="vacancy-title">{{ title }}</h2>
+  <section class="vacancies-container" aria-labelledby="vacancies">
+    @for (vacancy of vacancies; track vacancy.id) {
+    <lib-vacancies-card [vaga]="vacancy"></lib-vacancies-card>
+    }
+  </section>
+</div>
