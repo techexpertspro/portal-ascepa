@@ -1,6 +1,17 @@
 <main>
-  <section>Banner</section>
+  <!-- <section>Banner</section>
   <section>QuemSomos</section>
   <section>Missao,Visao</section>
-  <section>Filie-se</section>
+  <section>Filie-se</section> -->
+  @let about = aboutDetail.about;
+  <lib-card [title]="about.title" [text]="about.description"></lib-card>
+
+  @let mission = aboutDetail.mission;
+  <lib-card [title]="mission.title" [text]="mission.description"></lib-card>
+
+  @let vision = aboutDetail.vision;
+  <lib-card [title]="vision.title" [text]="vision.description"></lib-card>
+
+  @let values = aboutDetail.values;
+  <lib-card [title]="values.title" [text]="values.description"></lib-card>
 </main>
