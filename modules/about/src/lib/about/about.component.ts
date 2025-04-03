@@ -1,11 +1,32 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, HostListener } from '@angular/core';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'lib-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatGridListModule],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })
-export class AboutComponent {}
+export class AboutComponent {
+  items = [1, 2, 3, 4];
+  gridCols = 4; // Começa com 4 colunas
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    const width = window.innerWidth;
+
+    if (width > 1024) {
+      this.gridCols = 4; // 4 colunas para telas grandes
+    } else if (width > 768) {
+      this.gridCols = 2; // 2 colunas para tablets
+    } else {
+      this.gridCols = 1; // 1 coluna para celulares
+    }
+  }
+
+  constructor() {
+    this.onResize(); // Garante que a grid seja ajustada ao iniciar
+  }
+}
