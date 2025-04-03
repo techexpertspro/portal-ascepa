@@ -30,6 +30,6 @@ describe('VacanciesBannerComponent', () => {
 
   it('must have responsive class', () => {
     const img: HTMLImageElement = fixture.nativeElement.querySelector('img');
-    expect(img.classList).toContain('responsive-img');
+    expect(img.classList).toContain('vacancies-banner__img');
   });
 });

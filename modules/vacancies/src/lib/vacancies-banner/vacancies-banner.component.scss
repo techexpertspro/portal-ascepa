@@ -1,5 +1,10 @@
-.responsive-img {
-  width: 100%;
-  height: auto;
-  max-width: 1440px;
+.vacancies-banner {
+  display: flex;
+  justify-content: center;
+
+  &__img {
+    width: 100%;
+    height: auto;
+    max-width: 1440px;
+  }
 }
