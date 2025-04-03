@@ -21,7 +21,7 @@ describe('HeaderComponent', () => {
     );
 
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent, RouterTestingModule],
+      imports: [HeaderComponent],
       providers: [
         {
           provide: SpeechRecognitionService,
