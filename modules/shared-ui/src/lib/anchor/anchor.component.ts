@@ -17,6 +17,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   },
 })
 export class AnchorComponent {
-  buttonLink? = input<boolean>(false);
-  variant? = input<'primary' | 'secondary'>('primary');
+  buttonLink = input<boolean>(false);
+  variant = input<'primary' | 'secondary'>('primary');
 }

@@ -1,7 +1,14 @@
 @use '../../../../../src/scss/global' as *;
 
-.anchor-button {
+.anchor-button,
+:host.anchor-button {
+  padding: .5rem 1rem;
+
   &__primary {
     @include button-primary-style;
+  }
+
+  &__secondary {
+    @include button-secondary-style;
   }
 }
