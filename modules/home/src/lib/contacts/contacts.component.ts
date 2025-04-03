@@ -1,12 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { ButtonComponent } from '@portal-ascepa/shared-ui';
 
 @Component({
   selector: 'lib-contacts',
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule, ButtonComponent, ReactiveFormsModule],
   templateUrl: './contacts.component.html',
   styleUrl: './contacts.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

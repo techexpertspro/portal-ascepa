@@ -101,5 +101,26 @@
       </div>
     </div>
   </div>
-  <div>teste</div>
+  <div>
+    <form
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      class="form-container"
+    >
+      <div class="form-row">
+        <input formControlName="firstName" placeholder="First Name" />
+        <input formControlName="lastName" placeholder="Last Name" />
+      </div>
+
+      <input formControlName="email" placeholder="Email" type="email" />
+
+      <textarea formControlName="message" placeholder="Message"></textarea>
+      <lib-button
+        [label]="'Enviar'"
+        [disabled]="contactForm.invalid"
+      ></lib-button>
+
+      <!-- <button type="submit" [disabled]="contactForm.invalid">Submit</button> -->
+    </form>
+  </div>
 </section>
