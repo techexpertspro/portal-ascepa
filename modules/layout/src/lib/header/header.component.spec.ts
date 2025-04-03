@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 import { SpeechRecognitionService } from '@ng-web-apis/speech';
 import { Subject } from 'rxjs';
+import { AriaCurrentDirective } from './directives/aria-current.directive';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -26,6 +27,10 @@ describe('HeaderComponent', () => {
           provide: SpeechRecognitionService,
           useValue: mockSpeechRecognitionService,
         },
+        {
+          provide: AriaCurrentDirective,
+        },
+        provideRouter([]),
       ],
     }).compileComponents();
 
