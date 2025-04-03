@@ -1,0 +1,7 @@
+@use '../../../../../src/scss/global' as *;
+
+.anchor-button {
+    &__primary {
+        @include button-primary-style;
+    }
+}
