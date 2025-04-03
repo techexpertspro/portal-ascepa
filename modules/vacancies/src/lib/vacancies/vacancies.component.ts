@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IVacancy } from '../../interfaces/Ivacancy.interface';
 import { VacanciesBannerComponent } from '../vacancies-banner/vacancies-banner.component';
 import { VacanciesCardComponent } from '../vacancies-card/vacancies-card.component';
@@ -12,6 +12,7 @@ import { VacanciesCardComponent } from '../vacancies-card/vacancies-card.compone
   styleUrl: './vacancies.component.scss',
 })
 export class VacanciesComponent {
+  @Input({ required: false }) hasBanner = true;
   title = 'Vagas';
 
   readonly vacancies: IVacancy[] = [
