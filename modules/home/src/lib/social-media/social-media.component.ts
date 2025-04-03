@@ -1,6 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
+export interface SocialMediaItem {
+  title: string;
+  text: string;
+  icon: string;
+  imgSrc: string;
+  link: string;
+  ariaLabel: string;
+}
+
+/**
+ * *Componente para exibir conteúdo as redes sociais da Ascepa.
+ * @description Este componente possui link para acesso ao Instagram da Ascepa e exibe as algumas postagens. Está formatado em grid, alterando a posição dos elementos de acordo com o tamanho da tela.
+ * @example
+ * ```html
+ * <lib-social-media></lib-social-media>
+ * ```
+ * @author Tech Experts
+ */
 @Component({
   selector: 'lib-social-media',
   standalone: true,
@@ -9,7 +27,7 @@ import { Component } from '@angular/core';
   styleUrl: './social-media.component.scss',
 })
 export class SocialMediaComponent {
-  public socialMedia = [
+  public socialMedia: SocialMediaItem[] = [
     {
       title: 'Instagram',
       text: 'Confira o que está rolando no nosso Instagram',
@@ -19,37 +37,36 @@ export class SocialMediaComponent {
       ariaLabel: 'Link para o Instagram da Ascepa',
     },
     {
-      title: 'Facebook',
+      title: 'Postagem 1',
       text: '',
       icon: '',
       imgSrc: 'image-landscape.png',
       link: 'https://www.instagram.com/ascepaoficial/',
-      ariaLabel: 'Link para o Facebook da Ascepa',
+      ariaLabel: 'Link para a postagem 1 do Instagram da Ascepa',
     },
     {
-      title: 'Twitter',
+      title: 'Postagem 2',
       text: '',
       icon: '',
       imgSrc: 'image-landscape.png',
       link: 'https://www.instagram.com/ascepaoficial/',
-      ariaLabel: 'Link para o Twitter da Ascepa',
+      ariaLabel: 'Link para a postagem 2 do Instagram da Ascepa',
     },
     {
-      title: 'LinkedIn',
+      title: 'Postagem 3',
       text: '',
       icon: '',
       imgSrc: 'image-landscape.png',
       link: 'https://www.instagram.com/ascepaoficial/',
-      ariaLabel: 'Link para o LinkedIn da Ascepa',
+      ariaLabel: 'Link para a postagem 3 do Instagram da Ascepa',
+    },
+    {
+      title: 'Postagem 4',
+      text: '',
+      icon: '',
+      imgSrc: 'image-landscape.png',
+      link: 'https://www.instagram.com/ascepaoficial/',
+      ariaLabel: 'Link para a postagem 4 do Instagram da Ascepa',
     },
   ];
-
-  public featuresSocialNetwork = {
-    title: '...',
-    text: '',
-    icon: '',
-    imgSrc: 'image-landscape.png',
-    link: 'https://www.instagram.com/ascepaoficial/',
-    ariaLabel: 'Link para o ... da Ascepa',
-  };
 }
