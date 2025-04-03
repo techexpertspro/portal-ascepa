@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { IVacancy } from '../../interfaces/Ivacancy.interface';
 import { VacanciesBannerComponent } from '../vacancies-banner/vacancies-banner.component';
 import { VacanciesCardComponent } from '../vacancies-card/vacancies-card.component';
@@ -11,9 +11,15 @@ import { VacanciesCardComponent } from '../vacancies-card/vacancies-card.compone
   templateUrl: './vacancies.component.html',
   styleUrl: './vacancies.component.scss',
 })
-export class VacanciesComponent {
+export class VacanciesComponent implements OnInit {
   hasBanner = input(true);
+  hasCarrousel = input(false);
   title = 'Vagas';
+  isMobile = false;
+
+  ngOnInit() {
+    this.isMobile = window.innerWidth <= 768;
+  }
 
   readonly vacancies: IVacancy[] = [
     {
