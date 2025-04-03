@@ -16,7 +16,7 @@
   type="button"
   (click)="changePage(convertStringIntoNumber(page))"
   [attr.aria-label]="'Página ' + page + 'de ' + totalPages()"
-  [attr.aria-selected]="page === currentPage()"
+  [attr.aria-current]="page === currentPage()"
   class="ascepa-pagination__item"
   [class.ascepa-pagination__item--selected]="page === currentPage()"
 >
