@@ -12,7 +12,7 @@ import { AriaCurrentDirective } from './directives/aria-current.directive';
     NgOptimizedImage,
     SettingsComponent,
     AriaCurrentDirective,
-    RouterModule
+    RouterModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
