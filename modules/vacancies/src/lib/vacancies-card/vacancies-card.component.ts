@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { IVacancy } from '../../interfaces/Ivacancy.interface';
 
 @Component({
@@ -10,7 +10,7 @@ import { IVacancy } from '../../interfaces/Ivacancy.interface';
   styleUrl: './vacancies-card.component.scss',
 })
 export class VacanciesCardComponent {
-  @Input({ required: true }) vaga!: IVacancy;
+  vaga = input.required<IVacancy>();
   readonly applyButtonText: string = 'Aplicar';
   readonly seeDetailsButtonText: string = 'Ver detalhes';
 }
