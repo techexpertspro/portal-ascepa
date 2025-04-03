@@ -8,8 +8,29 @@
   margin: 0 auto;
   padding: 1rem;
 }
+
 .vacancies-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
+}
+
+@media (max-width: 512px) {
+  .vacancies-carousel {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+
+    .carousel-track {
+      display: flex;
+      gap: 16px;
+    }
+
+    .carousel-item {
+      min-width: 280px;
+      max-width: 380px;
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+    }
+  }
 }
