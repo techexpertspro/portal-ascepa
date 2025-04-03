@@ -49,32 +49,40 @@
     </aside>
   </div>
 </section>
-@for (item of [1,2]; track $index) {
-<article [attr.aria-labelledby]="'notícia' + $index" class="news">
-  <div>
-    <h2 [id]="'noticia' + $index">Notícia {{ $index }}</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Sit amet purus gravida
-      quis blandit. Id volutpat lacus laoreet non curabitur. Nunc scelerisque
-      viverra mauris in aliquam sem fringilla. Cursus vitae congue mauris
-      rhoncus aenean. Ornare lectus sit amet est placerat. Tortor at risus
-      viverra adipiscing at in tellus integer. Pretium quam vulputate dignissim
-      suspendisse. Scelerisque eleifend donec pretium vulputate sapien nec
-      sagittis aliquam. Augue eget arcu dictum varius. Massa id neque aliquam
-      vestibulum. Sed risus ultricies tristique nulla.
-    </p>
-    <a
-      libAnchor
-      variant="primary"
-      [buttonLink]="true"
-      href="#"
-      [attr.aria-label]="'Ir para ' + 'notícia ' + $index"
-      >Leia mais</a
-    >
-  </div>
-  <figure>
-    <img src="side-notice.svg" alt="Lorem Ipsum" loading="lazy" />
-  </figure>
-</article>
-}
+<section>
+  @for (item of [1,2]; track $index) {
+  <article [attr.aria-labelledby]="'notícia' + $index" class="news">
+    <div>
+      <h2 [id]="'noticia' + $index">Notícia {{ $index }}</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Sit amet purus
+        gravida quis blandit. Id volutpat lacus laoreet non curabitur. Nunc
+        scelerisque viverra mauris in aliquam sem fringilla. Cursus vitae congue
+        mauris rhoncus aenean. Ornare lectus sit amet est placerat. Tortor at
+        risus viverra adipiscing at in tellus integer. Pretium quam vulputate
+        dignissim suspendisse. Scelerisque eleifend donec pretium vulputate
+        sapien nec sagittis aliquam. Augue eget arcu dictum varius. Massa id
+        neque aliquam vestibulum. Sed risus ultricies tristique nulla.
+      </p>
+      <a
+        libAnchor
+        variant="primary"
+        [buttonLink]="true"
+        href="#"
+        [attr.aria-label]="'Ir para ' + 'notícia ' + $index"
+        >Leia mais</a
+      >
+    </div>
+    <figure>
+      <img src="side-notice.svg" alt="Lorem Ipsum" loading="lazy" />
+    </figure>
+  </article>
+  }
+  <lib-pagination
+    [currentPage]="currentPage()"
+    [maxVisible]="5"
+    [totalPages]="10"
+    (pageChange)="changePage($event)"
+  />
+</section>

@@ -56,7 +56,9 @@ describe('PaginationComponent with HostComponent', () => {
   });
 
   it('should highlight the current page button', () => {
-    const activeButton = fixture.nativeElement.querySelector('button.active');
+    const activeButton = fixture.nativeElement.querySelector(
+      '.ascepa-pagination__item--selected',
+    );
     expect(activeButton.textContent.trim()).toBe('3');
   });
 
@@ -65,7 +67,7 @@ describe('PaginationComponent with HostComponent', () => {
     fixture.detectChanges();
 
     const prevButton = fixture.nativeElement.querySelector(
-      'button[aria-label="Previous page"]',
+      'button.ascepa-pagination__previous',
     );
     expect(prevButton.disabled).toBe(true);
   });
@@ -75,14 +77,14 @@ describe('PaginationComponent with HostComponent', () => {
     fixture.detectChanges();
 
     const nextButton = fixture.nativeElement.querySelector(
-      'button[aria-label="Next page"]',
+      'button.ascepa-pagination__next',
     );
     expect(nextButton.disabled).toBe(true);
   });
 
   it('should emit pageChange when a different page button is clicked', () => {
     const pageButton = fixture.nativeElement.querySelector(
-      'button:not(.active):not([aria-label])',
+      'button.ascepa-pagination__item:not(.ascepa-pagination__item--selected)',
     );
     pageButton.click();
 
@@ -91,13 +93,13 @@ describe('PaginationComponent with HostComponent', () => {
 
   it('should emit pageChange on previous and next button clicks', () => {
     const prevButton = fixture.nativeElement.querySelector(
-      'button[aria-label="Previous page"]',
+      'button.ascepa-pagination__previous',
     );
     prevButton.click();
     expect(hostComponent.newPage).toBe(2);
 
     const nextButton = fixture.nativeElement.querySelector(
-      'button[aria-label="Next page"]',
+      'button.ascepa-pagination__next',
     );
     nextButton.click();
     expect(hostComponent.newPage).toBe(4);
@@ -110,7 +112,9 @@ describe('PaginationComponent with HostComponent', () => {
     fixture.detectChanges();
 
     expect(component.visiblePages().length).toBeGreaterThan(5);
-    const activeButton = fixture.nativeElement.querySelector('button.active');
+    const activeButton = fixture.nativeElement.querySelector(
+      '.ascepa-pagination__item--selected',
+    );
     expect(activeButton.textContent.trim()).toBe('8');
   });
 
@@ -119,7 +123,7 @@ describe('PaginationComponent with HostComponent', () => {
     fixture.detectChanges();
 
     const buttons = fixture.nativeElement.querySelectorAll(
-      'button:not([aria-label])',
+      'button.ascepa-pagination__item',
     );
     const lastButton = buttons[buttons.length - 1].textContent.trim();
 

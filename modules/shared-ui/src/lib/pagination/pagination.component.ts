@@ -7,13 +7,13 @@ import {
   input,
   output,
 } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { PaginationService } from '../service/pagination/pagination.service';
 
 @Component({
   selector: 'lib-pagination',
   standalone: true,
-  imports: [CommonModule, MatIcon],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -47,5 +47,10 @@ export class PaginationComponent {
     if (validatedPage !== this.currentPage()) {
       this.pageChange.emit(validatedPage);
     }
+  }
+
+  protected convertStringIntoNumber(pageAsString: string | number): number {
+    if (typeof pageAsString === 'number') return pageAsString;
+    return parseInt(pageAsString, 10);
   }
 }
