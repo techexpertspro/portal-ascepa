@@ -1,5 +1,9 @@
 @import './../../../../../src/scss/tokens/colors/token';
 
+a {
+  color: white;
+}
+
 .vacancies-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
