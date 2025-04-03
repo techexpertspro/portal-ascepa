@@ -1,4 +1,4 @@
-import { ITags } from './ITags.interface';
+import { ITags } from './Itags.interface';
 
 export interface IVacancy {
   id: number;
