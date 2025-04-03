@@ -22,6 +22,7 @@ $shadow: rgba(0, 0, 0, 0.1);
     display: flex;
     gap: 8px;
     margin-bottom: 10px;
+    list-style: none;
 
     .tag {
       background: $secondary-color;
