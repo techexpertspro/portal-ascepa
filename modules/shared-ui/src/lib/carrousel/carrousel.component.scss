@@ -1,65 +1,100 @@
 :host section {
   display: block;
-  width: 390px;
+  width: 100%;
+  max-width: 390px;
   height: 276px;
   overflow: hidden;
   position: relative;
   margin: auto;
+
   > h2 {
     margin: 0;
     text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .slide {
-    width: 265px;
-    height: 150px; /* Altura ajustada para corresponder à imagem */
-    background: cover, center, no-repeat;
-    position: relative;
-    transition: opacity 0.2s ease-in;
+    width: 100%;
+    max-width: 265px;
+    height: 150px;
     margin: auto;
-    top: 5%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.2s ease-in-out;
+
+    .slide-content {
+      position: absolute;
+      top: 165px;
+      text-align: center;
+
+      .description {
+        margin: 0;
+        font-size: 1rem;
+        color: #333;
+      }
+    }
   }
+
   .btn-style {
     width: 40px;
     height: 40px;
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
     border: none;
-    top: 30%; /* Centraliza verticalmente */
     cursor: pointer;
-  }
-  .btn-next {
-    right: 0; /* Botão de próxima imagem */
-  }
-  .btn-previous {
-    left: 0; /* Botão de imagem anterior */
-  }
-  .slide-content {
-    position: absolute;
-    top: 165px;
 
-    .description {
-      margin: 0;
+    mat-icon {
+      font-size: 1.5rem;
+      color: #666;
+    }
+
+    &:hover mat-icon {
+      color: #333;
     }
   }
+
+  .btn-next {
+    right: 10px;
+  }
+
+  .btn-previous {
+    left: 10px;
+  }
 }
+
 .indicators {
-  margin-top: 60px; /* Espaço entre o carrossel e os indicadores */
-  width: 100%;
-  text-align: center; /* Centraliza os indicadores */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+
   .indicator {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    display: inline-block;
-    margin: 0 3px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease-in-out;
     cursor: pointer;
+    border: none;
+
     &.active {
-      transition: 0.5s ease-in-out;
+      background-color: #666;
     }
   }
 }
+
 button {
   appearance: none;
   border: none;
   background: none;
+}
+
+.flex {
+  display: flex;
 }
