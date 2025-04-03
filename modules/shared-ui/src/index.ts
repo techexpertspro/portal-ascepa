@@ -2,5 +2,7 @@ export * from './lib/anchor/anchor.component';
 export * from './lib/button/button.component';
 export * from './lib/card/card.component';
 export * from './lib/label/label.component';
+export * from './lib/pagination/pagination.component';
 export * from './lib/service/breakpoint/breakpoint.service';
+export * from './lib/service/pagination/pagination.service';
 export * from './lib/theme-toggle/theme-toggle.component';
