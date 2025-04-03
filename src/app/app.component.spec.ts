@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { SpeechRecognitionService } from '@ng-web-apis/speech';
 import { axe } from 'jest-axe';
 import { Subject } from 'rxjs';
@@ -20,7 +21,7 @@ describe('AppComponent', () => {
       recognitionSubject.asObservable(),
     );
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent, RouterTestingModule],
       providers: [
         provideRouter([]),
         {

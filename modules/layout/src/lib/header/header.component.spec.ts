@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { SpeechRecognitionService } from '@ng-web-apis/speech';
 import { Subject } from 'rxjs';
 import { HeaderComponent } from './header.component';
@@ -19,7 +20,7 @@ describe('HeaderComponent', () => {
     );
 
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent],
+      imports: [HeaderComponent, RouterTestingModule],
       providers: [
         {
           provide: SpeechRecognitionService,
