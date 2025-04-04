@@ -6,12 +6,21 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 import { ButtonComponent } from '@portal-ascepa/shared-ui';
-
 @Component({
   selector: 'lib-contacts',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+  ],
   templateUrl: './contacts.component.html',
   styleUrl: './contacts.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,13 +33,8 @@ export class ContactsComponent {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      message: ['', Validators.required],
+      subject: ['', Validators.required],
+      message: ['', [Validators.required, Validators.minLength(10)]],
     });
-  }
-
-  onSubmit() {
-    if (this.contactForm.valid) {
-      const formData = this.contactForm.value;
-    }
   }
 }

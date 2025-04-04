@@ -101,26 +101,62 @@
       </div>
     </div>
   </div>
-  <div>
-    <form
-      [formGroup]="contactForm"
-      (ngSubmit)="onSubmit()"
-      class="form-container"
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Primeiro nome</mat-label>
+      <input matInput formControlName="firstName" required />
+      <mat-error *ngIf="contactForm.get('firstName')?.hasError('required')">
+        Campo obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Sobrenome</mat-label>
+      <input matInput formControlName="lastName" required />
+      <mat-error *ngIf="contactForm.get('lastName')?.hasError('required')">
+        Campo obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" required />
+      <mat-error *ngIf="contactForm.get('email')?.errors">
+        {{
+          contactForm.get('email')?.hasError('required')
+            ? 'Campo obrigatório'
+            : 'Email inválido'
+        }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Assunto</mat-label>
+      <input matInput formControlName="subject" required />
+      <mat-error *ngIf="contactForm.get('subject')?.hasError('required')">
+        Campo obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Mensagem</mat-label>
+      <textarea matInput formControlName="message" required rows="5"></textarea>
+      <mat-error *ngIf="contactForm.get('message')?.errors">
+        {{
+          contactForm.get('message')?.hasError('required')
+            ? 'Campo obrigatório'
+            : 'Mínimo 10 caracteres'
+        }}
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!contactForm.valid"
     >
-      <div class="form-row">
-        <input formControlName="firstName" placeholder="First Name" />
-        <input formControlName="lastName" placeholder="Last Name" />
-      </div>
-
-      <input formControlName="email" placeholder="Email" type="email" />
-
-      <textarea formControlName="message" placeholder="Message"></textarea>
-      <lib-button
-        [label]="'Enviar'"
-        [disabled]="contactForm.invalid"
-      ></lib-button>
-
-      <!-- <button type="submit" [disabled]="contactForm.invalid">Submit</button> -->
-    </form>
-  </div>
+      Enviar mensagem
+    </button>
+  </form>
 </section>
