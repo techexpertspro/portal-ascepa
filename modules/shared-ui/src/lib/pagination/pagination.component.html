@@ -1,0 +1,36 @@
+<button
+  type="button"
+  class="ascepa-pagination__previous"
+  aria-label="Página anterior"
+  [disabled]="currentPage() === 1"
+  (click)="changePage(currentPage() - 1)"
+  [attr.aria-disabled]="currentPage() === 1"
+>
+  <mat-icon>arrow_back_ios</mat-icon>
+</button>
+
+@for (page of visiblePages(); track $index) { @if (page === '...') {
+<span class="ellipsis">...</span>
+} @else {
+<button
+  type="button"
+  (click)="changePage(convertStringIntoNumber(page))"
+  [attr.aria-label]="'Página ' + page + 'de ' + totalPages()"
+  [attr.aria-current]="page === currentPage()"
+  class="ascepa-pagination__item"
+  [class.ascepa-pagination__item--selected]="page === currentPage()"
+>
+  {{ page }}
+</button>
+} }
+
+<button
+  type="button"
+  class="ascepa-pagination__next"
+  aria-label="Próxima página"
+  [disabled]="currentPage() === totalPages()"
+  (click)="changePage(currentPage() + 1)"
+  [attr.aria-disabled]="currentPage() === totalPages()"
+>
+  <mat-icon>arrow_forward_ios</mat-icon>
+</button>
