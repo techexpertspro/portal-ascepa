@@ -1,0 +1,24 @@
+<section>
+  <div
+    class="grid-item-banner"
+    style="
+      background: url('image-placeholder.png') no-repeat center center;
+      background-size: cover;
+    "
+  ></div>
+</section>
+<mat-grid-list [cols]="1" rowHeight="2:1" gutterSize="120px">
+  @let about = aboutDetail.about;
+  <lib-card [title]="about.title" [text]="about.description"></lib-card>
+
+  @let mission = aboutDetail.mission;
+  <lib-card [title]="mission.title" [text]="mission.description"></lib-card>
+
+  @let vision = aboutDetail.vision;
+  <lib-card [title]="vision.title" [text]="vision.description"></lib-card>
+
+  @let values = aboutDetail.values;
+  <lib-card [title]="values.title" [text]="values.description"></lib-card>
+
+  <lib-join-us></lib-join-us>
+</mat-grid-list>
