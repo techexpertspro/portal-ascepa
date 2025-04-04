@@ -1,13 +1,29 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, provideRouter } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SpeechRecognitionService } from '@ng-web-apis/speech';
-import { Subject } from 'rxjs';
+import { of, Subject } from 'rxjs';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
   let recognitionSubject: Subject<SpeechRecognitionResult[]>;
+
+  // Mock do ActivatedRoute
+  const mockActivatedRoute = {
+    params: of({}),
+    queryParams: of({}),
+    snapshot: {
+      data: {},
+      params: {},
+      queryParams: {},
+      fragment: null,
+      outlet: 'primary',
+      routeConfig: null,
+      title: '',
+    },
+  };
 
   const mockSpeechRecognitionService = {
     pipe: jest.fn(),
@@ -22,6 +38,8 @@ describe('HeaderComponent', () => {
     await TestBed.configureTestingModule({
       imports: [HeaderComponent, RouterTestingModule],
       providers: [
+        provideRouter([]),
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
         {
           provide: SpeechRecognitionService,
           useValue: mockSpeechRecognitionService,

@@ -1,6 +1,8 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
 import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
