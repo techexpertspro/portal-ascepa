@@ -19,10 +19,16 @@ export const appRoutes: Route[] = [
     title: 'Quem Somos | Associação de e para Cegos do Pará',
   },
   {
-    path: 'vagas',
+    path: 'noticia/:id',
+    loadComponent: () =>
+      import('@portal-ascepa/news-detail').then((m) => m.NewsDetailComponent),
+    title: 'Detalhes da Noticia | Associação de e para Cegos do Pará',
+  },
+  {
     loadComponent: () =>
       import('@portal-ascepa/vacancies').then((m) => m.VacanciesComponent),
     title: 'Vagas | Associação de e para Cegos do Pará',
+    path: 'vagas',
   },
   {
     path: '**',
