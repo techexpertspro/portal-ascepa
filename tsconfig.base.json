@@ -16,6 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@portal-ascepa/about": ["modules/about/src/index.ts"],
       "@portal-ascepa/angular-plugin": ["plugins/angular/src/index.ts"],
       "@portal-ascepa/home": ["modules/home/src/index.ts"],
       "@portal-ascepa/layout": ["modules/layout/src/index.ts"],
