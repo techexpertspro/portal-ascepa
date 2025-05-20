@@ -1,0 +1,28 @@
+@if(hasBanner()){
+<lib-vacancies-banner></lib-vacancies-banner>
+}
+
+<div class="container">
+  <h2 id="vacancy-title">{{ title }}</h2>
+
+  @if(hasCarrousel() && isMobile){
+
+  <div class="vacancies-carousel">
+    <div class="carousel-track">
+      @for (vacancy of vacancies; track vacancy.id) {
+      <lib-vacancies-card
+        [vaga]="vacancy"
+        class="carousel-item"
+      ></lib-vacancies-card>
+      }
+    </div>
+  </div>
+
+  } @else {
+  <section class="vacancies-container" aria-labelledby="vacancies">
+    @for (vacancy of vacancies; track vacancy.id) {
+    <lib-vacancies-card [vaga]="vacancy"></lib-vacancies-card>
+    }
+  </section>
+  }
+</div>
