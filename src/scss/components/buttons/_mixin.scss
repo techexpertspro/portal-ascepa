@@ -36,3 +36,18 @@
   cursor: pointer;
   line-height: 1.5rem;
 }
+
+@mixin button-disabled-style {
+  background-color: $color-button-secondary-border;
+  color: $color-button-primary-text;
+  border-radius: $border-radius;
+  padding: $button-padding;
+  border: 1px solid $color-button-secondary-border;
+  font-size: $font-size-body-l;
+  cursor: pointer;
+  line-height: 1.5rem;
+
+  &:hover {
+    background-color: $color-button-secondary-border;
+  }
+}

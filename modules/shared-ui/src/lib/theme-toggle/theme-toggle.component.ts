@@ -8,6 +8,7 @@ import { ThemeToggleDirective } from './theme-toggle.directive';
   standalone: true,
   imports: [CommonModule, MatSlideToggleModule, ThemeToggleDirective],
   templateUrl: './theme-toggle.component.html',
+  styleUrl: './theme-toggle.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ThemeToggleComponent {}
