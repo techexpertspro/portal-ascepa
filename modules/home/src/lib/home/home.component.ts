@@ -7,6 +7,7 @@ import { AboutUsComponent } from '../about-us/about-us.component';
 import { HomeBannerComponent } from '../banner/home-banner.component';
 import { JoinUsComponent } from '../join-us/join-us.component';
 import { LatestNewsComponent } from '../latest-news/latest-news.component';
+import { SocialMediaComponent } from '../social-media/social-media.component';
 
 @Component({
   selector: 'lib-home',
@@ -16,6 +17,7 @@ import { LatestNewsComponent } from '../latest-news/latest-news.component';
     AboutUsComponent,
     LatestNewsComponent,
     JoinUsComponent,
+    SocialMediaComponent,
     VacanciesComponent,
     HomeBannerComponent,
   ],
