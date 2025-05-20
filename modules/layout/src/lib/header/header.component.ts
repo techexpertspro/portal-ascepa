@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SettingsComponent } from '../settings/settings.component';
 
@@ -9,6 +9,7 @@ import { SettingsComponent } from '../settings/settings.component';
   imports: [CommonModule, NgOptimizedImage, SettingsComponent, RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent {
   opened = false;
