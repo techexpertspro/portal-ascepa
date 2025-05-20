@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { SpeechRecognitionService } from '@ng-web-apis/speech';
-import { Subject } from 'rxjs';
+import { of, Subject } from 'rxjs';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -19,11 +21,15 @@ describe('HeaderComponent', () => {
     );
 
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent],
+      imports: [HeaderComponent, RouterTestingModule],
       providers: [
         {
           provide: SpeechRecognitionService,
           useValue: mockSpeechRecognitionService,
+        },
+        {
+          provide: ActivatedRoute,
+          useValue: { snapshot: { paramMap: of({}) } },
         },
       ],
     }).compileComponents();

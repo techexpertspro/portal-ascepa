@@ -1,0 +1,87 @@
+$primary-color: #f2f8ff;
+$title-color: #015292;
+$secondary-color: #004085;
+$highlight-color: #f5ce3c;
+$text-color: #666;
+$white: #fff;
+$black: #000;
+$shadow: rgba(0, 0, 0, 0.1);
+
+.card {
+  background: $primary-color;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px $shadow;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    list-style: none;
+
+    .tag {
+      background: $secondary-color;
+      color: $white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 25px;
+    }
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: $title-color;
+    margin-bottom: 5px;
+  }
+
+  .company {
+    font-size: 14px;
+    color: darken($secondary-color, 10%);
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 14px;
+    color: $text-color;
+    margin-bottom: 15px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .btn {
+      padding: 8px 12px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &.details {
+        background: transparent;
+        border: 1px solid $black;
+        color: $black;
+      }
+
+      &.apply {
+        background: $highlight-color;
+        border: none;
+        color: #333;
+        font-weight: bold;
+
+        &:hover {
+          background: darken($highlight-color, 10%);
+        }
+      }
+    }
+  }
+}
