@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import { VacanciesComponent } from '@portal-ascepa/vacancies';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { HomeBannerComponent } from '../banner/home-banner.component';
 import { JoinUsComponent } from '../join-us/join-us.component';
@@ -14,6 +16,7 @@ import { LatestNewsComponent } from '../latest-news/latest-news.component';
     AboutUsComponent,
     LatestNewsComponent,
     JoinUsComponent,
+    VacanciesComponent,
     HomeBannerComponent,
   ],
   templateUrl: './home.component.html',
