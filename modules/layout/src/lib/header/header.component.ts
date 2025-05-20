@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SettingsComponent } from '../settings/settings.component';
 import { AriaCurrentDirective } from './directives/aria-current.directive';
@@ -16,6 +16,7 @@ import { AriaCurrentDirective } from './directives/aria-current.directive';
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent {
   opened = false;

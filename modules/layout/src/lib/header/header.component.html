@@ -31,14 +31,14 @@
       </svg>
     </button>
     <ul id="links" [ngClass]="{ opened: opened }" aria-label="Menu">
-      <li><a href="#" libAriaCurrent>Quem somos</a></li>
+      <li><a routerLink="/about" libAriaCurrent>Quem somos</a></li>
       <li><a routerLink="/noticias" libAriaCurrent>Notícias</a></li>
       <li>
         <a [routerLink]="['/vagas']" libAriaCurrent>Vagas</a>
       </li>
       <li><a href="#" libAriaCurrent>Filie-se</a></li>
-      <li><a href="#" libAriaCurrent>Contato</a></li>
+      <li><a href="contact" libAriaCurrent>Contato</a></li>
+      <li><lib-settings></lib-settings></li>
     </ul>
   </nav>
-  <lib-settings></lib-settings>
 </header>
