@@ -2,7 +2,7 @@
   @for (item of socialMedia; track $index) {
   <a
     class="social-media-section__links link-{{ $index + 1 }}"
-    attr.aria-label="{{ item.ariaLabel }}"
+    [attr.aria-label]="item.ariaLabel"
     [href]="item.link"
     target="_blank"
   >

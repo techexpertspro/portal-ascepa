@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 export interface SocialMediaItem {
   title: string;
@@ -25,47 +25,51 @@ export interface SocialMediaItem {
   imports: [CommonModule],
   templateUrl: './social-media.component.html',
   styleUrl: './social-media.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SocialMediaComponent {
+  public instagramLink = 'https://www.instagram.com/ascepaoficial/';
+  public imageLandscape = 'image-landscape.png';
+
   public socialMedia: SocialMediaItem[] = [
     {
       title: 'Instagram',
       text: 'Confira o que está rolando no nosso Instagram',
       icon: 'instagram-logo.png',
       imgSrc: '',
-      link: 'https://www.instagram.com/ascepaoficial/',
+      link: this.instagramLink,
       ariaLabel: 'Link para o Instagram da Ascepa',
     },
     {
       title: 'Postagem 1',
       text: '',
       icon: '',
-      imgSrc: 'image-landscape.png',
-      link: 'https://www.instagram.com/ascepaoficial/',
+      imgSrc: this.imageLandscape,
+      link: this.instagramLink,
       ariaLabel: 'Link para a postagem 1 do Instagram da Ascepa',
     },
     {
       title: 'Postagem 2',
       text: '',
       icon: '',
-      imgSrc: 'image-landscape.png',
-      link: 'https://www.instagram.com/ascepaoficial/',
+      imgSrc: this.imageLandscape,
+      link: this.instagramLink,
       ariaLabel: 'Link para a postagem 2 do Instagram da Ascepa',
     },
     {
       title: 'Postagem 3',
       text: '',
       icon: '',
-      imgSrc: 'image-landscape.png',
-      link: 'https://www.instagram.com/ascepaoficial/',
+      imgSrc: this.imageLandscape,
+      link: this.instagramLink,
       ariaLabel: 'Link para a postagem 3 do Instagram da Ascepa',
     },
     {
       title: 'Postagem 4',
       text: '',
       icon: '',
-      imgSrc: 'image-landscape.png',
-      link: 'https://www.instagram.com/ascepaoficial/',
+      imgSrc: this.imageLandscape,
+      link: this.instagramLink,
       ariaLabel: 'Link para a postagem 4 do Instagram da Ascepa',
     },
   ];
