@@ -1,0 +1,50 @@
+@use '../../../../../src/scss/global' as *;
+
+.ascepa-pagination,
+:host.ascepa-pagination {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+
+  button {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .ellipsis {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #dfe3e8;
+    display: inline-block;
+    align-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__item {
+    background-color: #fff;
+    border: 1px solid #dfe3e8;
+    color: #212b36;
+
+    &:disabled {
+      background-color: #919eab;
+    }
+
+    &--selected {
+      border: 1px solid #015292;
+      color: #015292;
+    }
+  }
+}
