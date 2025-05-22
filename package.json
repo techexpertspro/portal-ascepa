@@ -48,7 +48,7 @@
     "@gitmoji/parser-opts": "^1.4.0",
     "@nx/cypress": "19.5.2",
     "@nx/eslint": "19.5.2",
-    "@nx/eslint-plugin": "19.5.2",
+    "@nx/eslint-plugin": "21.1.1",
     "@nx/jest": "19.5.2",
     "@nx/js": "19.5.2",
     "@nx/plugin": "19.5.2",
