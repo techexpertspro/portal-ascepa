@@ -22,7 +22,7 @@
     "@angular/material": "18.1.1",
     "@angular/platform-browser": "18.1.1",
     "@angular/platform-browser-dynamic": "18.1.1",
-    "@angular/router": "18.1.1",
+    "@angular/router": "19.2.12",
     "@ng-web-apis/common": "^4.11.1",
     "@ng-web-apis/speech": "^4.11.1",
     "@nx/angular": "19.5.2",
