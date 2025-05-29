@@ -27,12 +27,12 @@
     "@ng-web-apis/speech": "^4.11.1",
     "@nx/angular": "21.1.2",
     "@nx/devkit": "21.1.2",
+    "@storybook/addon-interactions": "^8.2.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "0.15.1",
-    "@storybook/addon-interactions": "^8.2.8"
+    "zone.js": "0.15.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "19.2.9",
@@ -59,7 +59,9 @@
     "@schematics/angular": "19.2.9",
     "@storybook/addon-essentials": "8.6.11",
     "@storybook/angular": "8.6.11",
+    "@storybook/core": "^8.6.14",
     "@storybook/core-server": "8.6.11",
+    "@storybook/theming": "^8.6.14",
     "@swc-node/register": "1.9.1",
     "@swc/cli": "0.6.0",
     "@swc/core": "1.5.7",
@@ -87,7 +89,7 @@
     "lint-staged": "^15.2.7",
     "nx": "21.1.2",
     "prettier": "^2.6.2",
-    "storybook": "8.2.8",
+    "storybook": "^8.6.14",
     "stylelint": "^16.6.1",
     "stylelint-config-standard": "^36.0.1",
     "ts-jest": "^29.1.0",
