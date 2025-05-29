@@ -5,4 +5,5 @@ export interface Schema {
   routing?: boolean;
   tags?: string;
   standalone?: boolean;
+  projectNameAndRootFormat?: 'as-provided' | 'derived';
 }

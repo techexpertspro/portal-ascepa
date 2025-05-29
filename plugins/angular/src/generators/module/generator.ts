@@ -9,7 +9,6 @@ export async function moduleGenerator(tree: Tree, options: Schema) {
     directory: options.directory
       ? `modules/${options.directory}/${options.name}`
       : `modules/${options.name}`,
-    projectNameAndRootFormat: 'as-provided',
     lazy: options.routing,
   });
   await formatFiles(tree);

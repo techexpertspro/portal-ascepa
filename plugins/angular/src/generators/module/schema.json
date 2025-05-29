@@ -41,6 +41,12 @@
       "type": "boolean",
       "description": "Generate a library that uses a standalone component instead of a module as the entry point.",
       "default": true
+    },
+    "projectNameAndRootFormat": {
+      "type": "string",
+      "enum": ["as-provided", "derived"],
+      "description": "Determines how the project name and root directory are determined.",
+      "default": "as-provided"
     }
   },
   "additionalProperties": false,
