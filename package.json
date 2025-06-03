@@ -71,7 +71,7 @@
     "@types/jest-axe": "^3.5.9",
     "@types/node": "18.16.9",
     "@typescript-eslint/eslint-plugin": "7.17.0",
-    "@typescript-eslint/parser": "7.17.0",
+    "@typescript-eslint/parser": "8.33.1",
     "@typescript-eslint/utils": "7.17.0",
     "commitizen": "^4.3.0",
     "commitlint": "^19.4.1",
