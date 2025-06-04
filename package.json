@@ -62,7 +62,7 @@
     "@storybook/core": "^8.6.14",
     "@storybook/core-server": "8.6.11",
     "@storybook/theming": "^8.6.14",
-    "@swc-node/register": "1.9.1",
+    "@swc-node/register": "1.10.10",
     "@swc/cli": "0.6.0",
     "@swc/core": "1.5.7",
     "@swc/helpers": "0.5.11",
