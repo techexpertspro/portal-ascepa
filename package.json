@@ -52,7 +52,7 @@
     "@nx/eslint-plugin": "21.1.2",
     "@nx/jest": "21.1.2",
     "@nx/js": "21.1.2",
-    "@nx/plugin": "21.1.2",
+    "@nx/plugin": "21.2.0",
     "@nx/storybook": "21.1.2",
     "@nx/web": "21.1.2",
     "@nx/workspace": "21.1.2",
