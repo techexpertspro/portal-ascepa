@@ -43,7 +43,7 @@
     "@angular-eslint/template-parser": "19.2.0",
     "@angular/cli": "~18.1.0",
     "@angular/compiler-cli": "19.2.14",
-    "@angular/language-service": "19.2.14",
+    "@angular/language-service": "20.1.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@commitlint/types": "^19.0.3",
     "@gitmoji/parser-opts": "^1.4.0",
