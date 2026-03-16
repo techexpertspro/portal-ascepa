@@ -1,0 +1,40 @@
+@if(vaga()){
+<div
+  class="card"
+  [id]="vaga().id"
+  [attr.aria-labelledby]="'vaga-title-' + vaga().id"
+>
+  <ul class="tags">
+    @for (tag of vaga().tags; track $index) {
+    <li class="tag" [id]="'tag' + tag.id">{{ tag.title }}</li>
+    }
+  </ul>
+
+  <h3 [id]="'vaga-title-' + vaga().id">{{ vaga().title }}</h3>
+
+  <p class="company" [attr.aria-label]="'Empresa: ' + vaga().company">
+    {{ vaga().company }}
+  </p>
+
+  <p>
+    {{ vaga().description }}
+  </p>
+
+  <div class="buttons">
+    <button
+      id="detailBtn"
+      class="btn details"
+      [attr.aria-label]="'Ver detalhes da vaga para ' + vaga().title"
+    >
+      {{ seeDetailsButtonText }}
+    </button>
+
+    <button
+      class="btn apply"
+      [attr.aria-label]="'Aplicar para vaga de ' + vaga().title"
+    >
+      {{ applyButtonText }}
+    </button>
+  </div>
+</div>
+}

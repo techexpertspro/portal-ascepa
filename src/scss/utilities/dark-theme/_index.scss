@@ -209,6 +209,18 @@ body.dark-theme {
     background: var(--mdc-switch-selected-track-color);
   }
 
+  #links {
+    background-color: $dark-background;
+
+    a {
+      color: $dark-text-color;
+    }
+  }
+
+  #menu-button path {
+    fill: $dark-text-color;
+  }
+
   background-color: $dark-background;
 }
 

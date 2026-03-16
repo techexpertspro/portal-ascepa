@@ -1,0 +1,25 @@
+@import './../../../../../src/scss/tokens/colors/token';
+@import './../../../../../src/scss/tokens/generic/mixin';
+@import './../../../../../src/scss/tokens/generic/token';
+
+.container {
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem;
+}
+
+.news-detail-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.default-text {
+  font-family: Ubuntu;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: justify;
+}

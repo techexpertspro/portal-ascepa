@@ -1,0 +1,19 @@
+<lib-news-detail-banner></lib-news-detail-banner>
+
+<main class="container">
+  <h2 id="news-detail-title">{{ title }}</h2>
+
+  <section class="news-detail-container">
+    <article aria-labelledby="news-detail-container" lang="pt-BR">
+      @for (paragrapher of paragraphers; track $index) {
+      <p
+        class="default-text"
+        [attr.aria-label]="paragrapher"
+        [innerHTML]="paragrapher"
+      >
+        {{ paragrapher }}
+      </p>
+      }
+    </article>
+  </section>
+</main>

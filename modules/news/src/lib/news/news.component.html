@@ -1,0 +1,76 @@
+<picture class="news-banner">
+  <img src="main-notice.svg" alt="placeholder" />
+</picture>
+<section aria-labelledby="latestNews" class="latest-news">
+  <h1 id="latestNews">Últimas notícias</h1>
+
+  <div class="news-container">
+    <!-- Main News -->
+    <article class="main-news">
+      <img src="main-notice.svg" alt="Lorem Ipsum" width="475" height="795" />
+      <h2>
+        <a href="#" aria-label="Ler mais sobre o artigo principal">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua
+        </a>
+      </h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua...
+      </p>
+    </article>
+
+    <!-- Side News -->
+    <aside class="side-news" aria-label="Noticias relacionadas">
+      <article class="side-news__resume">
+        <img src="side-notice.svg" alt="primeira imagem" loading="lazy" />
+        <a href="#" aria-label="ir para Lorem">Lorem ipsum dolor sit amet</a>
+      </article>
+      <article class="side-news__resume">
+        <img src="side-notice.svg" alt="Segunda imagem" loading="lazy" />
+        <a href="#" aria-label="ir para Lorem">Lorem ipsum dolor sit amet</a>
+      </article>
+      <article class="side-news__resume">
+        <img src="side-notice.svg" alt="Terceira imagem" loading="lazy" />
+        <a href="#" aria-label="ir para Lorem">Lorem ipsum dolor sit amet</a>
+      </article>
+    </aside>
+  </div>
+</section>
+<section>
+  @for (item of [1,2]; track $index) {
+  <article [attr.aria-labelledby]="'notícia' + $index" class="news">
+    <div>
+      <h2 [id]="'noticia' + $index">Notícia {{ $index }}</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Sit amet purus
+        gravida quis blandit. Id volutpat lacus laoreet non curabitur. Nunc
+        scelerisque viverra mauris in aliquam sem fringilla. Cursus vitae congue
+        mauris rhoncus aenean. Ornare lectus sit amet est placerat. Tortor at
+        risus viverra adipiscing at in tellus integer. Pretium quam vulputate
+        dignissim suspendisse. Scelerisque eleifend donec pretium vulputate
+        sapien nec sagittis aliquam. Augue eget arcu dictum varius. Massa id
+        neque aliquam vestibulum. Sed risus ultricies tristique nulla.
+      </p>
+      <a
+        libAnchor
+        variant="primary"
+        [buttonLink]="true"
+        href="#"
+        [attr.aria-label]="'Ir para ' + 'notícia ' + $index"
+        >Leia mais</a
+      >
+    </div>
+    <figure>
+      <img src="side-notice.svg" alt="Lorem Ipsum" loading="lazy" />
+    </figure>
+  </article>
+  }
+  <lib-pagination
+    [currentPage]="currentPage()"
+    [maxVisible]="5"
+    [totalPages]="10"
+    (pageChange)="changePage($event)"
+  />
+</section>

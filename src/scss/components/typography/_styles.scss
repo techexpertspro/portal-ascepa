@@ -23,3 +23,17 @@ h3 {
 .body-p {
   @include body-p-style;
 }
+
+.footer-title {
+  @include footer-title-style;
+  margin-bottom: 10px;
+}
+
+.footer-subtitle {
+  @include footer-subtitle-style;
+}
+
+.footer-copyright {
+  @include footer-copyright-style;
+  margin-top: 30px;
+}

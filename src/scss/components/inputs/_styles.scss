@@ -1,0 +1,9 @@
+@import './mixin';
+
+.input-style {
+  @include input-style;
+}
+
+.error-message {
+  @include error-message-style;
+}

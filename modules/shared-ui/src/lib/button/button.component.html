@@ -1,0 +1,17 @@
+<button
+  (click)="onDispatchEventClick()"
+  (keydown)="onDispatchEventClick()"
+  (keyup)="onDispatchEventClick()"
+  [disabled]="disabled"
+  [attr.aria-label]="label"
+  role="button"
+  [ngClass]="{
+    'btn-primary': type === 'primary' && !disabled,
+    'btn-secondary': type === 'secondary' && !disabled,
+    'btn-disabled': disabled
+  }"
+  class="flex items-center gap-x-2 w-fit"
+>
+  {{ label }}
+  <ng-content></ng-content>
+</button>

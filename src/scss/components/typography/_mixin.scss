@@ -33,3 +33,21 @@
   font-size: $font-size-body-p;
   color: $color-secondary;
 }
+
+@mixin footer-title-style {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h3;
+  color: $color-primary;
+}
+
+@mixin footer-subtitle-style {
+  font-weight: $font-weight-regular;
+  font-size: $font-size-h4;
+  color: $color-primary;
+}
+
+@mixin footer-copyright-style {
+  font-weight: $font-weight-regular;
+  font-size: $font-size-h5;
+  color: $color-primary;
+}

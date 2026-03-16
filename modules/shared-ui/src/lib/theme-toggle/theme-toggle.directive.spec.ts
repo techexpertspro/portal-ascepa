@@ -14,6 +14,8 @@ import {
 
 @Component({
   template: `<mat-slide-toggle libThemeToggle>Modo escuro</mat-slide-toggle>`,
+  standalone: true,
+  imports: [MatSlideToggle, ThemeToggleDirective],
 })
 class TestComponent {}
 
@@ -24,8 +26,7 @@ describe('ThemeToggleDirective', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TestComponent],
-      imports: [ThemeToggleDirective, MatSlideToggle],
+      imports: [TestComponent, ThemeToggleDirective, MatSlideToggle],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestComponent);

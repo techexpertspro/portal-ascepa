@@ -1,0 +1,17 @@
+@import './../../../../../src/scss/tokens/colors/token';
+@import './../../../../../src/scss/tokens/generic/mixin';
+@import './../../../../../src/scss/tokens/generic/token';
+@import './../../../../../src/scss/tokens/typography/token';
+
+footer {
+  text-align: center;
+  background-color: $color-white;
+}
+
+address {
+  font-style: normal;
+}
+
+.footer-copyright > small {
+  font-size: $font-size-body-p;
+}

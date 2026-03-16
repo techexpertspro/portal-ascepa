@@ -1,0 +1,19 @@
+<section class="social-media-section">
+  @for (item of socialMedia; track $index) {
+  <a
+    class="social-media-section__links link-{{ $index + 1 }}"
+    [attr.aria-label]="item.ariaLabel"
+    [href]="item.link"
+    target="_blank"
+  >
+    @if ($index === 0) {
+    <div class="special-item">
+      <img [src]="item.icon" [alt]="item.title" />
+      <p>{{ item.text }}</p>
+    </div>
+    } @if ($index !== 0) {
+    <img [src]="item.imgSrc" [alt]="item.title" />
+    }
+  </a>
+  }
+</section>
