@@ -94,6 +94,15 @@
         "staticFilePath": "dist/portal-ascepa/browser",
         "spa": true
       }
+    },
+    "semantic-release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+      "options": {
+        "github": true,
+        "changelog": true,
+        "npm": false,
+        "tagFormat": "portal-ascepa-v${VERSION}"
+      }
     }
   }
 }
